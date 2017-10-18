@@ -57,7 +57,6 @@ class AdministracionC extends Controlador
         for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             if ($_SESSION['permisos'][$i]['id_Permiso'] == 22) {
                 $resultado = $this->modelo->insertarPermisoRol($datos);
-                var_dump($datos);
             }
         }
     }

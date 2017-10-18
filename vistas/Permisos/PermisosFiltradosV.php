@@ -1,11 +1,11 @@
 <div class="page-header">
     <h1>Gestion de Permisos (Filtrados)</h1>
 </div>
-<button type="button" id="botonNuevo" class="btn btn-default" data-toggle="modal" data-target="#modalInsertarPermiso">
+<button type="button"  class="btn btn-default botonNuevo" data-toggle="modal" data-target="#modalInsertarPermiso">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"> Permiso</span>
 </button>
 <a href="app.php?c=Menus">
-    <button type="button" id="botonNuevo" class="btn btn-default">
+    <button type="button"  class="btn btn-default botonNuevo">
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Volver a Menus</span>
     </button>
 </a>

@@ -74,7 +74,6 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 
     <!--Importacion de la libreria AjaxUpload-->
     <script src="js/ajaxupload/AjaxUpload.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" id="barraSuperior">
@@ -87,7 +86,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="color: white;">GESTION DE EMPRESA</a>
+            <a class="navbar-brand" id="logoPrincipal" href="#">GESTION DE EMPRESA</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <?php
@@ -103,9 +102,19 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
         <div class="col-lg-2 hidden-md hidden-sm hidden-xs" id="barraLateral" style="position: fixed">
             <div class="profile-sidebar">
                 <div class="profile-userpic">
-                    <img src="http://simpleicon.com/wp-content/uploads/user1.png"
-                         class="img-responsive" alt="" style="background-color: #FFFFFF" id="subirFoto"
-                         name="subirFoto">
+                    <?php
+                    if ($_SESSION['datosUsuario'][0]['foto_de_Perfil'] == null) {
+                        ?>
+                        <img src="http://simpleicon.com/wp-content/uploads/user1.png"
+                             class="img-responsive" alt="" style="background-color: #FFFFFF">
+                        <?php
+                    } else {
+                        ?>
+                        <img src="<?php echo $_SESSION['datosUsuario'][0]['foto_de_Perfil']; ?>"
+                             class="img-responsive" alt="" style="background-color: #FFFFFF">
+                        <?php
+                    }
+                    ?>
                     <input type="hidden" id="id_Usuario" value="<?php echo $_SESSION['id_Usuario'] ?>">
                 </div>
                 <div class="profile-usertitle">
@@ -314,7 +323,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 </a>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.1 - Ultima Actualizacion: Lunes, 19 de Diciembre de 2016 - <a
+        <center>Version del Proyecto: 3.2 - Ultima Actualizacion: Miercoles, 04 de Enero de 2017 - <a
                     href="changelog.html">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>

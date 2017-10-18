@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 12) {
         ?>
-        <button type="button" id="botonNuevo" class="btn btn-default" data-toggle="modal"
+        <button type="button"  class="btn btn-default botonNuevo" data-toggle="modal"
                 data-target="#modalInsertarPermiso">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Permiso</span>
         </button>

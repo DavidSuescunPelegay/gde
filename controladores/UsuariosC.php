@@ -33,6 +33,13 @@ class UsuariosC extends Controlador
     {
         $datosUsuario = $this->modelo->datosUsuario($login);
         $_SESSION['datosUsuario'] = $datosUsuario;
+
+        //INICIO EXTRACCION FOTO DE PERFIL
+        if ($_SESSION['datosUsuario'][0]['foto_de_Perfil'] != null) {
+            $url = $this->modelo->fotoUsuario($_SESSION['datosUsuario'][0]['foto_de_Perfil']);
+            $_SESSION['datosUsuario'][0]['foto_de_Perfil'] = $url;
+        }
+        //FIN EXTRACCION FOTO DE PERFIL
     }
 
     public function getDatosPermisosPorUsuario($login)
@@ -145,33 +152,34 @@ class UsuariosC extends Controlador
             $vista->render($_SESSION['RAIZ'] . '/vistas/Usuarios/UsuariosAutocompleteV.php', $parametros);
         }
     }
+    /*
+        public function subirFichero($parametros)
+        {
+            $tipo = '';
+            $id_Usuario = $_SESSION['datosUsuario'][0]['id_Usuario'];//Obligatorio
+            $fichero = array();
+            extract($parametros);
 
-    public function subirFichero($parametros)
-    {
-        $tipo = '';
-        $id_Usuario = $_SESSION['datosUsuario'][0]['id_Usuario'];//Obligatorio
-        $fichero = array();
-        extract($parametros);
+            var_dump($parametros);
+            fb::log($parametros);
 
-        var_dump($parametros);
-        fb::log($parametros);
+            $ficheroTemporal = $fichero['tmp_name'];
+            $carpetaDestino = $_SESSION['RAIZ'] . "ficheros\\fotosUsuarios\\";
+            $nombreFichero = substr('00000000000', 0, 11 - strlen((string)$id_Usuario)) . $id_Usuario . '.' . pathinfo($fichero['name'],  PATHINFO_EXTENSION);
 
-        $ficheroTemporal = $fichero['tmp_name'];
-        $carpetaDestino = $_SESSION['RAIZ'] . "ficheros\\fotosUsuarios\\";
-        $nombreFichero = substr('00000000000', 0, 11 - strlen((string)$id_Usuario)) . $id_Usuario . '.' . pathinfo($fichero['name'],  PATHINFO_EXTENSION);
+            $ficheroDestino = $carpetaDestino . $nombreFichero;
 
-        $ficheroDestino = $carpetaDestino . $nombreFichero;
-
-        try{
-            if (copy($ficheroTemporal, $ficheroDestino)) {
-                echo 'Imagen guardada';
-                $this->modelo->subirFichero($ficheroDestino);
-            } else {
-                echo 'Error';
+            try{
+                if (copy($ficheroTemporal, $ficheroDestino)) {
+                    echo 'Imagen guardada';
+                    $this->modelo->subirFichero($ficheroDestino);
+                } else {
+                    echo 'Error';
+                }
+            }catch (Exception $ex){
+                echo 'Exception';
             }
-        }catch (Exception $ex){
-            echo 'Exception';
-        }
 
-    }
+        }
+    */
 }

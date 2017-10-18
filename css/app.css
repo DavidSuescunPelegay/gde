@@ -1,35 +1,49 @@
 @CHARSET "ISO-8859-1";
-#barraSuperior{
+#barraSuperior {
     background-color: #2E353D;
+    border-bottom: 0px !important;
+}
+
+#logoPrincipal {
+    color: white;
+    font-size: 175%;
 }
 
 .inputRed {
     background-color: #F2DEDE;
 }
 
-.btn:hover{
+.btn:hover {
     box-shadow: 3px 3px 5px #2E353D;
 }
 
-#botonNuevo{
+.botonNuevo {
     background-color: #2E353D;
 }
 
-#botonNuevo > *{
+.botonNuevo > * {
     color: white;
 }
 
-.menuElements{
+.botonNuevo:focus {
+    background-color: #2E353D;
+}
+
+.botonNuevo:hover {
+    background-color: #2E353D;
+}
+
+.menuElements {
     font-size: 20px;
 }
 
-.menuElements:hover{
+.menuElements:hover {
     background-color: #27A99D;
     font-size: 175%;
     transition: font-size 0.5s;
 }
 
-.menuElements > a{
+.menuElements > a {
     color: white !important;
 }
 
@@ -140,12 +154,12 @@
     min-height: 460px;
 }
 
-.itemsPanel{
+.itemsPanel {
     background-color: #2E353D !important;
     color: #FFFFFF !important;
 }
 
-.itemsContent{
+.itemsContent {
     background-color: #2E353D !important;
     color: #FFFFFF !important;
 }
@@ -161,18 +175,21 @@
     font-weight: 500;
     letter-spacing: 1px;
 }
+
 .snip1217 * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
 }
+
 .snip1217 li {
     display: inline-block;
     list-style: outside none none;
     margin: 0.5em 1.5em;
     padding: 0;
 }
+
 .snip1217 a {
     padding: 0.3em 0;
     color: rgba(255, 255, 255, 0.5);
@@ -180,6 +197,7 @@
     text-decoration: none;
     display: inline-block;
 }
+
 .snip1217 a:before,
 .snip1217 a:after {
     height: 3px;
@@ -190,18 +208,22 @@
     background-color: #2BBBAD;
     width: 0;
 }
+
 .snip1217 a:before {
     top: 0;
     left: 0;
 }
+
 .snip1217 a:after {
     bottom: 0;
     right: 0;
 }
+
 .snip1217 a:hover,
 .snip1217 .current a {
     color: #ffffff;
 }
+
 .snip1217 a:hover:before,
 .snip1217 .current a:before,
 .snip1217 a:hover:after,
@@ -209,8 +231,21 @@
     width: 100%;
 }
 
-tr > th{
+tr > th {
     color: #FFFFFF;
+}
+
+.accordionFicheros {
+    border: 1px #000 solid !important;
+}
+
+.botonVisualizadorImagenes {
+    background: none;
+    border: none;
+}
+
+.imagenes {
+    height: 2em;
 }
 
 #infoFooter {

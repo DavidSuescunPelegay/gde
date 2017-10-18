@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
         ?>
-        <button type="button" id="botonNuevo" class="btn btn-default" onclick="nuevoEditar('0');" data-toggle="modal"
+        <button type="button"  class="btn btn-default botonNuevo" onclick="nuevoEditar('0');" data-toggle="modal"
                 data-target="#modalNuevoEditarUsuario"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Usuario</span>
         </button>
         <?php

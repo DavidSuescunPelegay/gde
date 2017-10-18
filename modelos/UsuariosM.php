@@ -41,12 +41,21 @@ class UsuariosM extends Modelo
         return $res;
     }
 
+    public function fotoUsuario($id_Fichero)
+    {
+        $SQL = "SELECT CONCAT(url,nombre,ext) FROM ficheros WHERE id_Fichero='$id_Fichero'";
+
+        $res = $this->BD->executeQuery($SQL);
+
+        return $res[0]['CONCAT(url,nombre,ext)'];
+    }
+
     public function getDatosPermisosPorUsuario($login)
     {
         $SQLencontarId = "SELECT id_Usuario FROM usuarios WHERE login='$login'";
         $resEncontrarId = $this->BD->executeQuery($SQLencontarId);
         $id_Usuario = $resEncontrarId[0]['id_Usuario'];
-        $_SESSION['id_Usuario']=$id_Usuario;
+        $_SESSION['id_Usuario'] = $id_Usuario;
 
         $SQL = "SELECT * FROM permisousuario WHERE id_Usuario=$id_Usuario";
         $res = $this->BD->executeQuery($SQL);
@@ -162,9 +171,10 @@ class UsuariosM extends Modelo
         return $numFilasModificadas;
     }
 
-    public function subirFichero($url){
+    public function subirFichero($url)
+    {
         fb::log($url);
-        $id_Usuario=$_SESSION['datosUsuario'][0]['id_Usuario'];
+        $id_Usuario = $_SESSION['datosUsuario'][0]['id_Usuario'];
         $SQL = "UPDATE usuarios SET img='$url' WHERE id_Usuario='$id_Usuario'";
         fb::log($SQL);
     }

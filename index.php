@@ -116,7 +116,7 @@ echo $avisoNavegador;
 </div>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.1 - Ultima Actualizacion: Lunes, 19 de Diciembre de 2016 - <a
+        <center>Version del Proyecto: 3.2 - Ultima Actualizacion: Miercoles, 04 de Enero de 2017 - <a
                     href="changelog.html">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>
