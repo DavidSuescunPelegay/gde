@@ -17,7 +17,7 @@
         <?php
         foreach ($datos as $opcion) { ?>
             <tr class="filaTabla">
-                <td><?php echo $opcion['id_Categoria']; ?></td>
+                <td><?php echo $opcion['categoria']; ?></td>
                 <td><?php echo $opcion['producto']; ?></td>
                 <td><?php echo $opcion['descripcion']; ?></td>
                 <td><?php echo $opcion['stock']; ?></td>

@@ -1,7 +1,7 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
-require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
-require_once $_SESSION['RAIZ'] . '/modelos/PedidosM.php';
+require_once $_SESSION['RAIZ'] . 'controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . 'vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . 'modelos/PedidosM.php';
 
 class PedidosC extends Controlador
 {
@@ -21,8 +21,17 @@ class PedidosC extends Controlador
         $vista->render($_SESSION['RAIZ'] . '/vistas/Pedidos/PedidosV.php', $menu);
     }
 
+    public function exportToWord($datos)
+    {
+        $filas = $this->modelo->busqueda($datos);
+
+        return $filas;
+    }
+
     public function busqueda($datos)
     {
+        $_SESSION['PEDIDOS_ULTIMA_CONSULTA'] = $datos;
+
         $datosParaVista = $this->modelo->busqueda($datos);
 
         $vista = new Vista();
@@ -38,3 +47,4 @@ class PedidosC extends Controlador
     }
 
 }
+ 

@@ -1,8 +1,8 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . 'controladores/Controlador.php';
 //include '/controladores/Controlador.php';
-require_once $_SESSION['RAIZ'] . '/modelos/UsuariosM.php';
-require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . 'modelos/UsuariosM.php';
+require_once $_SESSION['RAIZ'] . 'vistas/Vista.php';
 
 class UsuariosC extends Controlador
 {

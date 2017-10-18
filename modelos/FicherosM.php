@@ -1,6 +1,6 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/modelos/Modelo.php';
-require_once $_SESSION['RAIZ'] . '/modelos/ClaseBD.php';
+require_once $_SESSION['RAIZ'] . 'modelos/Modelo.php';
+require_once $_SESSION['RAIZ'] . 'modelos/ClaseBD.php';
 
 class FicherosM extends Modelo
 {
@@ -76,6 +76,23 @@ class FicherosM extends Modelo
         $res = $this->BD->executeUpdate($SQL);
 
         return $res;
+    }
+
+    public function desestablecerFotoPerfil($datos){
+        $id_Usuario='';
+        extract($datos);
+
+        $id_Usuario_Session = $_SESSION['id_Usuario'];
+
+        if ($id_Usuario==$id_Usuario_Session){
+            $SQL = "UPDATE usuarios SET foto_de_Perfil=NULL WHERE id_Usuario='$id_Usuario_Session'";
+
+            $res=$this->BD->executeUpdate($SQL);
+
+            return $res;
+        }
+
+        return null;
     }
 
     public function desactivarFichero($datos){

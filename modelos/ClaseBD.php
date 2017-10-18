@@ -11,7 +11,6 @@ if ($_SERVER['SERVER_NAME'] == 'gdedavidsp.altervista.org') {
     define('PASS', '');
 }
 
-
 class ClaseBD
 {
     private $conexion;

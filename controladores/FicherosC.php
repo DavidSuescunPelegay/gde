@@ -1,7 +1,7 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
-require_once $_SESSION['RAIZ'] . '/modelos/FicherosM.php';
-require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . 'controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . 'modelos/FicherosM.php';
+require_once $_SESSION['RAIZ'] . 'vistas/Vista.php';
 
 class FicherosC extends Controlador
 {
@@ -154,6 +154,11 @@ class FicherosC extends Controlador
     public function establecerFotoPerfil($datos)
     {
         $res = $this->modelo->establecerFotoPerfil($datos);
+    }
+
+    public function desestablecerFotoPerfil($datos)
+    {
+        $res = $this->modelo->desestablecerFotoPerfil($datos);
     }
 
     public function desactivarFichero($datos)

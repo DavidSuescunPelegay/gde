@@ -1,6 +1,6 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/modelos/Modelo.php';
-require_once $_SESSION['RAIZ'] . '/modelos/ClaseBD.php';
+require_once $_SESSION['RAIZ'] . 'modelos/Modelo.php';
+require_once $_SESSION['RAIZ'] . 'modelos/ClaseBD.php';
 
 class RolesM extends Modelo
 {

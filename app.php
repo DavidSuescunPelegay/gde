@@ -23,6 +23,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 <head>
     <title>Gestion de Empresa - David Suescun Pelegay</title>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#2E353D">
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -317,17 +318,19 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
     </div>
 </div>
 <a href="#top">
-    <center>
+    <p style="text-align: center">
         <div style="position: fixed; bottom: 5%; right: 2.5%; height: 20px; width: 20px; background-color: #eaeaea; border-radius: 100%;">
             <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
         </div>
-    </center>
+    </p>
 </a>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.4 - Ultima Actualizacion: Martes, 17 de Enero de 2017 - <a
-                    href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a></center>
-        <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
+        <p style="text-align: center">Version del Proyecto: 3.5 - Ultima Actualizacion: Viernes, 03 de Febrero de 2017 -
+            <a href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a>
+            <br>
+            © David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero
+        </p>
     </div>
 </footer>
 </body>

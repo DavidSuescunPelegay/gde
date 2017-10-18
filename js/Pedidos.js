@@ -43,3 +43,9 @@ function cargarDetallesPedido(id_Pedido) {
         }
     });
 }
+
+function exportarAWord(){
+    $('#busquedaPedidos').attr('action', 'vistas/Pedidos/PedidosToWord.php');
+    $('#busquedaPedidos').attr('target', 'popup');
+    $('#busquedaPedidos').submit();
+}

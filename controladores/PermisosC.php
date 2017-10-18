@@ -1,7 +1,7 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
-require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
-require_once $_SESSION['RAIZ'] . '/modelos/PermisosM.php';
+require_once $_SESSION['RAIZ'] . 'controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . 'vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . 'modelos/PermisosM.php';
 
 class PermisosC extends Controlador
 {

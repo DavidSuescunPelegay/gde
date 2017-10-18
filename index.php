@@ -25,6 +25,7 @@ if (isset($_SESSION['login'])) {
 <head>
     <title>Gestion de Empresa - David Suescun Pelegay</title>
     <meta charset="UTF-8">
+    <meta name="theme-color" content="#2E353D">
     <link rel="icon" type="image/png" href="images/favicon.png"/>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
@@ -113,19 +114,21 @@ echo $avisoNavegador;
             <input type="text" placeholder="Usuario" id="login" name="login"/>
             <input type="password" placeholder="Contraseña" id="pass" name="pass"/>
             <button type="submit">Entrar</button>
-            <center>
+            <p style="text-align: center">
                 <span style="color:blue;">
                     <?php echo $msj; ?>
                 </span>
-            </center>
+            </p>
         </div>
     </form>
 </div>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.4 - Ultima Actualizacion: Martes, 17 de Enero de 2017 - <a
-                    href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a></center>
-        <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
+        <p style="text-align: center">Version del Proyecto: 3.5 - Ultima Actualizacion: Viernes, 03 de Febrero de 2017 -
+            <a href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a>
+            <br>
+            © David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero
+        </p>
     </div>
 </footer>
 </body>

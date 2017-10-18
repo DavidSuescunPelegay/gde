@@ -1,6 +1,6 @@
 <?php
-require_once $_SESSION['RAIZ'] . '/modelos/Modelo.php';
-require_once $_SESSION['RAIZ'] . '/modelos/ClaseBD.php';
+require_once $_SESSION['RAIZ'] . 'modelos/Modelo.php';
+require_once $_SESSION['RAIZ'] . 'modelos/ClaseBD.php';
 
 class PedidosM extends Modelo
 {
@@ -76,7 +76,10 @@ class PedidosM extends Modelo
         $id_Pedido = '';
         extract($datos);
 
-        $SQL = "SELECT * FROM pedidosdetalles, pedidos WHERE pedidosdetalles.id_Pedido = '$id_Pedido' AND pedidosdetalles.id_Pedido=pedidos.id_Pedido";
+        $SQL = "SELECT pedidos.id_Pedido, pedidosdetalles.id_Producto, productos.producto, pedidosdetalles.cantidad, pedidosdetalles.precio_Venta FROM pedidosdetalles, pedidos, productos ";
+        $SQL .= "WHERE pedidosdetalles.id_Pedido = '$id_Pedido' ";
+        $SQL .= "AND pedidosdetalles.id_Pedido=pedidos.id_Pedido ";
+        $SQL .= "AND pedidosdetalles.id_Producto=productos.id_Producto";
         $resultadoBusquedaDetalle = $this->BD->executeQuery($SQL);
 
         return $resultadoBusquedaDetalle;

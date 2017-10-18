@@ -123,6 +123,30 @@ function desactivarFichero(id_Fichero) {
     location.reload();
 }
 
+function desestablecerFotoPerfil() {
+    var primeraConfirmacion = confirm("ￂ﾿Esta seguro de que desea establecer como foto de perfil la predeterminada?");
+
+    if (primeraConfirmacion == true) {
+        var parametros = '&c=Ficheros';
+        parametros += '&a=desestablecerFotoPerfil';
+        parametros += '&id_Usuario=' + $('#id_Usuario').val();
+
+        $.ajax({
+            url: 'AjaxC.php',
+            type: 'post',
+            data: parametros,
+            async: true,
+            success: function () {
+
+            }
+        });
+    } else {
+        llenarNotificaciones("Se ha cancelado el desestablecimiento correctamente");
+    }
+
+    location.reload();
+}
+
 /*Funcion que establece las notificaciones*/
 function llenarNotificaciones(notificacionAMostrar) {
     $('#notificaciones').text(notificacionAMostrar);

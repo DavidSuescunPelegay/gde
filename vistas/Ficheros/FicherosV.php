@@ -22,8 +22,10 @@
                 <?php
                 if (isset($datos[0])) {
                     ?>
+                    <br>
+                    <input type="radio" id="desestablecerFotoPerfil" name="desestablecerFotoPerfil" onclick="desestablecerFotoPerfil()">
+                    <label for="desestablecerFotoPerfil">Deseo eliminar mi foto de perfil actual y establecer como foto de perfil la predeterminada</label>
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
                         <ol class="carousel-indicators">
                             <?php
                             foreach ($datos[0] as $ind => $archivo) {
@@ -41,16 +43,15 @@
 
                         </ol>
 
-                        <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox" style="height: 500px">
                             <?php
                             foreach ($datos[0] as $ind => $archivo) {
                                 if ($ind == 0) {
                                     ?>
                                     <div class="item active">
-                                        <center><img
+                                        <p style="text-align: center"><img
                                                     src="<?php echo $archivo['url'] . $archivo['nombre'] . $archivo['ext'] ?>"
-                                                    style="height: 500px"></center>
+                                                    style="height: 500px"></p>
                                         <div class="carousel-caption">
                                             <?php echo $archivo['nombre'] ?>
                                         </div>
@@ -59,9 +60,9 @@
                                 } else {
                                     ?>
                                     <div class="item">
-                                        <center><img
+                                        <p style="text-align: center"><img
                                                     src="<?php echo $archivo['url'] . $archivo['nombre'] . $archivo['ext'] ?>"
-                                                    style="height: 500px"></center>
+                                                    style="height: 500px"></p>
                                         <div class="carousel-caption">
                                             <?php echo $archivo['nombre'] ?>
                                         </div>

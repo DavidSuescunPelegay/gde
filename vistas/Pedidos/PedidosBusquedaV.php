@@ -13,117 +13,128 @@
     ?>
 </div>
 
-<div class="table-responsive">
-    <table class="table table-stripped" id="tablaPedidos">
-        <tr style="background-color: #2E353D;">
-            <th>
-                <center>Detalles</center>
-            </th>
-            <th>
-                <center>ID Pedido</center>
-            </th>
-            <th>
-                <center>Nº Elementos</center>
-            </th>
-            <th>
-                <center>Usuario</center>
-            </th>
-            <th>
-                <center>Fecha Pedido</center>
-            </th>
-            <th>
-                <center>Fecha Almacen</center>
-            </th>
-            <th>
-                <center>Fecha Envio</center>
-            </th>
-            <th>
-                <center>Fecha Recibido</center>
-            </th>
-            <th>
-                <center>Fecha Finalizado</center>
-            </th>
-            <th>
-                <center>Transporte</center>
-            </th>
-            <th>
-                <center>Direccion</center>
-            </th>
-            <th>
-                <center>Suma</center>
-            </th>
-        </tr>
-        <?php
-        foreach ($datos as $opcion) { ?>
-            <tr class="filaTabla">
-                <td>
-                    <center>
-                        <button type="button" data-toggle="modal" data-target="#modalDetalles"
-                                onclick="cargarDetallesPedido(<?php echo $opcion['id_Pedido'] ?>)">+
-                        </button>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['id_Pedido']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['conteo']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['apellido_1'] . ', ' . $opcion['nombre']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['fecha_Pedido']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['fecha_Almacen']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['fecha_Envio']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['fecha_Recibido']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['fecha_Finalizado']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['transporte']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['direccion']; ?>
-                    </center>
-                </td>
-                <td>
-                    <center>
-                        <?php echo $opcion['suma']; ?> €
-                    </center>
-                </td>
+<br>
+<button type="button" onclick="exportarAWord()" class="btn btn-default">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Microsoft_Word_logo.png" width="32">
+    Exportar a Word
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+</button>
+<br>
+<br>
+
+<form id="busquedaPedidos">
+    <div class="table-responsive">
+        <table class="table table-stripped" id="tablaPedidos">
+            <tr style="background-color: #2E353D;">
+                <th>
+                    <p style="text-align: center">Detalles</p>
+                </th>
+                <th>
+                    <p style="text-align: center">ID Pedido</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Nº Elementos</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Usuario</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Fecha Pedido</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Fecha Almacen</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Fecha Envio</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Fecha Recibido</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Fecha Finalizado</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Transporte</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Direccion</p>
+                </th>
+                <th>
+                    <p style="text-align: center">Suma</p>
+                </th>
             </tr>
             <?php
-        }
-        ?>
-    </table>
-</div>
+            foreach ($datos as $opcion) { ?>
+                <tr class="filaTabla">
+                    <td>
+                        <p style="text-align: center">
+                            <button type="button" data-toggle="modal" data-target="#modalDetalles"
+                                    onclick="cargarDetallesPedido(<?php echo $opcion['id_Pedido'] ?>)">+
+                            </button>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['id_Pedido']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['conteo']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['apellido_1'] . ', ' . $opcion['nombre']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['fecha_Pedido']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['fecha_Almacen']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['fecha_Envio']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['fecha_Recibido']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['fecha_Finalizado']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['transporte']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['direccion']; ?>
+                        </p>
+                    </td>
+                    <td>
+                        <p style="text-align: center">
+                            <?php echo $opcion['suma']; ?> €
+                        </p>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+        </table>
+    </div>
+</form>
 
 <div class="modal fade bs-example-modal-lg" id="modalDetalles" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel">
