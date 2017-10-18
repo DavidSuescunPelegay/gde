@@ -21,8 +21,7 @@ class UsuariosM extends Modelo
         $login = addslashes($login);
         $pass = MD5($pass);
 
-        $SQL = "SELECT * 
-				FROM usuarios
+        $SQL = "SELECT * FROM usuarios
 				WHERE login='" . $login . "' 
 					AND pass='" . $pass . "' 
 					AND activo='S' ";

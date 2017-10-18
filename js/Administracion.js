@@ -55,56 +55,72 @@ function buscar() {
     var productosFiltrados = $('#productosFiltrado').val();
     var parametrosFiltrados = $('#parametrosFiltrado').val();
 
+    if (parametrosFiltrados == null) {
+        parametrosFiltrados == "Usuario";
+    }
+
     var idUsuarioSeleccionado = $('#id_BusquedaPorUsuario').val();
     var idRolSeleccionado = $('#selectorRol').children(":selected").attr('id');
 
-    switch (productosFiltrados) {
-        case "Permisos":
-            var parametros = '&c=Administracion&a=getDatosPermisos';
-            parametros += '&productosFiltrados=' + productosFiltrados;
-            parametros += '&parametrosFiltrados=' + parametrosFiltrados;
-            if (idUsuarioSeleccionado !== '') {
-                parametros += '&id_Usuario=' + idUsuarioSeleccionado;
-            }
-            if (idRolSeleccionado !== '') {
-                parametros += '&id_Rol=' + idRolSeleccionado;
-            }
-            break;
-        case "Roles":
-            var parametros = '&c=Administracion&a=getDatosRoles';
-            parametros += '&productosFiltrados=' + productosFiltrados;
-            parametros += '&parametrosFiltrados=' + parametrosFiltrados;
-            if (idUsuarioSeleccionado !== '') {
-                parametros += '&id_Usuario=' + idUsuarioSeleccionado;
-            }
-            break;
-        default:
-            alert("No puedes dejar este campo en blanco");
+    if (idUsuarioSeleccionado == null) {
+        idUsuarioSeleccionado = 0;
     }
 
-    $.ajax({
-        url: 'AjaxC.php',
-        type: 'post',
-        data: parametros,
-        async: true,
-        success: function (vista) {
-            $('#resultadoFiltrado').html(vista);
-            llenarNotificaciones("Se han cargado correctamente los " + productosFiltrados + " del " + parametrosFiltrados);
+    if (idRolSeleccionado == null) {
+        idRolSeleccionado = 0;
+    }
 
-            if (idUsuarioSeleccionado !== '') {
-                $('#textoAyuda').text(productosFiltrados + " del " + parametrosFiltrados + ": " + $('#id_BusquedaPorUsuarioauto').val());
-            } else {
-                $('#textoAyuda').text(productosFiltrados + " del " + parametrosFiltrados + ": " + $('#selectorRol').children(":selected").text());
-            }
-
-            $('#acordeonResultado').show();
+    if (idUsuarioSeleccionado == 0 && idRolSeleccionado == 0) {
+        alert("No puedes dejar el selector en blanco");
+    } else {
+        switch (productosFiltrados) {
+            case "Permisos":
+                var parametros = '&c=Administracion&a=getDatosPermisos';
+                parametros += '&productosFiltrados=' + productosFiltrados;
+                parametros += '&parametrosFiltrados=' + parametrosFiltrados;
+                if (idUsuarioSeleccionado !== '') {
+                    parametros += '&id_Usuario=' + idUsuarioSeleccionado;
+                }
+                if (idRolSeleccionado !== '') {
+                    parametros += '&id_Rol=' + idRolSeleccionado;
+                }
+                break;
+            case "Roles":
+                var parametros = '&c=Administracion&a=getDatosRoles';
+                parametros += '&productosFiltrados=' + productosFiltrados;
+                parametros += '&parametrosFiltrados=' + parametrosFiltrados;
+                if (idUsuarioSeleccionado !== '') {
+                    parametros += '&id_Usuario=' + idUsuarioSeleccionado;
+                }
+                break;
+            default:
+                alert("No puedes dejar este campo en blanco");
         }
-    })
+
+        $.ajax({
+            url: 'AjaxC.php',
+            type: 'post',
+            data: parametros,
+            async: true,
+            success: function (vista) {
+                $('#resultadoFiltrado').html(vista);
+                llenarNotificaciones("Se han cargado correctamente los " + productosFiltrados + " del " + parametrosFiltrados);
+
+                if (idUsuarioSeleccionado !== '') {
+                    $('#textoAyuda').text(productosFiltrados + " del " + parametrosFiltrados + ": " + $('#id_BusquedaPorUsuarioauto').val());
+                } else {
+                    $('#textoAyuda').text(productosFiltrados + " del " + parametrosFiltrados + ": " + $('#selectorRol').children(":selected").text());
+                }
+
+                $('#acordeonResultado').show();
+            }
+        })
+    }
 }
 
 function modificarPermiso(id_Permiso) {
     var idUsuarioSeleccionado = $('#id_BusquedaPorUsuario').val();
-    var idRolSeleccionado = $('#selectorRol').children(":selected").attr('id');
+    var id_Rol = $('#selectorRol').children(":selected").attr('id');
 
     if (idUsuarioSeleccionado !== '') {
         var checked = $('#permiso' + id_Permiso).is(":checked");
@@ -132,18 +148,14 @@ function modificarPermiso(id_Permiso) {
                 llenarNotificaciones("Se han modificado correctamente los datos.");
             }
         })
-    } else if (idRolSeleccionado !== '') {
+    } else if (id_Rol !== '') {
         var checked = $('#permiso' + id_Permiso).is(":checked");
 
         if (checked) {
-            var id_Rol = $('#id_BusquedaPorRol').val();
-
             var parametros = '&c=Administracion&a=insertarPermisoRol';
             parametros += '&id_Permiso=' + id_Permiso;
             parametros += '&id_Rol=' + id_Rol;
         } else {
-            var id_Rol = $('#id_BusquedaPorRol').val();
-
             var parametros = '&c=Administracion&a=eliminarPermisoRol';
             parametros += '&id_Permiso=' + id_Permiso;
             parametros += '&id_Rol=' + id_Rol;

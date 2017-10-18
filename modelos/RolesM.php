@@ -69,8 +69,11 @@ class RolesM extends Modelo
 
     public function borrarRolUsuarioAsociados($id_Rol)
     {
-        $SQL = "DELETE FROM rolusuario WHERE id_Rol='$id_Rol'";
-        $res = $this->BD->executeDelete($SQL);
+        $SQL1 = "DELETE FROM rolusuario WHERE id_Rol='$id_Rol'";
+        $res = $this->BD->executeDelete($SQL1);
+
+        $SQL2 = "DELETE FROM permisorol WHERE id_Rol='$id_Rol'";
+        $res = $this->BD->executeDelete($SQL2);
     }
 
     public function getRolesAutocomplete($filtros)

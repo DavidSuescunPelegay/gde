@@ -36,7 +36,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                 <?php
                 for ($i = 0; $i < count($datos); $i++) {
                     ?>
-                    <option id="<?php echo $datos[$i]['id_Permiso'] ?>"><?php echo $datos[$i]['permiso'] ?></option>
+                    <option id="<?php echo $datos[$i]['id_Rol'] ?>"><?php echo $datos[$i]['rol'] ?></option>
                     <?php
                 }
                 ?>

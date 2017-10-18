@@ -15,7 +15,7 @@ class AdministracionC extends Controlador
 
     public function getVistaPrincipal()
     {
-        $resultado = $this->modelo->getPermisos();
+        $resultado = $this->modelo->getRoles();
         $vista = new Vista();
         $vista->render($_SESSION['RAIZ'] . '/vistas/Administracion/AdministracionV.php', $resultado);
     }
@@ -57,6 +57,7 @@ class AdministracionC extends Controlador
         for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             if ($_SESSION['permisos'][$i]['id_Permiso'] == 22) {
                 $resultado = $this->modelo->insertarPermisoRol($datos);
+                var_dump($datos);
             }
         }
     }

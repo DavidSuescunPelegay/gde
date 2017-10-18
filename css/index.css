@@ -5,6 +5,10 @@ body {
     font-family: Montserrat;
 }
 
+#avisoNavegador{
+    float: right;
+}
+
 .divPrincipal {
     position: absolute;
     left: 50%;
@@ -92,4 +96,5 @@ body {
     bottom: 0%;
     background-color: #eaeaea;
     width: 100%;
+    font-family: Montserrat;
 }

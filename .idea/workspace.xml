@@ -31,61 +31,7 @@
     <favorites_list name="gde" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simpleAutoComplete.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoComplete.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simpleAutoCompleteBase.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoCompleteBase.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsuariosBusquedaV.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/Usuarios/UsuariosBusquedaV.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-              <folding>
-                <marker date="1480414847073" expanded="true" signature="130:156" ph="..." />
-                <marker date="1480414847073" expanded="true" signature="382:407" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdministracionV.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vistas/Administracion/AdministracionV.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -99,15 +45,21 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>js/simpleautocomplete/edit.png&quot;</find>
-      <find>$datos[$ind]</find>
       <find>au_id_BusquedaPorRol</find>
       <find>botonBuscarFiltros</find>
       <find>textoAyuda</find>
       <find>gde</find>
+      <find>$datos[$ind]</find>
+      <find>º</find>
+      <find>alert</find>
+      <find>$opcion</find>
+      <find>$datos[0]</find>
     </findStrings>
     <replaceStrings>
-      <replace>$opcion</replace>
       <replace>selectorRol</replace>
+      <replace>$datos[0]</replace>
+      <replace>$datos[1]</replace>
+      <replace>$opcion</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -124,46 +76,46 @@
         <option value="$PROJECT_DIR$/js/jquery-1.12.3.min.js" />
         <option value="$PROJECT_DIR$/js/Usuarios.js" />
         <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionBusquedaV.php" />
-        <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/Changelog.txt" />
         <option value="$PROJECT_DIR$/css/changelog.css" />
         <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/css/app.css" />
-        <option value="$PROJECT_DIR$/js/Roles.js" />
         <option value="$PROJECT_DIR$/modelos/ClaseBD.php" />
         <option value="$PROJECT_DIR$/controladores/Controlador.php" />
         <option value="$PROJECT_DIR$/AjaxC.php" />
         <option value="$PROJECT_DIR$/js/simpleautocomplete/web/simpleAutoCompleteBase.js" />
         <option value="$PROJECT_DIR$/js/simpleautocomplete/web/simpleAutoComplete.js" />
-        <option value="$PROJECT_DIR$/modelos/RolesM.php" />
-        <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionPermisosV.php" />
-        <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionRolesV.php" />
-        <option value="$PROJECT_DIR$/vistas/Roles/RolesV.php" />
         <option value="$PROJECT_DIR$/vistas/Usuarios/UsuariosBusquedaV.php" />
         <option value="$PROJECT_DIR$/modelos/MenusM.php" />
         <option value="$PROJECT_DIR$/vistas/Menu/MenuV.php" />
         <option value="$PROJECT_DIR$/js/Permisos.js" />
-        <option value="$PROJECT_DIR$/vistas/Permisos/PermisosFiltradosV.php" />
-        <option value="$PROJECT_DIR$/modelos/UsuariosM.php" />
         <option value="$PROJECT_DIR$/controladores/RolesC.php" />
         <option value="$PROJECT_DIR$/controladores/PermisosC.php" />
         <option value="$PROJECT_DIR$/controladores/MenusC.php" />
-        <option value="$PROJECT_DIR$/controladores/AdministracionC.php" />
-        <option value="$PROJECT_DIR$/modelos/AdministracionM.php" />
-        <option value="$PROJECT_DIR$/js/Administracion.js" />
-        <option value="$PROJECT_DIR$/changelog.html" />
-        <option value="$PROJECT_DIR$/modelos/PermisosM.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/controladores/UsuariosC.php" />
         <option value="$PROJECT_DIR$/js/Menus.js" />
         <option value="$PROJECT_DIR$/vistas/Usuarios/UsuariosV.php" />
         <option value="$PROJECT_DIR$/vistas/Menu/MenuGestionV.php" />
         <option value="$PROJECT_DIR$/vistas/Permisos/PermisosV.php" />
-        <option value="$PROJECT_DIR$/app.php" />
-        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/modelos/UsuariosM.php" />
+        <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionV.php" />
+        <option value="$PROJECT_DIR$/controladores/AdministracionC.php" />
+        <option value="$PROJECT_DIR$/modelos/RolesM.php" />
+        <option value="$PROJECT_DIR$/js/Roles.js" />
+        <option value="$PROJECT_DIR$/modelos/PermisosM.php" />
+        <option value="$PROJECT_DIR$/vistas/Permisos/PermisosFiltradosV.php" />
         <option value="$PROJECT_DIR$/js/simpleautocomplete/simpleAutoComplete.js" />
         <option value="$PROJECT_DIR$/js/simpleautocomplete/simpleAutoCompleteBase.js" />
-        <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionV.php" />
+        <option value="$PROJECT_DIR$/vistas/Roles/RolesV.php" />
+        <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionRolesV.php" />
+        <option value="$PROJECT_DIR$/vistas/Administracion/AdministracionPermisosV.php" />
+        <option value="$PROJECT_DIR$/modelos/AdministracionM.php" />
+        <option value="$PROJECT_DIR$/js/Administracion.js" />
+        <option value="$PROJECT_DIR$/changelog.html" />
+        <option value="$PROJECT_DIR$/app.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/css/index.css" />
+        <option value="$PROJECT_DIR$/css/app.css" />
       </list>
     </option>
   </component>
@@ -181,7 +133,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -198,6 +150,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -404,8 +358,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -577,20 +529,26 @@
       <workItem from="1481123997669" duration="378000" />
       <workItem from="1481124453504" duration="1917000" />
       <workItem from="1481134776377" duration="2845000" />
+      <workItem from="1481268529309" duration="5889000" />
+      <workItem from="1481275392467" duration="8496000" />
+      <workItem from="1481291141286" duration="672000" />
+      <workItem from="1481464978497" duration="679000" />
+      <workItem from="1481622262798" duration="4549000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273062000" />
+    <option name="totallyTimeSpent" value="293347000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15208334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15208334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -601,7 +559,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7930306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -635,20 +592,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html" />
-    <entry file="file://$PROJECT_DIR$/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="94" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php" />
     <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/edit.png">
       <provider selected="true" editor-type-id="images">
@@ -668,141 +611,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/Roles/RolesAutocompleteV.php" />
-    <entry file="file://$PROJECT_DIR$/js/Roles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Permisos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1632">
-          <caret line="96" column="1" lean-forward="false" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Administracion/AdministracionPermisosV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Roles/RolesV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Permisos/PermisosFiltradosV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-464">
-          <caret line="70" column="37" lean-forward="false" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Menu/MenuV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/session.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="178" column="9" lean-forward="false" selection-start-line="178" selection-start-column="9" selection-end-line="178" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/RolesC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="79" lean-forward="true" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/PermisosC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="44" column="68" lean-forward="false" selection-start-line="44" selection-start-column="68" selection-end-line="44" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Administracion/AdministracionRolesV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/AdministracionC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="99" lean-forward="false" selection-start-line="19" selection-start-column="99" selection-end-line="19" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Administracion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="96" column="143" lean-forward="false" selection-start-line="96" selection-start-column="143" selection-end-line="96" selection-end-column="143" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/RolesM.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="64" column="22" lean-forward="false" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/changelog.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/UsuariosM.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="173" column="35" lean-forward="true" selection-start-line="173" selection-start-column="35" selection-end-line="173" selection-end-column="35" />
-          <folding>
-            <marker date="1480503781326" expanded="true" signature="477:589" ph="SELECT * FRO... usuarios" />
-            <marker date="1480503781326" expanded="true" signature="824:867" ph="SELECT * FRO... usuarios" />
-            <marker date="1480503781326" expanded="true" signature="1032:1084" ph="SELECT id_Us... usuarios" />
-            <marker date="1480503781326" expanded="true" signature="1227:1273" ph="SELECT * FRO... permisousuario" />
-            <marker date="1480503781326" expanded="true" signature="1538:1574" ph="SELECT * FRO... usuarios" />
-            <marker date="1480503781326" expanded="true" signature="2424:2490" ph="SELECT * FRO... usuarios" />
-            <marker date="1480503781326" expanded="true" signature="2827:2992" ph="INSERT INTO usuarios... " />
-            <marker date="1480503781326" expanded="true" signature="3382:3503" ph="UPDATE usuar... " />
-            <marker date="1480503781326" expanded="true" signature="3931:4015" ph="UPDATE usuar... " />
-            <marker date="1480503781326" expanded="true" signature="4292:4365" ph="SELECT id_Us... usuarios" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/AdministracionM.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="79" lean-forward="true" selection-start-line="30" selection-start-column="79" selection-end-line="30" selection-end-column="79" />
-          <folding>
-            <marker date="1480954572212" expanded="true" signature="336:379" ph="SELECT * FRO... permisos" />
-            <marker date="1480954572212" expanded="true" signature="588:630" ph="SELECT * FRO... permisos" />
-            <marker date="1480954572212" expanded="true" signature="664:723" ph="SELECT * FRO... permisousuario" />
-            <marker date="1480954572212" expanded="true" signature="1312:1347" ph="SELECT * FRO... roles" />
-            <marker date="1480954572212" expanded="true" signature="1381:1436" ph="SELECT * FRO... rolusuario" />
-            <marker date="1480954572212" expanded="true" signature="1957:2046" ph="INSERT INTO permisousuario... " />
-            <marker date="1480954572212" expanded="true" signature="2319:2405" ph="DELETE FROM " />
-            <marker date="1480954572212" expanded="true" signature="2640:2716" ph="INSERT INTO permisorol... " />
-            <marker date="1480954572212" expanded="true" signature="2923:2997" ph="DELETE FROM " />
-            <marker date="1480954572212" expanded="true" signature="3195:3272" ph="INSERT INTO rolusuario... " />
-            <marker date="1480954572212" expanded="true" signature="3472:3546" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -834,9 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -844,16 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <marker date="1477240739431" expanded="true" signature="358:388" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Usuarios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="106" lean-forward="false" selection-start-line="2" selection-start-column="106" selection-end-line="2" selection-end-column="106" />
           <folding />
         </state>
       </provider>
@@ -874,26 +673,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controladores/UsuariosC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="143" column="27" lean-forward="false" selection-start-line="143" selection-start-column="27" selection-end-line="143" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoComplete.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/UsuariosM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding>
+            <marker date="1481268729775" expanded="true" signature="477:584" ph="SELECT * FRO... usuarios" />
+            <marker date="1481268729775" expanded="true" signature="819:862" ph="SELECT * FRO... usuarios" />
+            <marker date="1481268729775" expanded="true" signature="1027:1079" ph="SELECT id_Us... usuarios" />
+            <marker date="1481268729775" expanded="true" signature="1222:1268" ph="SELECT * FRO... permisousuario" />
+            <marker date="1481268729775" expanded="true" signature="1533:1569" ph="SELECT * FRO... usuarios" />
+            <marker date="1481268729775" expanded="true" signature="2419:2485" ph="SELECT * FRO... usuarios" />
+            <marker date="1481268729775" expanded="true" signature="2822:2987" ph="INSERT INTO usuarios... " />
+            <marker date="1481268729775" expanded="true" signature="3377:3498" ph="UPDATE usuar... " />
+            <marker date="1481268729775" expanded="true" signature="3926:4010" ph="UPDATE usuar... " />
+            <marker date="1481268729775" expanded="true" signature="4287:4360" ph="SELECT id_Us... usuarios" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/UsuariosC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/UsuariosV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modelos/MenusM.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="137" column="20" lean-forward="false" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="20" />
+        <state relative-caret-position="368">
+          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
           <folding>
             <marker date="1480498278708" expanded="true" signature="353:412" ph="SELECT * FRO... menus" />
             <marker date="1480498278708" expanded="true" signature="967:1024" ph="SELECT id_Op... menus" />
@@ -916,18 +749,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/UsuariosV.php">
+    <entry file="file://$PROJECT_DIR$/js/Roles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="82" column="2" lean-forward="false" selection-start-line="82" selection-start-column="2" selection-end-line="82" selection-end-column="2" />
+        <state relative-caret-position="17">
+          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Usuarios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="97" column="21" lean-forward="false" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Permisos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="115" column="40" lean-forward="false" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Menus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/PermisosM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Menu/MenuV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <marker date="1480498502653" expanded="true" signature="108:395" ph="..." />
+            <marker date="1480498502653" expanded="true" signature="214:386" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/Menu/MenuGestionV.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        <state relative-caret-position="595">
+          <caret line="35" column="64" lean-forward="false" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
           <folding>
             <marker date="1481136048883" expanded="true" signature="666:692" ph="..." />
             <marker date="1481136048883" expanded="true" signature="1001:1027" ph="..." />
@@ -936,10 +810,56 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoComplete.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoCompleteBase.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/UsuariosBusquedaV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+          <folding>
+            <marker date="1480414847073" expanded="true" signature="130:156" ph="..." />
+            <marker date="1480414847073" expanded="true" signature="382:407" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Permisos/PermisosFiltradosV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="148" lean-forward="false" selection-start-line="35" selection-start-column="148" selection-end-line="35" selection-end-column="148" />
+          <folding>
+            <marker date="1481282811206" expanded="true" signature="561:587" ph="..." />
+            <marker date="1481282811206" expanded="true" signature="820:845" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/PermisosC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/Permisos/PermisosV.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="16" selection-end-column="56" />
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="56" />
           <folding>
             <marker date="1481136087161" expanded="true" signature="685:711" ph="..." />
             <marker date="1481136087161" expanded="true" signature="1069:1094" ph="..." />
@@ -948,89 +868,151 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Menus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="107" column="133" lean-forward="false" selection-start-line="107" selection-start-column="133" selection-end-line="107" selection-end-column="133" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controladores/MenusC.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
+        <state relative-caret-position="512">
           <caret line="60" column="50" lean-forward="false" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modelos/PermisosM.php">
+    <entry file="file://$PROJECT_DIR$/vistas/Roles/RolesV.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="22" column="206" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="206" />
+        <state relative-caret-position="170">
+          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding>
-            <marker date="1480956413223" expanded="true" signature="632:824" ph="SELECT permi... permisos" />
+            <marker date="1481622385317" expanded="true" signature="679:705" ph="..." />
+            <marker date="1481622385317" expanded="true" signature="929:955" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/RolesM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <marker date="1481279535888" expanded="true" signature="350:385" ph="SELECT * FRO... roles" />
+            <marker date="1481279535888" expanded="true" signature="623:662" ph="INSERT INTO roles... " />
+            <marker date="1481279535888" expanded="true" signature="873:923" ph="UPDATE roles... " />
+            <marker date="1481279535888" expanded="true" signature="1133:1173" ph="DELETE FROM " />
+            <marker date="1481279535888" expanded="true" signature="1458:1503" ph="DELETE FROM " />
+            <marker date="1481279535888" expanded="true" signature="1572:1617" ph="DELETE FROM " />
+            <marker date="1481279535888" expanded="true" signature="1819:1858" ph="SELECT id_Ro... roles" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/RolesC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="57" lean-forward="true" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controladores/AdministracionC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="210" column="10" lean-forward="true" selection-start-line="206" selection-start-column="4" selection-end-line="210" selection-end-column="10" />
+        <state relative-caret-position="3757">
+          <caret line="221" column="158" lean-forward="false" selection-start-line="221" selection-start-column="158" selection-end-line="221" selection-end-column="158" />
           <folding>
-            <marker date="1481137472105" expanded="true" signature="3102:3113" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoComplete.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/simpleautocomplete/simpleAutoCompleteBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="6" lean-forward="false" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/UsuariosBusquedaV.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding>
-            <marker date="1480414847073" expanded="true" signature="130:156" ph="..." />
-            <marker date="1480414847073" expanded="true" signature="382:407" ph="..." />
+            <marker date="1481626681751" expanded="true" signature="5471:5482" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/Administracion/AdministracionV.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="60" column="38" lean-forward="false" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Administracion/AdministracionPermisosV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+          <folding>
+            <marker date="1481623180220" expanded="true" signature="167:192" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Administracion/AdministracionRolesV.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modelos/AdministracionM.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding>
+            <marker date="1481623868928" expanded="true" signature="345:388" ph="SELECT * FRO... permisos" />
+            <marker date="1481623868928" expanded="true" signature="522:558" ph="SELECT * FRO... permisos" />
+            <marker date="1481623868928" expanded="true" signature="788:830" ph="SELECT * FRO... permisos" />
+            <marker date="1481623868928" expanded="true" signature="900:959" ph="SELECT * FRO... permisousuario" />
+            <marker date="1481623868928" expanded="true" signature="1035:1082" ph="SELECT * FRO... permisorol" />
+            <marker date="1481623868928" expanded="true" signature="1981:2016" ph="SELECT * FRO... roles" />
+            <marker date="1481623868928" expanded="true" signature="2050:2105" ph="SELECT * FRO... rolusuario" />
+            <marker date="1481623868928" expanded="true" signature="2626:2715" ph="INSERT INTO permisousuario... " />
+            <marker date="1481623868928" expanded="true" signature="2988:3074" ph="DELETE FROM " />
+            <marker date="1481623868928" expanded="true" signature="3309:3386" ph="INSERT INTO permisorol... " />
+            <marker date="1481623868928" expanded="true" signature="3593:3667" ph="DELETE FROM " />
+            <marker date="1481623868928" expanded="true" signature="3874:3951" ph="INSERT INTO rolusuario... " />
+            <marker date="1481623868928" expanded="true" signature="4158:4232" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Administracion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="58" column="41" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <caret line="58" column="8" lean-forward="true" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="99" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="116" column="1" lean-forward="false" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/changelog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
           <folding />
         </state>
       </provider>

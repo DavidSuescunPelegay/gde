@@ -86,20 +86,14 @@ class PermisosM extends Modelo
 
     public function getPermisosPorId($datos)
     {
-        $datos = array();
-
-        //Antigua sentencia
-        //$SQL = "SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos, menus WHERE permisos.id_Opcion=menus.id_Opcion AND permisos.id_Opcion='$datos'";
-
-        //Nueva sentencia (INNER JOIN)
-        $SQL = "SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos INNER JOIN menus ON permisos.id_Opcion=menus.id_Opcion WHERE permisos.id_Opcion='$datos'";
+        $SQL = "SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos, menus WHERE permisos.id_Opcion=menus.id_Opcion AND permisos.id_Opcion='$datos'";
         $res = $this->BD->executeQuery($SQL);
-        $datos[0] = $res;
+        $resultado[0] = $res;
 
         $SQL = "SELECT id_Opcion, texto FROM menus ORDER BY id_Opcion ASC";
         $res = $this->BD->executeQuery($SQL);
-        $datos[1] = $res;
+        $resultado[1] = $res;
 
-        return $datos;
+        return $resultado;
     }
 }

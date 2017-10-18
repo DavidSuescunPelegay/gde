@@ -17,23 +17,23 @@ $html .= '<th>Numero de Permiso</th>';
 $html .= '<th>Nombre de Permiso</th>';
 $html .= '<th>Operaciones disponibles</th>';
 $html .= '</tr>';
-foreach ($datos[0] as $ind => $opcion) {
+foreach ($datos[0] as $opcion) {
     $html .= '<tr style="background-color: #bbbbbb">';
-    $html .= '<td id="opcion' . $datos[$ind]['id_Permiso'] . '">' . $datos[$ind]['id_Opcion'] . ' - ' . $datos[$ind]['texto'] . '</td>';
-    $html .= '<td id="ordenPermiso' . $datos[$ind]['id_Permiso'] . '">' . $datos[$ind]['num_Permiso'] . '</td>';
-    $html .= '<td id="textoPermiso' . $datos[$ind]['id_Permiso'] . '">' . $datos[$ind]['permiso'] . '</td>';
+    $html .= '<td id="opcion' . $opcion['id_Permiso'] . '">' . $opcion['id_Opcion'] . ' - ' . $opcion['texto'] . '</td>';
+    $html .= '<td id="ordenPermiso' . $opcion['id_Permiso'] . '">' . $opcion['num_Permiso'] . '</td>';
+    $html .= '<td id="textoPermiso' . $opcion['id_Permiso'] . '">' . $opcion['permiso'] . '</td>';
     $html .= '<td>';
 
-    if ($datos[$ind]['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
-        $html .= '<button type="button" class="btn btn-warning disabled" title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4" id="botonEdicion' . $datos[$ind]['id_Permiso'] . '" onclick="edicionProhibida()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+    if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
+        $html .= '<button type="button" class="btn btn-warning disabled" title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4" id="botonEdicion' . $opcion['id_Permiso'] . '" onclick="edicionProhibida()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
     } else {
-        $html .= '<button type="button" class="btn btn-warning" id="botonEdicion' . $datos[$ind]['id_Permiso'] . '" data-toggle="modal" data-target="#modalModificarPermiso" onclick="editPermiso(' . $datos[$ind]['id_Permiso'] . ', ' . $datos[$ind]['id_Opcion'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+        $html .= '<button type="button" class="btn btn-warning" id="botonEdicion' . $opcion['id_Permiso'] . '" data-toggle="modal" data-target="#modalModificarPermiso" onclick="editPermiso(' . $opcion['id_Permiso'] . ', ' . $opcion['id_Opcion'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
     }
     $html .= '&nbsp &nbsp';
-    if ($datos[$ind]['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
-        $html .= '<button type="button" class="btn btn-danger disabled" title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4" id="botonEliminacion' . $datos[$ind]['id_Permiso'] . '" onclick="eliminacionProhibida()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
+    if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
+        $html .= '<button type="button" class="btn btn-danger disabled" title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4" id="botonEliminacion' . $opcion['id_Permiso'] . '" onclick="eliminacionProhibida()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
     } else {
-        $html .= '<button type="button" class="btn btn-danger" id="botonEliminacion' . $datos[$ind]['id_Permiso'] . '" onclick="deletePermiso(' . $datos[$ind]['id_Permiso'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
+        $html .= '<button type="button" class="btn btn-danger" id="botonEliminacion' . $opcion['id_Permiso'] . '" onclick="deletePermiso(' . $opcion['id_Permiso'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
     }
     $html .= '</td>';
     $html .= '</tr>';
@@ -64,7 +64,7 @@ echo $html;
                                 <option value="0">Menu del que dependera el permiso</option>
                                 <?php
                                 foreach ($datos[1] as $opcion){
-                                    $html = '<option value="' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
+                                    $html = '<option value="' . $datos[1]['id_Opcion'] . '">' . $datos[1]['id_Opcion'] . ' (dependera del menu ' . $datos[1]['texto'] . ')</option>';
                                     echo $html;
                                 }
                                 ?>
@@ -115,7 +115,7 @@ echo $html;
                                 <option value="0">Menu del que dependera el permiso</option>
                                 <?php
                                 foreach ($datos[1] as $opcion){
-                                    $html = '<option value="' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
+                                    $html = '<option value="' . $datos[1]['id_Opcion'] . '">' . $datos[1]['id_Opcion'] . ' (dependera del menu ' . $datos[1]['texto'] . ')</option>';
                                     echo $html;
                                 }
                                 ?>

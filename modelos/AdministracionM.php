@@ -1,6 +1,6 @@
 <?php
-require_once $_SESSION['RAIZ'].'/modelos/Modelo.php';
-require_once $_SESSION['RAIZ'].'/modelos/ClaseBD.php';
+require_once $_SESSION['RAIZ'] . '/modelos/Modelo.php';
+require_once $_SESSION['RAIZ'] . '/modelos/ClaseBD.php';
 
 class AdministracionM extends Modelo
 {
@@ -12,8 +12,16 @@ class AdministracionM extends Modelo
         $this->BD = new ClaseBD();
     }
 
-    public function getPermisos(){
+    public function getPermisos()
+    {
         $SQL = "SELECT * FROM permisos ORDER BY permiso ASC";
+        $datos = $this->BD->executeQuery($SQL);
+        return $datos;
+    }
+
+    public function getRoles()
+    {
+        $SQL = "SELECT * FROM roles ORDER BY rol ASC";
         $datos = $this->BD->executeQuery($SQL);
         return $datos;
     }
@@ -21,20 +29,35 @@ class AdministracionM extends Modelo
     public function getDatosPermisos($datos)
     {
         $id_Usuario = '';
-
+        $id_Rol = '';
         extract($datos);
 
         $SQLCompleto = "SELECT * FROM permisos ORDER BY id_Permiso";
-        $SQLTablaIntermedia = "SELECT * FROM permisousuario WHERE id_Usuario='$id_Usuario'";
+        if ($id_Usuario != 0) {
+            $SQLTablaIntermedia = "SELECT * FROM permisousuario WHERE id_Usuario='$id_Usuario'";
+        }
+        if ($id_Rol != 0) {
+            $SQLTablaIntermedia = "SELECT * FROM permisorol WHERE id_Rol='$id_Rol'";
+        }
 
         $resultadoSQLCompleto = $this->BD->executeQuery($SQLCompleto);
         $resultadoSQLIntermedia = $this->BD->executeQuery($SQLTablaIntermedia);
 
         $datosParaVista[0] = $resultadoSQLCompleto;
+        $datosParaVista[1] = $resultadoSQLIntermedia;
 
-        foreach ($resultadoSQLIntermedia as $item) {
-            $datosParaVista[1][$item['id_Permiso']] = $item;
+        /*
+        if ($id_Usuario != 0) {
+            foreach ($resultadoSQLIntermedia as $item) {
+                $datosParaVista[1][$item['id_Permiso']] = $item;
+            }
         }
+        if ($id_Rol != 0) {
+            foreach ($resultadoSQLIntermedia as $item) {
+                $datosParaVista[1][$item['id_Rol']] = $item;
+            }
+        }
+        */
 
         return $datosParaVista;
     }
@@ -98,7 +121,7 @@ class AdministracionM extends Modelo
 
         extract($datos);
 
-        $SQL = "INSERT INTO permisorol (id_Permiso, id_Rol) VALUES('$id_Permiso', '$id_Rol')";
+        $SQL = "INSERT INTO permisorol (id_Permiso, id_Rol) VALUES ('$id_Permiso', '$id_Rol')";
         $resultado = $this->BD->executeInsert($SQL);
     }
 
@@ -113,9 +136,10 @@ class AdministracionM extends Modelo
         $resultado = $this->BD->executeDelete($SQL);
     }
 
-    public function insertarRolUsuario($datos){
-        $id_Rol='';
-        $id_Usuario='';
+    public function insertarRolUsuario($datos)
+    {
+        $id_Rol = '';
+        $id_Usuario = '';
 
         extract($datos);
 
@@ -123,9 +147,10 @@ class AdministracionM extends Modelo
         $resultado = $this->BD->executeInsert($SQL);
     }
 
-    public function eliminarRolUsuario($datos){
+    public function eliminarRolUsuario($datos)
+    {
         $id_Rol = '';
-        $id_Usuario='';
+        $id_Usuario = '';
 
         extract($datos);
 

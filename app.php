@@ -22,6 +22,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 <html lang="es">
 <head>
     <title>Gestion de Empresa - David Suescun Pelegay</title>
+    <meta charset="UTF-8">
     <link rel="icon" type="image/png"
           href="http://plainicon.com/dboard/userprod/2800_a1826/prod_thumb/plainicon.com-50298-256px-4b4.png"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,7 +61,6 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 
     <!--Importacion de la libreria jQuery UI-->
     <link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!--Importacion de la libreria Simple Autocomplete-->
@@ -70,91 +70,168 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 </head>
 <body>
 <div class="container col-lg-2 hidden-md hidden-sm hidden-xs" style="margin: 1%; height: 100%; position: fixed;">
-    <button data-toggle="collapse" data-target="#misDatos" class="btn btn-info">Abrir/Cerrar Datos</button>
-    <div style="margin-bottom: 10%;">
-        <div id="misDatos" style="margin-bottom: 10%;" class="col-lg-12 collapse in">
-            <fieldset>
-                <legend>Mis Datos</legend>
+    <div class="profile-sidebar">
+        <div class="profile-userpic">
+            <img src="http://simpleicon.com/wp-content/uploads/user1.png"
+                 class="img-responsive" alt="">
+        </div>
+        <div class="profile-usertitle">
+            <div class="profile-usertitle-name">
                 <?php
-                $html = 'Bienvenido ' . $_SESSION['datosUsuario'][0]['nombre'] . ', estos son tus datos: ';
-                $html .= '<table border="1px #000 solid" style="width: 100%">';
-                $html .= '<tr>';
-                $html .= '<td>ID Usuario</td>';
-                $html .= '<td>' . $_SESSION['datosUsuario'][0]['id_Usuario'] . '</td>';
-                $html .= '</tr>';
-                $html .= '<tr>';
-                $html .= '<td>Nombre</td>';
-                $html .= '<td>' . $_SESSION['datosUsuario'][0]['nombre'] . '</td>';
-                $html .= '</tr>';
-                $html .= '<tr>';
-                $html .= '<td>Apellido 1</td>';
-                $html .= '<td>' . $_SESSION['datosUsuario'][0]['apellido_1'] . '</td>';
-                $html .= '</tr>';
-                $html .= '<tr>';
-                $html .= '<td>Apellido 2</td>';
-                $html .= '<td>' . $_SESSION['datosUsuario'][0]['apellido_2'] . '</td>';
-                $html .= '</tr>';
-                $html .= '<tr>';
-                $html .= '<td>Usuario</td>';
-                $html .= '<td>' . $_SESSION['datosUsuario'][0]['login'] . '</td>';
-                $html .= '</tr>';
-                $html .= '<tr>';
-                $html .= '<td>Activo</td>';
-                $html .= '<td>' . $_SESSION['datosUsuario'][0]['activo'] . '</td>';
-                $html .= '</tr>';
-                $html .= '</table>';
-                echo $html;
+                $nombreCompleto = '';
+                $nombreCompleto .= $_SESSION['datosUsuario'][0]['nombre'] . ' ';
+                $nombreCompleto .= $_SESSION['datosUsuario'][0]['apellido_1'];
+                echo $nombreCompleto;
                 ?>
-            </fieldset>
+            </div>
+            <div class="profile-usertitle-job">
+                Gestion de Empresa
+            </div>
         </div>
-    </div>
-
-
-    <button data-toggle="collapse" data-target="#misNotificaciones" class="btn btn-info">Abrir/Cerrar Notificaciones
-    </button>
-    <div style="margin-bottom: 10%;">
-        <div id="misNotificaciones" style="margin-bottom: 10%;" class="col-lg-12 collapse in">
-            <fieldset>
-                <legend>Mis Notificaciones</legend>
-                <span id="notificaciones" style="color: #ff0000">No tienes notificaciones pendientes</span>
-            </fieldset>
+        <div class="profile-userbuttons">
+            <button type="button" class="btn btn-danger btn-sm" onclick="logout()">Cerrar Sesion</button>
         </div>
-    </div>
+        <div class="profile-usermenu">
+            <ul class="nav">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingA">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseA"
+                                   aria-expanded="true" aria-controls="collapseA">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                    Inicio
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseA" class="panel-collapse collapse in" role="tabpanel"
+                             aria-labelledby="collapseA">
+                            <div class="panel-body">
 
-    <button data-toggle="collapse" data-target="#datosConexion" class="btn btn-info">Abrir/Cerrar Datos de Conexion
-    </button>
-    <div style="margin-bottom: 0%;">
-        <div id="datosConexion" class="col-lg-12 collapse in">
-            <fieldset>
-                <legend>Mis Datos de Conexion</legend>
-                <span id="divMisDatosDeConexion" style="color: #000000">
-                    <?php
-                    $ipAdress = "<b>Direccion IP:</b> $_SERVER[REMOTE_ADDR]";
-                    echo $ipAdress;
-                    ?>
-                    <br>
-                    <?php
-                    $serverName = "<b>Nombre del Servidor:</b> $_SERVER[SERVER_NAME]";
-                    echo $serverName;
-                    ?>
-                    <br>
-                    <br>
-                </span>
-            </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingB">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseB" aria-expanded="false" aria-controls="collapseB">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    Mis Datos </a>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseB" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingB">
+                            <div class="panel-body">
+                                <?php
+                                $html = '<table border="0px #000 solid" style="width: 100%">';
+                                $html .= '<tr>';
+                                $html .= '<td>ID Usuario</td>';
+                                $html .= '<td>' . $_SESSION['datosUsuario'][0]['id_Usuario'] . '</td>';
+                                $html .= '</tr>';
+                                $html .= '<tr>';
+                                $html .= '<td>Nombre</td>';
+                                $html .= '<td>' . $_SESSION['datosUsuario'][0]['nombre'] . '</td>';
+                                $html .= '</tr>';
+                                $html .= '<tr>';
+                                $html .= '<td>Apellido 1</td>';
+                                $html .= '<td>' . $_SESSION['datosUsuario'][0]['apellido_1'] . '</td>';
+                                $html .= '</tr>';
+                                $html .= '<tr>';
+                                $html .= '<td>Apellido 2</td>';
+                                $html .= '<td>' . $_SESSION['datosUsuario'][0]['apellido_2'] . '</td>';
+                                $html .= '</tr>';
+                                $html .= '<tr>';
+                                $html .= '<td>Usuario</td>';
+                                $html .= '<td>' . $_SESSION['datosUsuario'][0]['login'] . '</td>';
+                                $html .= '</tr>';
+                                $html .= '<tr>';
+                                $html .= '<td>Activo</td>';
+                                if ($_SESSION['datosUsuario'][0]['activo'] == 'S') {
+                                    $html .= '<td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>';
+                                }
+                                if ($_SESSION['datosUsuario'][0]['activo'] == 'N') {
+                                    $html .= '<td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>';
+                                }
+                                $html .= '</tr>';
+                                $html .= '</table>';
+                                echo $html;
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingC">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseC" aria-expanded="false" aria-controls="collapseC">
+                                    <i class="glyphicon glyphicon-cloud"></i>
+                                    Mis Datos de Conexion </a>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseC" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingC">
+                            <div class="panel-body">
+                                <?php
+                                $ipAdress = "<b>Direccion IP:</b> $_SERVER[REMOTE_ADDR]";
+                                echo $ipAdress;
+                                ?>
+                                <br>
+                                <?php
+                                $serverName = "<b>Nombre del Servidor:</b> $_SERVER[SERVER_NAME]";
+                                echo $serverName;
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingD">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseD" aria-expanded="false" aria-controls="collapseD">
+                                    <i class="glyphicon glyphicon-tasks"></i>
+                                    Mis Notificaciones </a>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseD" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingD">
+                            <div class="panel-body">
+                                <div id="misNotificaciones" style="margin-bottom: 10%;" class="col-lg-12 collapse in">
+                                    <span id="notificaciones"
+                                          style="color: #ff0000">No tienes notificaciones pendientes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingE">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                                   href="#collapseE" aria-expanded="false" aria-controls="collapseE">
+                                    <i class="glyphicon glyphicon-wrench"></i>
+                                    Ayuda </a>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseE" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="headingE">
+                            <div class="panel-body">
+                                    Navega por los menus y haz modificaciones, si no se muestran datos, probablemente no tengas permiso para ver esa pantalla.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
         </div>
     </div>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-10 hidden-xs">
-
-        </div>
-        <div class="col-lg-8 col-md-8 hidden-sm hidden-xs">
-            <h1>Gestion de Empresa</h1>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-right">
-            <button class="btn btn-warning" title="Cerrar sesion" onclick="logout()"><span
-                        class="glyphicon glyphicon-off" aria-hidden="true"></span></button>
+        <div class="col-lg-12 col-md-12 hidden-sm hidden-xs">
+            <center><h1>Gestion de Empresa</h1></center>
         </div>
     </div>
     <div class="row">
@@ -205,7 +282,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 </a>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 2.1 - Ultima Actualizacion: Jueves, 08 de Diciembre de 2016 - <a
+        <center>Version del Proyecto: 2.2 - Ultima Actualizacion: Martes, 13 de Diciembre de 2016 - <a
                     href="changelog.html">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>

@@ -13,39 +13,43 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 <br><br>
 
 <?php
-$html = '';
-$html .= '<div class="table-responsive">';
-$html .= '<table class="table table-striped" >';
-$html .= '<tr style="background-color: #888888;">';
-$html .= '<th>Rol</th>';
-$html .= '<th>Operaciones disponibles</th>';
-$html .= '</tr>';
+for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+    if ($_SESSION['permisos'][$i]['id_Permiso'] == 16) {
+        $html = '';
+        $html .= '<div class="table-responsive">';
+        $html .= '<table class="table table-striped" >';
+        $html .= '<tr style="background-color: #888888;">';
+        $html .= '<th>Rol</th>';
+        $html .= '<th>Operaciones disponibles</th>';
+        $html .= '</tr>';
 
-foreach ($datos as $ind => $opcion) {
-    $html .= '<tr style="background-color: #bbbbbb;">';
-    $html .= '<td id="textoRol' . $opcion['id_Rol'] . '">' . $opcion['rol'] . '</td>';
-    $html .= '<td>';
-    for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
-        if ($_SESSION['permisos'][$j]['id_Permiso'] == 18) {
-            $html .= '<button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#modalModificarRol" id="botonEdicion' . $opcion['id_Rol'] . '" onclick="editarRol(' . $opcion['id_Rol'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+        foreach ($datos as $ind => $opcion) {
+            $html .= '<tr style="background-color: #bbbbbb;">';
+            $html .= '<td id="textoRol' . $opcion['id_Rol'] . '">' . $opcion['rol'] . '</td>';
+            $html .= '<td>';
+            for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
+                if ($_SESSION['permisos'][$j]['id_Permiso'] == 18) {
+                    $html .= '<button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#modalModificarRol" id="botonEdicion' . $opcion['id_Rol'] . '" onclick="editarRol(' . $opcion['id_Rol'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+                }
+            }
+
+            $html .= '&nbsp &nbsp';
+
+            for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
+                if ($_SESSION['permisos'][$k]['id_Permiso'] == 19) {
+                    $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminar' . $opcion['id_Rol'] . '" onclick="eliminarRol(' . $opcion['id_Rol'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
+                }
+            }
+            $html .= '</td>';
+            $html .= '</tr>';
         }
-    }
 
-    $html .= '&nbsp &nbsp';
+        $html .= '</table>';
+        $html .= '</div>';
 
-    for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
-        if ($_SESSION['permisos'][$k]['id_Permiso'] == 19) {
-            $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminar' . $opcion['id_Rol'] . '" onclick="eliminarRol(' . $opcion['id_Rol'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-        }
+        echo $html;
     }
-    $html .= '</td>';
-    $html .= '</tr>';
 }
-
-$html .= '</table>';
-$html .= '</div>';
-
-echo $html;
 ?>
 
 <div class="modal fade" id="modalInsertarRol" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
