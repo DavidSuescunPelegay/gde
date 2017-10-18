@@ -13,7 +13,7 @@ function encabezado()
 }
 
 header('Content-Type: application/word');
-header('Content-Disposition: attachment; filename=usuarios' . date("dmy") . '.doc');
+header('Content-Disposition: attachment; filename=pedidos' . date("dmy") . '.doc');
 
 require_once $_SESSION['RAIZ'] . 'controladores/PedidosC.php';
 

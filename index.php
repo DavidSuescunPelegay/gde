@@ -123,13 +123,13 @@ echo $avisoNavegador;
     </form>
 </div>
 <footer>
-    <div id="infoFooter">
-        <p style="text-align: center">Version del Proyecto: 3.6 - Ultima Actualizacion: Lunes, 20 de Febrero de 2017 -
-            <a href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a>
-            <br>
-            © David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero
-        </p>
-    </div>
+  <div id="infoFooter">
+      <p style="text-align: center">Version del Proyecto: 3.7 - Ultima Actualizacion: Martes, 21 de Febrero de 2017 -
+          <a href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a>
+          <br>
+          © David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero
+      </p>
+  </div>
 </footer>
 </body>
 </html>

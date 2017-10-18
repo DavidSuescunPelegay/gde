@@ -51,7 +51,15 @@ function exportarAWord(){
 }
 
 function exportarAExcel(){
+    $('#busquedaPedidos').attr('action', 'vistas/Pedidos/PedidosToExcel.php');
+    $('#busquedaPedidos').attr('target', 'popup');
+    $('#busquedaPedidos').submit();
+}
 
+function exportarAExcelPHP(){
+    $('#busquedaPedidos').attr('action', 'vistas/Pedidos/PedidosToExcelPHP.php');
+    $('#busquedaPedidos').attr('target', 'popup');
+    $('#busquedaPedidos').submit();
 }
 
 function exportarAPDF(){

@@ -7,7 +7,7 @@ require_once $_SESSION['RAIZ'] . 'controladores/PedidosC.php';
 $objPedidos = new PedidosC();
 $pedidos = $objPedidos->exportToFile($_SESSION['PEDIDOS_ULTIMA_CONSULTA']);
 
-class PDF extends FPDF
+class PedidosToPDF extends FPDF
 {
     function encabezadoTabla($y)
     {
@@ -32,7 +32,7 @@ class PDF extends FPDF
     }
 }
 
-$pdf = new PDF();
+$pdf = new PedidosToPDF();
 $pdf->AliasNbPages();//Necesario para visualizar el numero de paginas
 $pdf->SetAutoPageBreak(false);
 $pdf->SetMargins(20, 30, 10);
