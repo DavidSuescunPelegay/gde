@@ -20,6 +20,7 @@
 </form>
 <div id="div-resultado-busqueda"></div>
 <div id="div-edicion" style="display:none;">
+	<a name="edicionUsuario"></a>
 	<div class="row">
 		<div class="col-lg-12">
 			<b><span id="operacion">MODIFICAR</span> USUARIO</b>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2016 a las 11:03:16
--- Versión del servidor: 5.7.14
--- Versión de PHP: 5.6.25
+-- Tiempo de generación: 18-10-2016 a las 09:56:37
+-- Versión del servidor: 5.7.9
+-- Versión de PHP: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,13 +29,14 @@ USE `gde`;
 --
 
 DROP TABLE IF EXISTS `menus`;
-CREATE TABLE `menus` (
-  `id_Opcion` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `menus` (
+  `id_Opcion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `texto` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
   `url` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `id_Padre` int(11) UNSIGNED NOT NULL,
-  `orden` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  `orden` int(4) NOT NULL,
+  PRIMARY KEY (`id_Opcion`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `menus`
@@ -44,14 +45,105 @@ CREATE TABLE `menus` (
 INSERT INTO `menus` (`id_Opcion`, `texto`, `url`, `id_Padre`, `orden`) VALUES
 (1, 'Usuarios', 'app.php?c=Usuarios', 0, 10),
 (2, 'Menus', 'app.php?c=Menus', 0, 20),
-(3, 'Ayuda', '#', 0, 60),
+(3, 'Permisos', 'app.php?c=Permisos', 0, 60),
 (4, 'Personal', '#', 0, 40),
 (5, 'Contratos', '#', 4, 10),
 (6, 'Nominas', '#', 4, 20),
 (7, 'Administracion', '#', 0, 50),
 (8, 'Facturas', '#', 7, 20),
 (9, 'Informes', '#', 7, 20),
-(10, 'Pedidos', '#', 0, 30);
+(10, 'Pedidos', '#', 0, 30),
+(11, 'Pruebas', 'index.php', 0, 9999);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `permisorol`
+--
+
+DROP TABLE IF EXISTS `permisorol`;
+CREATE TABLE IF NOT EXISTS `permisorol` (
+  `id_Permiso` int(11) NOT NULL,
+  `id_Rol` int(11) NOT NULL,
+  PRIMARY KEY (`id_Permiso`,`id_Rol`),
+  KEY `id_Rol` (`id_Rol`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `permisos`
+--
+
+DROP TABLE IF EXISTS `permisos`;
+CREATE TABLE IF NOT EXISTS `permisos` (
+  `id_Permiso` int(11) NOT NULL AUTO_INCREMENT,
+  `id_Opcion` int(11) NOT NULL,
+  `num_Permiso` int(2) NOT NULL,
+  `permiso` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_Permiso`),
+  KEY `id_Opcion` (`id_Opcion`)
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `permisos`
+--
+
+INSERT INTO `permisos` (`id_Permiso`, `id_Opcion`, `num_Permiso`, `permiso`) VALUES
+(1, 1, 1, 'Consultar Usuario'),
+(2, 1, 2, 'Insertar Usuario'),
+(3, 1, 3, 'Modificar Usuario'),
+(4, 1, 4, 'Eliminar Usuario'),
+(5, 2, 1, 'Consultar Menu'),
+(6, 2, 2, 'Insertar Menu'),
+(7, 2, 3, 'Modificar Menu'),
+(8, 2, 4, 'Eliminar Menu'),
+(9, 11, 1, 'Consultar Pruebas'),
+(10, 11, 2, 'Insertar Pruebas'),
+(11, 11, 3, 'Modificar Pruebas'),
+(12, 11, 4, 'Eliminar Pruebas'),
+(13, 11, 5, 'Lorem Ipsum');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `permisousuario`
+--
+
+DROP TABLE IF EXISTS `permisousuario`;
+CREATE TABLE IF NOT EXISTS `permisousuario` (
+  `id_Permiso` int(11) NOT NULL,
+  `id_Usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_Permiso`,`id_Usuario`),
+  KEY `id_Usuario` (`id_Usuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id_Rol` int(11) NOT NULL,
+  `rol` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_Rol`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rolesusuario`
+--
+
+DROP TABLE IF EXISTS `rolesusuario`;
+CREATE TABLE IF NOT EXISTS `rolesusuario` (
+  `id_Rol` int(11) NOT NULL,
+  `id_Usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_Rol`,`id_Usuario`),
+  KEY `id_Usuario` (`id_Usuario`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -60,15 +152,17 @@ INSERT INTO `menus` (`id_Opcion`, `texto`, `url`, `id_Padre`, `orden`) VALUES
 --
 
 DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE `usuarios` (
-  `id_Usuario` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_Usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `apellido_1` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `apellido_2` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `login` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `pass` varchar(32) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
-  `activo` char(1) NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `activo` char(1) NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`id_Usuario`),
+  UNIQUE KEY `login` (`login`)
+) ENGINE=InnoDB AUTO_INCREMENT=497 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -135,7 +229,7 @@ INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `log
 (259, 'Henriette ', 'Pfalzheim', '', 'Pfalzheim', '202cb962ac59075b964b07152d234b70', 'S'),
 (260, 'Elizabeth ', 'Lincoln', '', 'Lincoln', '202cb962ac59075b964b07152d234b70', 'S'),
 (273, 'Peter ', 'Franken', '', 'Franken', '202cb962ac59075b964b07152d234b70', 'S'),
-(276, 'Anna', 'O\'Hara', '', 'O\'Hara', '202cb962ac59075b964b07152d234b70', 'S'),
+(276, 'Anna', 'O''Hara', '', 'O''Hara', '202cb962ac59075b964b07152d234b70', 'S'),
 (278, 'Giovanni ', 'Rovelli', '', 'Rovelli', '202cb962ac59075b964b07152d234b70', 'S'),
 (282, 'Adrian', 'Huxley', '', 'Huxley', '202cb962ac59075b964b07152d234b70', 'S'),
 (286, 'Marta', 'Hernandez', '', 'Hernandez3', '202cb962ac59075b964b07152d234b70', 'S'),
@@ -203,37 +297,6 @@ INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `log
 (495, 'Valarie', 'Franco', '', 'Franco2', '202cb962ac59075b964b07152d234b70', 'S'),
 (496, 'Tony', 'Snowden', '', 'Snowden', '202cb962ac59075b964b07152d234b70', 'S');
 
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `menus`
---
-ALTER TABLE `menus`
-  ADD PRIMARY KEY (`id_Opcion`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_Usuario`),
-  ADD UNIQUE KEY `login` (`login`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `menus`
---
-ALTER TABLE `menus`
-  MODIFY `id_Opcion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_Usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=497;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

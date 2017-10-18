@@ -14,9 +14,9 @@
 			if(isset($_SESSION['debug'])) $this->debug=$_SESSION['debug'];
 			$this->conexion= new mysqli(HOST,USER,PASS,DB);
 			if($this->conexion->connect_errno){
-				$this->error='Error de conexión a BD: '.$this->conexion->connect_error;
+				$this->error='Error de conexion a BD: '.$this->conexion->connect_error;
 				if($this->debug=='S'){
-					die('Error de conexión: '.$this->conexion->connect_error);
+					die('Error de conexion: '.$this->conexion->connect_error);
 				}else{
 					die('ERROR (NO se puede conectar con la BD.)');
 				}
@@ -47,11 +47,11 @@
 			$this->SQL=$SQL;
 			$this->conexion->query($SQL);
 			if ($this->conexion->errno){
-				$this->error='Error de actualización en BD.'.'('.$this->conexion->errno.')';
+				$this->error='Error de actualizacion en BD.'.'('.$this->conexion->errno.')';
 				if($this->debug=='S'){
-					die('(Error en actualización: ('.$this->conexion->error.') '.$SQL);
+					die('(Error en actualizacion: ('.$this->conexion->error.') '.$SQL);
 				}else{
-					die('ERROR (Consulta de actualización erronea en BD.)');
+					die('ERROR (Consulta de actualizacion erronea en BD.)');
 				}
 			}
 			return $this->conexion->affected_rows;
@@ -61,11 +61,11 @@
 			$this->SQL=$SQL;
 			$this->conexion->query($SQL);
 			if ($this->conexion->errno){
-				$this->error='Error de inserción en BD.'.'('.$this->conexion->errno.')';
+				$this->error='Error de insercion en BD.'.'('.$this->conexion->errno.')';
 				if($this->debug=='S'){
 					die('(Error al insertar: ('.$this->conexion->error.') '.$SQL);
 				}else{
-					die('ERROR (Consulta de inserción en BD erronea.)');
+					die('ERROR (Consulta de insercion en BD erronea.)');
 				}
 			}
 			return $this->conexion->insert_id;

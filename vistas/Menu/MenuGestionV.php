@@ -1,6 +1,7 @@
 <?php
-$html = '<table border="1" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12" id="tablaMenus">';
-$html .= '<tr>';
+$html = '<div class="table-responsive">';
+$html .= '<table class="table table-striped" id="tablaMenus">';
+$html .= '<tr style="background-color: #888888;">';
 $html .= '<th>ID</th>';
 $html .= '<th>Nombre</th>';
 $html .= '<th>URL</th>';
@@ -10,37 +11,45 @@ $html .= '<th>Operaciones Disponibles</th>';
 $html .= '</tr>';
 
 foreach ($datos as $ind => $opcion) {
-    $html .= '<tr>';
+    $html .= '<tr style="background-color: #bbbbbb;">';
     $html .= '<td id="id' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . '</td>';
     $html .= '<td id="texto' . $opcion['id_Opcion'] . '">' . $opcion['texto'] . '</td>';
     $html .= '<td id="url' . $opcion['id_Opcion'] . '">' . $opcion['url'] . '</td>';
     $html .= '<td id="padre' . $opcion['id_Opcion'] . '">' . $opcion['id_Padre'] . '</td>';
     $html .= '<td id="orden' . $opcion['id_Opcion'] . '">' . $opcion['orden'] . '</td>';
-    $html .= '<td><button type="button" id="botonEdicion' . $opcion['id_Opcion'] . '" onclick="editarMenu(' . $opcion['id_Opcion'] . ')">Editar</button>';
-    $html .= '<button type="button" id="botonEliminar' . $opcion['id_Opcion'] . '" onclick="eliminarMenu(' . $opcion['id_Opcion'] . ')">Eliminar</button></td>';
+    $html .= '<td><a href="app.php?c=Permisos"><button type="button" class="btn btn-info" id="botonPermisos' . $opcion['id_Opcion'] . '">Permisos</button></a>';
+    $html .= '&nbsp &nbsp';
+    $html .= '<button type="button" class="btn btn-warning" id="botonEdicion' . $opcion['id_Opcion'] . '" onclick="editarMenu(' . $opcion['id_Opcion'] . ')">Editar</button>';
+    $html .= '&nbsp &nbsp';
+    $html .= '<button type="button" class="btn btn-danger" id="botonEliminar' . $opcion['id_Opcion'] . '" onclick="eliminarMenu(' . $opcion['id_Opcion'] . ')">Eliminar</button></td>';
     $html .= '</tr>';
 
     if (isset($opcion['subOpciones'])) {
         foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
-            $html .= '<tr>';
+            $html .= '<tr style="background-color: #dddddd;">';
             $html .= '<td id="id' . $subOpcion['id_Opcion'] . '">' . $subOpcion['id_Opcion'] . '</td>';
-            $html .= '<td id="texto' . $subOpcion['id_Opcion'] . '">' . $subOpcion['texto'] . '</td>';
+            $html .= '<td style="padding-left: 2%;" id="texto' . $subOpcion['id_Opcion'] . '">' . $subOpcion['texto'] . '</td>';
             $html .= '<td id="url' . $subOpcion['id_Opcion'] . '">' . $subOpcion['url'] . '</td>';
             $html .= '<td id="padre' . $subOpcion['id_Opcion'] . '">' . $subOpcion['id_Padre'] . '</td>';
             $html .= '<td id="orden' . $subOpcion['id_Opcion'] . '">' . $subOpcion['orden'] . '</td>';
-            $html .= '<td><button type="button" id="botonEdicion' . $subOpcion['id_Opcion'] . '" onclick="editarMenu(' . $subOpcion['id_Opcion'] . ')">Editar</button>';
-            $html .= '<button type="button" id="botonEliminar' . $subOpcion['id_Opcion'] . '" onclick="eliminarMenu(' . $subOpcion['id_Opcion'] . ')">Eliminar</button></td>';
+            $html .= '<td><a href="app.php?c=Permisos"><button type="button" class="btn btn-info" id="botonPermisos' . $opcion['id_Opcion'] . '">Permisos</button></a>';
+            $html .= '&nbsp &nbsp';
+            $html .= '<button type="button" class="btn btn-warning" id="botonEdicion' . $subOpcion['id_Opcion'] . '" onclick="editarMenu(' . $subOpcion['id_Opcion'] . ', ' . $subOpcion['id_Padre'] . ')">Editar</button>';
+            $html .= '&nbsp &nbsp';
+            $html .= '<button type="button" class="btn btn-danger" id="botonEliminar' . $subOpcion['id_Opcion'] . '" onclick="eliminarMenu(' . $subOpcion['id_Opcion'] . ')">Eliminar</button></td>';
             $html .= '</tr>';
         }
     }
 }
 
 $html .= '</table>';
+$html .= '</div>';
+
 echo $html;
 ?>
 
 <br><br>
-<button type="button" id="botonNuevo" onclick="mostrarMenuInsertar()">Nuevo Menu</button>
+<button type="button" id="botonNuevo" class="btn btn-default" onclick="mostrarMenuInsertar()">Nuevo Menu</button>
 <br><br>
 
 <div id="div-nuevo" style="display:none; border: 1px #000 solid; padding: 1%">
@@ -84,7 +93,7 @@ echo $html;
                 $html .= '<select id="valoresIdPadreInsertar" name="valoresIdPadreInsertar">';
                 $html .= '<option value="0">0 (no depende de ningun menu)</option>';
                 while ($fila = mysqli_fetch_array($resultado)) {
-                    $html .= '<option value="padre'.$fila['id_Opcion'].'">'.$fila['id_Opcion'].' (dependera del menu '.$fila['texto'].')</option>';
+                    $html .= '<option value="padre' . $fila['id_Opcion'] . '">' . $fila['id_Opcion'] . ' (dependera del menu ' . $fila['texto'] . ')</option>';
                 }
                 $html .= '</select>';
                 mysqli_close($conexion);
@@ -148,9 +157,9 @@ echo $html;
                 $resultado = mysqli_query($conexion, $sql);
 
                 $html .= '<select id="valoresIdPadreModificar" name="valoresIdPadreModificar">';
-                $html .= '<option value="0">0 (no depende de ningun menu)</option>';
+                $html .= '<option value="0">0</option>';
                 while ($fila = mysqli_fetch_array($resultado)) {
-                    $html .= '<option value="padre'.$fila['id_Opcion'].'">'.$fila['id_Opcion'].' (dependera del menu '.$fila['texto'].')</option>';
+                    $html .= '<option value="' . $fila['id_Opcion'] . '">' . $fila['id_Opcion'] . '</option>';
                 }
                 $html .= '</select>';
                 mysqli_close($conexion);

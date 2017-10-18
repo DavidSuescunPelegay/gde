@@ -1,7 +1,5 @@
 <?php session_start();
 	require_once 'config.php';
-// 	print_r($_POST);
-// 	var_dump($_POST);
 	$msj='';
 	if( isset($_POST['login']) && isset($_POST['pass'])){
 		
@@ -9,10 +7,6 @@
 		$usuario=new UsuariosC();
 		$res=$usuario->validarUsuario(array('login'=>$_POST['login'],
 											'pass'=>$_POST['pass']));
-// 		$para=array();
-// 		$para['login']=$_POST['login'];
-// 		$para['pass']=$_POST['pass'];
-// 		$res=$usuario->validarUsuario($para);
 		if( $res['valido']=='S'){
 			$_SESSION['login']=$_POST['login'];
 			header('location: app.php');
@@ -36,7 +30,7 @@
 				<input name="pass" id="pass" size="12" value="" 
 			 		type="password">
 			</label> <br><br>
-			<center><button type="submit">Entrar</button></center>
+			<button type="submit">Entrar</button>
 		</form>
 
 		<h4>Nombre: admin</h4>

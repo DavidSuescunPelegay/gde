@@ -39,11 +39,13 @@ class MenusC extends Controlador
         $resultado = $this->modelo->insertarMenu($datos);
     }
 
-    public function modificarMenu($datos){
+    public function modificarMenu($datos)
+    {
         $resultado = $this->modelo->guardarMenu($datos);
     }
 
-    public function eliminarMenu($datos){
+    public function eliminarMenu($datos)
+    {
         $resultado = $this->modelo->eliminarMenu($datos);
     }
 }

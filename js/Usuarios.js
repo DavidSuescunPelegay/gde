@@ -14,6 +14,9 @@ function buscar(){
 			$('#div-resultado-busqueda').html(vista);
 		}
 	})
+
+	var notificacion = "El usuario/s se ha encontrado correctamente";
+	llenarNotificaciones(notificacion);
 }
 function guardar(){
 	var correcto='S';
@@ -70,6 +73,9 @@ function guardar(){
 	}else{
 		alert('NO se ha podido guardar. Revise los campos en rojo;')
 	}
+
+	var notificacion = "El usuario se ha guardado correctamente";
+	llenarNotificaciones(notificacion);
 }
 
 
@@ -106,6 +112,9 @@ function nuevoEditar(id_Usuario){
 			}
 		})
 	}
+
+	var notificacion = "Los datos del usuario se han cargado correctamente en el formulario. Pulsa otra vez para que te lleve al formulario de abajo.";
+	llenarNotificaciones(notificacion);
 }
 
 function activar(activo, id_Usuario){
@@ -125,4 +134,18 @@ function activar(activo, id_Usuario){
 			}
 		}
 	})
+}
+
+
+/*Funcion que establece las notificaciones*/
+function llenarNotificaciones(notificacionAMostrar){
+	var textoAMostrar = notificacionAMostrar;
+	$('#notificaciones').text(textoAMostrar);
+	window.setTimeout(vaciarNotificaciones, 5000);
+}
+
+/*Funcion que vacia la caja de notificaciones*/
+function vaciarNotificaciones() {
+	var vacio = "";
+	$('#notificaciones').text(vacio);
 }

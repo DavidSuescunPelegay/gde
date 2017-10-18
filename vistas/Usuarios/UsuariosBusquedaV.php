@@ -9,9 +9,13 @@
 		</tr>
 		<?php foreach ($datos as $fila){ ?>
 			<tr>
-				<td><button type="button" 
+				<td>
+					<a href="#edicionUsuario" style="text-decoration:none; color: #000000;">
+					<button type="button"
 					onclick="nuevoEditar('<?php echo $fila['id_Usuario']; ?>')">
-					Editar</button>
+					Editar
+					</button>
+					</a>
 				</td>
 				<td><?php echo $fila['apellido_1'].' '.$fila['apellido_2'].', '
 							.$fila['nombre']; ?></td>
