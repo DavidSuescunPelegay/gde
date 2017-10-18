@@ -21,7 +21,7 @@ class PedidosC extends Controlador
         $vista->render($_SESSION['RAIZ'] . '/vistas/Pedidos/PedidosV.php', $menu);
     }
 
-    public function exportToWord($datos)
+    public function exportToFile($datos)
     {
         $filas = $this->modelo->busqueda($datos);
 

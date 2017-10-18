@@ -63,17 +63,17 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <?php if ($_SERVER['SERVER_NAME'] == 'gdedavidsp.altervista.org') { ?>
-    <link rel="stylesheet" href="js/simpleautocomplete/simpleAutoComplete.css">
-        <script src="js/simpleautocomplete/simpleAutoCompleteWeb.js"></script>
-        <script src="js/simpleautocomplete/simpleAutoCompleteBaseWeb.js"></script>
+    <link rel="stylesheet" href="lib/simpleautocomplete/simpleAutoComplete.css">
+        <script src="lib/simpleautocomplete/simpleAutoCompleteWeb.js"></script>
+        <script src="lib/simpleautocomplete/simpleAutoCompleteBaseWeb.js"></script>
     <?php }else{ ?>
-    <link rel="stylesheet" href="js/simpleautocomplete/simpleAutoComplete.css">
-        <script src="js/simpleautocomplete/simpleAutoComplete.js"></script>
-        <script src="js/simpleautocomplete/simpleAutoCompleteBase.js"></script>
+    <link rel="stylesheet" href="lib/simpleautocomplete/simpleAutoComplete.css">
+        <script src="lib/simpleautocomplete/simpleAutoComplete.js"></script>
+        <script src="lib/simpleautocomplete/simpleAutoCompleteBase.js"></script>
     <?php } ?>
 
     <!--Importacion de la libreria AjaxUpload-->
-    <script src="js/ajaxupload/AjaxUpload.js"></script>
+    <script src="lib/ajaxupload/AjaxUpload.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top" id="barraSuperior">
@@ -325,13 +325,13 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
     </p>
 </a>
 <footer>
-    <div id="infoFooter">
-        <p style="text-align: center">Version del Proyecto: 3.5 - Ultima Actualizacion: Viernes, 03 de Febrero de 2017 -
-            <a href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a>
-            <br>
-            © David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero
-        </p>
-    </div>
+  <div id="infoFooter">
+      <p style="text-align: center">Version del Proyecto: 3.6 - Ultima Actualizacion: Lunes, 20 de Febrero de 2017 -
+          <a href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a>
+          <br>
+          © David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero
+      </p>
+  </div>
 </footer>
 </body>
 </html>

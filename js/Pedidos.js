@@ -49,3 +49,13 @@ function exportarAWord(){
     $('#busquedaPedidos').attr('target', 'popup');
     $('#busquedaPedidos').submit();
 }
+
+function exportarAExcel(){
+
+}
+
+function exportarAPDF(){
+    $('#busquedaPedidos').attr('action', 'vistas/Pedidos/PedidosToPDF.php');
+    $('#busquedaPedidos').attr('target', 'popup');
+    $('#busquedaPedidos').submit();
+}

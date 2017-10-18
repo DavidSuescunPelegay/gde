@@ -14,10 +14,17 @@
 </div>
 
 <br>
-<button type="button" onclick="exportarAWord()" class="btn btn-default">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Microsoft_Word_logo.png" width="32">
-    Exportar a Word
+<button type="button" onclick="exportarAWord()" class="btn btn-default" style="background-color: #2C5898 !important; border: 1px #2C5898 solid !important;">
     <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+    Exportar a Word
+</button>
+<button type="button" disabled onclick="exportarAExcel()" class="btn btn-default" style="background-color: #02723B !important; border: 1px #02723B solid !important;">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+    Exportar a Excel
+</button>
+<button type="button" onclick="exportarAPDF()" class="btn btn-default" style="background-color: #CF3B31 !important; border: 1px #CF3B31 solid !important;">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+    Exportar a PDF
 </button>
 <br>
 <br>

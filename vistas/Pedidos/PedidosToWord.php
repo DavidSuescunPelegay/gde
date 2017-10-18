@@ -18,7 +18,7 @@ header('Content-Disposition: attachment; filename=usuarios' . date("dmy") . '.do
 require_once $_SESSION['RAIZ'] . 'controladores/PedidosC.php';
 
 $objPedidos = new PedidosC();
-$pedidos = $objPedidos->exportToWord($_SESSION['PEDIDOS_ULTIMA_CONSULTA']);
+$pedidos = $objPedidos->exportToFile($_SESSION['PEDIDOS_ULTIMA_CONSULTA']);
 
 $html = '';
 $html .= '<html xmlns:w="urn:schemas-microsoft-com:office:word">';
