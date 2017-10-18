@@ -23,6 +23,9 @@
                 <center>ID Pedido</center>
             </th>
             <th>
+                <center>Nº Elementos</center>
+            </th>
+            <th>
                 <center>Usuario</center>
             </th>
             <th>
@@ -49,29 +52,72 @@
             <th>
                 <center>Suma</center>
             </th>
-            <th>
-                <center>Conteo</center>
-            </th>
         </tr>
         <?php
         foreach ($datos as $opcion) { ?>
-            <tr>
+            <tr class="filaTabla">
                 <td>
-                    <button type="button" data-toggle="modal" data-target="#modalDetalles"
-                            onclick="cargarDetallesPedido(<?php echo $opcion['id_Pedido'] ?>)">+
-                    </button>
+                    <center>
+                        <button type="button" data-toggle="modal" data-target="#modalDetalles"
+                                onclick="cargarDetallesPedido(<?php echo $opcion['id_Pedido'] ?>)">+
+                        </button>
+                    </center>
                 </td>
-                <td><?php echo $opcion['id_Pedido']; ?></td>
-                <td><?php echo $opcion['apellido_1'] . ', ' . $opcion['nombre']; ?></td>
-                <td><?php echo $opcion['fecha_Pedido']; ?></td>
-                <td><?php echo $opcion['fecha_Almacen']; ?></td>
-                <td><?php echo $opcion['fecha_Envio']; ?></td>
-                <td><?php echo $opcion['fecha_Recibido']; ?></td>
-                <td><?php echo $opcion['fecha_Finalizado']; ?></td>
-                <td><?php echo $opcion['transporte']; ?></td>
-                <td><?php echo $opcion['direccion']; ?></td>
-                <td><?php echo $opcion['suma']; ?></td>
-                <td><?php echo $opcion['conteo']; ?></td>
+                <td>
+                    <center>
+                        <?php echo $opcion['id_Pedido']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['conteo']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['apellido_1'] . ', ' . $opcion['nombre']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['fecha_Pedido']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['fecha_Almacen']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['fecha_Envio']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['fecha_Recibido']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['fecha_Finalizado']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['transporte']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['direccion']; ?>
+                    </center>
+                </td>
+                <td>
+                    <center>
+                        <?php echo $opcion['suma']; ?> €
+                    </center>
+                </td>
             </tr>
             <?php
         }
@@ -79,11 +125,13 @@
     </table>
 </div>
 
-<div class="modal fade bs-example-modal-lg" id="modalDetalles" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade bs-example-modal-lg" id="modalDetalles" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Detalles del Pedido</h4>
             </div>
             <div class="modal-body">

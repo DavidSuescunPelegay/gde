@@ -23,7 +23,7 @@
             <th></th>
         </tr>
         <?php foreach ($datos as $fila) { ?>
-            <tr style="background-color: #bbbbbb;" class="filaTabla">
+            <tr class="filaTabla">
                 <td>
                     <?php echo $fila['apellido_1'] . ' ' . $fila['apellido_2'] . ', ' . $fila['nombre'] ?>
                 </td>

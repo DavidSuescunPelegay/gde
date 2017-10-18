@@ -22,7 +22,7 @@
         <?php
         foreach ($datos[0] as $opcion) {
             ?>
-            <tr style="background-color: #bbbbbb" class="filaTabla">
+            <tr class="filaTabla">
                 <td id="opcion<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['id_Opcion'] ?>
                     - <?php echo $opcion['texto'] ?></td>
                 <td id="ordenPermiso<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['num_Permiso'] ?></td>

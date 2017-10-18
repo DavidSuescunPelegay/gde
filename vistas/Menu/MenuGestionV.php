@@ -34,7 +34,7 @@ for ($i = 0;
                 <?php
                 foreach ($datos[0] as $ind => $opcion) {
                     ?>
-                    <tr style="background-color: #bbbbbb;" class="filaTabla">
+                    <tr class="filaTabla">
                     <td id="texto<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['texto'] ?></td>
                     <td id="url<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['url'] ?></td>
                     <td id="padre<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['id_Padre'] ?></td>
@@ -71,13 +71,14 @@ for ($i = 0;
                             <button type="button" class="btn btn-default"
                                     id="botonPermisos<?php echo $opcion['id_Opcion'] ?>"><span
                                         class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span></button>
-                        </a></td>
+                        </a>
+                    </td>
                     <?php
 
                     if (isset($opcion['subOpciones'])) {
                         foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
                             ?>
-                            <tr style="background-color: #dddddd;" class="filaTabla">
+                            <tr class="filaTablaSubMenus">
                                 <td style="padding-left: 2%;"
                                     id="texto<?php echo $subOpcion['id_Opcion'] ?>"><?php echo $subOpcion['texto'] ?>
                                 </td>

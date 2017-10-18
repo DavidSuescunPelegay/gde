@@ -7,10 +7,8 @@ button {
 }
 
 button:hover {
-    border: 1px #27A99D solid !important;
-    background-color: #FFFFFF !important;
-    transition: background-color 0.3s !important;
-    color: #27A99D !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: box-shadow 0.3s !important;
 }
 
 #barraSuperior {
@@ -20,7 +18,12 @@ button:hover {
 
 #logoPrincipal {
     color: white;
-    font-size: 190%;
+    font-size: 170%;
+}
+
+.fotoPerfil {
+    border-radius: 100%;
+    background-color: #FFFFFF;
 }
 
 .inputRed {
@@ -28,7 +31,7 @@ button:hover {
 }
 
 .menuElements {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .menuElements:hover {
@@ -157,7 +160,15 @@ button:hover {
     color: #FFFFFF !important;
 }
 
-.filaTabla:hover > * {
+.filaTabla{
+    background-color: #bbbbbb !important;
+}
+
+.filaTablaSubMenus{
+    background-color: #dddddd !important;
+}
+
+.filaTabla:hover, .filaTablaSubMenus:hover {
     background-color: #FFFFFF !important;
     transition: background-color 0.3s;
 }

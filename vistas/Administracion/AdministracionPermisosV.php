@@ -2,7 +2,7 @@
     <?php
     foreach ($datos[0] as $ind => $opcion) {
         if ($ind >= 0) {
-            if ($opcion['id_Opcion'] % 2 == 0) {
+            if ($opcion['id_Permiso'] % 2 == 0) {
                 ?>
                 <div style="background-color: #eaeaea">
                     <?php if (isset($datos[1][$opcion['id_Permiso']])) { ?>

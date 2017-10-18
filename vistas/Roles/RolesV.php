@@ -29,7 +29,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                 <?php
                 foreach ($datos as $ind => $opcion) {
                     ?>
-                    <tr style="background-color: #bbbbbb;" class="filaTabla">
+                    <tr class="filaTabla">
                         <td id="textoRol<?php echo $opcion['id_Rol'] ?>"><?php echo $opcion['rol'] ?></td>
                         <td>
                             <?php

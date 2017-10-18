@@ -5,9 +5,9 @@
 <div class="table-responsive">
     <table class="table table-stripped" id="tablaDetallesPedidos">
         <tr style="background-color: #2E353D;">
+            <th>ID Categoria</th>
             <th>Producto</th>
             <th>Descripcion</th>
-            <th>ID Categoria</th>
             <th>Stock</th>
             <th>Precio Compra</th>
             <th>Precio Venta</th>
@@ -16,10 +16,10 @@
         </tr>
         <?php
         foreach ($datos as $opcion) { ?>
-            <tr>
+            <tr class="filaTabla">
+                <td><?php echo $opcion['id_Categoria']; ?></td>
                 <td><?php echo $opcion['producto']; ?></td>
                 <td><?php echo $opcion['descripcion']; ?></td>
-                <td><?php echo $opcion['id_Categoria']; ?></td>
                 <td><?php echo $opcion['stock']; ?></td>
                 <td><?php echo $opcion['precio_Compra']; ?></td>
                 <td><?php echo $opcion['precio_Venta']; ?></td>

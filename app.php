@@ -105,12 +105,12 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
                     if ($_SESSION['datosUsuario'][0]['foto_de_Perfil'] == null) {
                         ?>
                         <img src="images/userdefault.png"
-                             class="img-responsive" alt="" style="background-color: #FFFFFF">
+                             class="img-responsive fotoPerfil" alt="">
                         <?php
                     } else {
                         ?>
                         <img src="<?php echo $_SESSION['datosUsuario'][0]['foto_de_Perfil']; ?>"
-                             class="img-responsive" alt="" style="background-color: #FFFFFF">
+                             class="img-responsive fotoPerfil" alt="">
                         <?php
                     }
                     ?>
@@ -325,7 +325,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 </a>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.3 - Ultima Actualizacion: Viernes, 13 de Enero de 2017 - <a
+        <center>Version del Proyecto: 3.4 - Ultima Actualizacion: Martes, 17 de Enero de 2017 - <a
                     href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>

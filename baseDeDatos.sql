@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 12, 2017 at 01:25 PM
--- Server version: 5.7.11
--- PHP Version: 5.6.19
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-01-2017 a las 11:36:29
+-- Versión del servidor: 5.7.9
+-- Versión de PHP: 5.6.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gde`
+-- Base de datos: `gde`
 --
 CREATE DATABASE IF NOT EXISTS `gde` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `gde`;
@@ -25,38 +25,39 @@ USE `gde`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 DROP TABLE IF EXISTS `categorias`;
-CREATE TABLE `categorias` (
-  `id_Categoria` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `id_Categoria` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL,
-  `descripcion` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `descripcion` varchar(255) CHARACTER SET latin1 COLLATE latin1_spanish_ci DEFAULT NULL,
+  PRIMARY KEY (`id_Categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`id_Categoria`, `categoria`, `descripcion`) VALUES
-(1, 'Coches Vintage', 'Nuestros modelos de coches vintage realista retratan automóviles producidos a partir de principios de 1900 hasta la década de 1940. Los materiales utilizados son de baquelita, fundición, plástico y madera. La mayoría de las réplicas se encuentran en los t'),
-(2, 'Barcos', 'El día de fiesta o un regalo perfecto del aniversario para los ejecutivos, clientes, amigos y familiares. Estos modelos de barcos artesanales son, impresionantes obras de arte únicas que será atesorado durante generaciones! Vienen totalmente ensamblados y'),
-(3, 'Trenes', 'Los trenes del modelo son un pasatiempo gratificante para los aficionados de todas las edades. Ya sea que usted está buscando para los trenes de colección de madera, tranvías eléctricos o locomotoras, encontrará un gran número de opciones para cualquier p'),
-(4, 'Aviones', 'Unique, avión miniaturas y reproducciones de helicópteros adecuados para las colecciones, así como el hogar, la oficina o decoraciones aula. Modelos contienen detalles impresionantes como logotipos e insignias oficiales, girar los motores a reacción y hél'),
-(5, 'Motocicletas', 'Las motocicletas son el estado de las réplicas del arte de los clásicos, así como leyendas de motocicletas contemporáneas como Harley Davidson, Ducati y Vespa. Modelos contienen detalles impresionantes como logotipos oficiales, ruedas giratorias, pata de '),
-(6, 'Coches clásicos', 'Los entusiastas del coche Atención: Haga que sus sueños más salvajes propiedad de automóviles se hagan realidad. Si usted está buscando para los coches clásicos del músculo, sueño coches deportivos o miniaturas película de inspiración, encontrará excelent'),
-(7, 'Camiones y Autobuses', 'Los modelos de camiones y autobuses son réplicas realistas de buses y camiones especializados producidos a partir de la década de 1920 hasta la actualidad. Los modelos varían en tamaño desde 1:12 a escala 1:50 e incluyen numerosos edición limitada y vario');
+(1, 'Coches Vintage', 'Nuestros modelos de coches vintage realista retratan automoviles producidos a partir de principios de 1900 hasta la decada de 1940. Los materiales utilizados son de baquelita, fundicion, plastico y madera.'),
+(2, 'Barcos', 'El daa de fiesta o un regalo perfecto del aniversario para los ejecutivos, clientes, amigos y familiares. Estos modelos de barcos artesanales son, impresionantes obras de arte unicas que sera atesorado durante generaciones!'),
+(3, 'Trenes', 'Los trenes del modelo son un pasatiempo gratificante para los aficionados de todas las edades. Ya sea que usted esta buscando para los trenes de coleccion de madera, tranvias electricos o locomotoras.'),
+(4, 'Aviones', 'Unique, avion miniaturas y reproducciones de helicopteros adecuados para las colecciones, asi como el hogar, la oficina o decoraciones aula. Modelos contienen detalles impresionantes como logotipos e insignias oficiales.'),
+(5, 'Motocicletas', 'Las motocicletas son el estado de las replicas del arte de los clasicos, asi como leyendas de motocicletas contemporaneas como Harley Davidson, Ducati y Vespa. Modelos contienen detalles impresionantes como logotipos oficiales y ruedas giratorias.'),
+(6, 'Coches clasicos', 'Los entusiastas del coche Atencion: Haga que sus sue&ntilde;os mas salvajes propiedad de automoviles se hagan realidad. Si usted esta buscando para los coches clasicos del musculo, sue&ntilde;o coches deportivos o miniaturas pelicula de inspiracion.'),
+(7, 'Camiones y Autobuses', 'Los modelos de camiones y autobuses son replicas realistas de buses y camiones especializados producidos a partir de la decada de 1920 hasta la actualidad. Los modelos varian en tama&ntilde;o desde 1:12 a escala 1:50.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ficheros`
+-- Estructura de tabla para la tabla `ficheros`
 --
 
 DROP TABLE IF EXISTS `ficheros`;
-CREATE TABLE `ficheros` (
-  `id_Fichero` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `ficheros` (
+  `id_Fichero` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_Usuario` int(11) NOT NULL,
   `sysdate_Subida` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `parametros` varchar(256) NOT NULL,
@@ -64,26 +65,29 @@ CREATE TABLE `ficheros` (
   `nombre` varchar(256) NOT NULL,
   `nombre_Original` varchar(256) NOT NULL,
   `ext` varchar(256) NOT NULL,
-  `activo` char(1) NOT NULL DEFAULT 'S'
+  `activo` char(1) NOT NULL DEFAULT 'S',
+  PRIMARY KEY (`id_Fichero`),
+  KEY `fk_ficheros_usuarios1_idx` (`id_Usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menus`
+-- Estructura de tabla para la tabla `menus`
 --
 
 DROP TABLE IF EXISTS `menus`;
-CREATE TABLE `menus` (
-  `id_Opcion` int(11) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `menus` (
+  `id_Opcion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `texto` varchar(40) NOT NULL,
   `url` varchar(100) NOT NULL,
   `id_Padre` int(11) UNSIGNED NOT NULL,
-  `orden` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `orden` int(4) NOT NULL,
+  PRIMARY KEY (`id_Opcion`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `menus`
+-- Volcado de datos para la tabla `menus`
 --
 
 INSERT INTO `menus` (`id_Opcion`, `texto`, `url`, `id_Padre`, `orden`) VALUES
@@ -104,12 +108,12 @@ INSERT INTO `menus` (`id_Opcion`, `texto`, `url`, `id_Padre`, `orden`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedidos`
+-- Estructura de tabla para la tabla `pedidos`
 --
 
 DROP TABLE IF EXISTS `pedidos`;
-CREATE TABLE `pedidos` (
-  `id_Pedido` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `id_Pedido` int(11) NOT NULL AUTO_INCREMENT,
   `id_Usuario` int(11) NOT NULL,
   `fecha_Pedido` datetime DEFAULT NULL,
   `fecha_Almacen` datetime DEFAULT NULL,
@@ -117,11 +121,13 @@ CREATE TABLE `pedidos` (
   `fecha_Recibido` datetime DEFAULT NULL,
   `fecha_Finalizado` datetime DEFAULT NULL,
   `transporte` varchar(256) CHARACTER SET utf8 NOT NULL,
-  `direccion` varchar(256) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `direccion` varchar(256) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`id_Pedido`),
+  KEY `ind_idUsuario_pedidos` (`id_Usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=10426 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pedidos`
+-- Volcado de datos para la tabla `pedidos`
 --
 
 INSERT INTO `pedidos` (`id_Pedido`, `id_Usuario`, `fecha_Pedido`, `fecha_Almacen`, `fecha_Envio`, `fecha_Recibido`, `fecha_Finalizado`, `transporte`, `direccion`) VALUES
@@ -456,20 +462,23 @@ INSERT INTO `pedidos` (`id_Pedido`, `id_Usuario`, `fecha_Pedido`, `fecha_Almacen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pedidosdetalles`
+-- Estructura de tabla para la tabla `pedidosdetalles`
 --
 
 DROP TABLE IF EXISTS `pedidosdetalles`;
-CREATE TABLE `pedidosdetalles` (
-  `id_Detalle` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `pedidosdetalles` (
+  `id_Detalle` int(11) NOT NULL AUTO_INCREMENT,
   `id_Pedido` int(11) NOT NULL,
   `id_Producto` int(11) NOT NULL,
   `cantidad` int(5) NOT NULL,
-  `precio_Venta` decimal(7,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `precio_Venta` decimal(7,2) NOT NULL,
+  PRIMARY KEY (`id_Detalle`),
+  KEY `ind_idPedido` (`id_Pedido`),
+  KEY `ind_idProducto` (`id_Producto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2997 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pedidosdetalles`
+-- Volcado de datos para la tabla `pedidosdetalles`
 --
 
 INSERT INTO `pedidosdetalles` (`id_Detalle`, `id_Pedido`, `id_Producto`, `cantidad`, `precio_Venta`) VALUES
@@ -3474,17 +3483,20 @@ INSERT INTO `pedidosdetalles` (`id_Detalle`, `id_Pedido`, `id_Producto`, `cantid
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permisorol`
+-- Estructura de tabla para la tabla `permisorol`
 --
 
 DROP TABLE IF EXISTS `permisorol`;
-CREATE TABLE `permisorol` (
+CREATE TABLE IF NOT EXISTS `permisorol` (
   `id_Permiso` int(11) NOT NULL,
-  `id_Rol` int(11) NOT NULL
+  `id_Rol` int(11) NOT NULL,
+  PRIMARY KEY (`id_Permiso`,`id_Rol`),
+  KEY `fk_permisos_has_roles_roles1_idx` (`id_Rol`),
+  KEY `fk_permisos_has_roles_permisos1_idx` (`id_Permiso`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `permisorol`
+-- Volcado de datos para la tabla `permisorol`
 --
 
 INSERT INTO `permisorol` (`id_Permiso`, `id_Rol`) VALUES
@@ -3557,19 +3569,20 @@ INSERT INTO `permisorol` (`id_Permiso`, `id_Rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permisos`
+-- Estructura de tabla para la tabla `permisos`
 --
 
 DROP TABLE IF EXISTS `permisos`;
-CREATE TABLE `permisos` (
-  `id_Permiso` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `permisos` (
+  `id_Permiso` int(11) NOT NULL AUTO_INCREMENT,
   `id_Opcion` int(11) NOT NULL,
   `num_Permiso` int(2) NOT NULL,
-  `permiso` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `permiso` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_Permiso`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `permisos`
+-- Volcado de datos para la tabla `permisos`
 --
 
 INSERT INTO `permisos` (`id_Permiso`, `id_Opcion`, `num_Permiso`, `permiso`) VALUES
@@ -3642,17 +3655,20 @@ INSERT INTO `permisos` (`id_Permiso`, `id_Opcion`, `num_Permiso`, `permiso`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permisousuario`
+-- Estructura de tabla para la tabla `permisousuario`
 --
 
 DROP TABLE IF EXISTS `permisousuario`;
-CREATE TABLE `permisousuario` (
+CREATE TABLE IF NOT EXISTS `permisousuario` (
   `id_Usuario` int(11) NOT NULL,
-  `id_Permiso` int(11) NOT NULL
+  `id_Permiso` int(11) NOT NULL,
+  PRIMARY KEY (`id_Usuario`,`id_Permiso`),
+  KEY `fk_usuarios_has_permisos_permisos1_idx` (`id_Permiso`),
+  KEY `fk_usuarios_has_permisos_usuarios_idx` (`id_Usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `permisousuario`
+-- Volcado de datos para la tabla `permisousuario`
 --
 
 INSERT INTO `permisousuario` (`id_Usuario`, `id_Permiso`) VALUES
@@ -3790,12 +3806,12 @@ INSERT INTO `permisousuario` (`id_Usuario`, `id_Permiso`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 DROP TABLE IF EXISTS `productos`;
-CREATE TABLE `productos` (
-  `id_Producto` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id_Producto` int(11) NOT NULL AUTO_INCREMENT,
   `producto` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `descripcion` varchar(254) COLLATE latin1_spanish_ci NOT NULL,
   `id_Categoria` int(11) NOT NULL,
@@ -3803,11 +3819,13 @@ CREATE TABLE `productos` (
   `precio_Compra` decimal(7,2) NOT NULL,
   `precio_Venta` decimal(7,2) NOT NULL,
   `cantidad_Vendida` int(7) NOT NULL,
-  `cantidad_Minima` int(7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  `cantidad_Minima` int(7) NOT NULL,
+  PRIMARY KEY (`id_Producto`),
+  KEY `idCategoria` (`id_Categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id_Producto`, `producto`, `descripcion`, `id_Categoria`, `stock`, `precio_Compra`, `precio_Venta`, `cantidad_Vendida`, `cantidad_Minima`) VALUES
@@ -3832,7 +3850,7 @@ INSERT INTO `productos` (`id_Producto`, `producto`, `descripcion`, `id_Categoria
 (19, '1937 Lincoln Berline', 'Features opening engine cover, doors, trunk, and fuel filler cap. Color black', 1, 8693, '60.62', '102.74', 869, 580),
 (20, '1936 Mercedes-Benz 500K Special Roadster', 'This 1:18 scale replica is constructed of heavy die-cast metal and has all the features of the original: working doors and rumble seat, independent spring suspension, detailed interior, working steering system, and a bifold hood that reveals an engine so', 1, 8635, '24.26', '53.91', 864, 576),
 (21, '1965 Aston Martin DB5', 'Die-cast model of the silver 1965 Aston Martin DB5 in silver. This model includes full wire wheels and doors that open with fully detailed passenger compartment. In 1:18 scale, this model measures approximately 10 inches/20 cm long.', 6, 9042, '65.96', '124.44', 904, 603),
-(22, '1980s Black Hawk Helicopter', '1:18 scale replica of actual Army\'s UH-60L BLACK HAWK Helicopter. 100% hand-assembled. Features rotating rotor blades, propeller blades and rubber wheels.', 4, 5330, '77.27', '157.69', 533, 355),
+(22, '1980s Black Hawk Helicopter', '1:18 scale replica of actual Army''s UH-60L BLACK HAWK Helicopter. 100% hand-assembled. Features rotating rotor blades, propeller blades and rubber wheels.', 4, 5330, '77.27', '157.69', 533, 355),
 (23, '1917 Grand Touring Sedan', 'This 1:18 scale replica of the 1917 Grand Touring car has all the features you would expect from museum quality reproductions: all four doors and bi-fold hood opening, detailed engine and instrument panel, chrome-look trim, and tufted upholstery, all top', 1, 2724, '86.70', '170.00', 272, 182),
 (24, '1948 Porsche 356-A Roadster', 'This precision die-cast replica features opening doors, superb detail and craftsmanship, working steering system, opening forward compartment, opening rear trunk with removable spare, 4 wheel independent spring suspension as well as factory baked enamel ', 6, 8826, '53.90', '77.00', 883, 588),
 (25, '1995 Honda Civic', 'This model features, opening hood, opening doors, detailed engine, rear spoiler, opening trunk, working steering, tinted windows, baked enamel finish. Color yellow.', 6, 9772, '93.89', '142.25', 977, 651),
@@ -3862,14 +3880,14 @@ INSERT INTO `productos` (`id_Producto`, `producto`, `descripcion`, `id_Categoria
 (49, '1970 Triumph Spitfire', 'Features include opening and closing doors. Color: White.', 6, 5545, '91.92', '143.62', 555, 370),
 (50, '1932 Alfa Romeo 8C2300 Spider Sport', 'This 1:18 scale precision die cast replica features the 6 front headlights of the original, plus a detailed version of the 142 horsepower straight 8 engine, dual spares and their famous comprehensive dashboard. Color black.', 1, 6553, '43.26', '92.03', 655, 437),
 (51, '1904 Buick Runabout', 'Features opening trunk,  working steering system', 1, 8290, '52.66', '87.77', 829, 553),
-(52, '1940s Ford truck', 'This 1940s Ford Pick-Up truck is re-created in 1:18 scale of original 1940s Ford truck. This antique style metal 1940s Ford Flatbed truck is all hand-assembled. This collectible 1940\'s Pick-Up truck is painted in classic dark green color, and features ro', 7, 3128, '84.76', '121.08', 313, 209),
+(52, '1940s Ford truck', 'This 1940s Ford Pick-Up truck is re-created in 1:18 scale of original 1940s Ford truck. This antique style metal 1940s Ford Flatbed truck is all hand-assembled. This collectible 1940''s Pick-Up truck is painted in classic dark green color, and features ro', 7, 3128, '84.76', '121.08', 313, 209),
 (53, '1939 Cadillac Limousine', 'Features completely detailed interior including Velvet flocked drapes,deluxe wood grain floor, and a wood grain casket with seperate chrome handles', 1, 6645, '23.14', '50.31', 665, 443),
 (54, '1957 Corvette Convertible', '1957 die cast Corvette Convertible in Roman Red with white sides and whitewall tires. 1:18 scale quality die-cast with detailed engine and underbvody. Now you can own The Classic Corvette.', 6, 1249, '69.93', '148.80', 125, 83),
 (55, '1957 Ford Thunderbird', 'This 1:18 scale precision die-cast replica, with its optional porthole hardtop and factory baked-enamel Thunderbird Bronze finish, is a 100% accurate rendition of this American classic.', 6, 3209, '34.21', '71.27', 321, 214),
 (56, '1970 Chevy Chevelle SS 454', 'This model features rotating wheels, working streering system and opening doors. All parts are particularly delicate due to their precise scale and require special care and attention. It should not be picked up by the doors, roof, hood or trunk.', 6, 1005, '49.24', '73.49', 101, 67),
 (57, '1970 Dodge Coronet', '1:24 scale die-cast about 18" long doors open, hood opens and rubber wheels', 6, 4074, '32.37', '57.80', 407, 272),
 (58, '1997 BMW R 1100 S', 'Detailed scale replica with working suspension and constructed from over 70 parts', 5, 7003, '60.86', '112.70', 700, 467),
-(59, '1966 Shelby Cobra 427 S/C', 'This diecast model of the 1966 Shelby Cobra 427 S/C includes many authentic details and operating parts. The 1:24 scale model of this iconic lighweight sports car from the 1960s comes in silver and it\'s own display case.', 6, 8197, '29.18', '50.31', 820, 546),
+(59, '1966 Shelby Cobra 427 S/C', 'This diecast model of the 1966 Shelby Cobra 427 S/C includes many authentic details and operating parts. The 1:24 scale model of this iconic lighweight sports car from the 1960s comes in silver and it''s own display case.', 6, 8197, '29.18', '50.31', 820, 546),
 (60, '1928 British Royal Navy Airplane', 'Official logos and insignias', 4, 3627, '66.74', '109.42', 363, 242),
 (61, '1939 Chevrolet Deluxe Coupe', 'This 1:24 scale die-cast replica of the 1939 Chevrolet Deluxe Coupe has the same classy look as the original. Features opening trunk, hood and doors and a showroom quality baked enamel finish.', 1, 7332, '22.57', '33.19', 733, 489),
 (62, '1960 BSA Gold Star DBD34', 'Detailed scale replica with working suspension and constructed from over 70 parts', 5, 15, '37.32', '76.17', 2, 700),
@@ -3899,7 +3917,7 @@ INSERT INTO `productos` (`id_Producto`, `producto`, `descripcion`, `id_Categoria
 (86, '1997 BMW F650 ST', 'Features official die-struck logos and baked enamel finish. Comes with stand.', 5, 178, '66.92', '99.89', 18, 700),
 (87, '1982 Ducati 996 R', 'Features rotating wheels , working kick stand. Comes with stand.', 5, 9241, '24.14', '40.23', 924, 616),
 (88, '1954 Greyhound Scenicruiser', 'Model features bi-level seating, 50 windows, skylights & glare resistant glass, working steering system, original logos', 7, 2874, '25.98', '54.11', 287, 192),
-(89, '1950\'s Chicago Surface Lines Streetcar', 'This streetcar is a joy to see. It has 80 separate windows, electric wire guides, detailed interiors with seats, poles and drivers controls, rolling and turning wheel assemblies, plus authentic factory baked-enamel finishes (Green Hornet for Chicago and ', 3, 8601, '26.72', '62.14', 860, 573),
+(89, '1950''s Chicago Surface Lines Streetcar', 'This streetcar is a joy to see. It has 80 separate windows, electric wire guides, detailed interiors with seats, poles and drivers controls, rolling and turning wheel assemblies, plus authentic factory baked-enamel finishes (Green Hornet for Chicago and ', 3, 8601, '26.72', '62.14', 860, 573),
 (90, '1996 Peterbilt 379 Stake Bed with Outrigger', 'This model features, opening doors, detailed engine, working steering, tinted windows, detailed interior, die-struck logos, removable stakes operating outriggers, detachable second trailer, functioning 360-degree self loader, precision molded resin trail', 7, 814, '33.61', '64.64', 81, 54),
 (91, '1928 Ford Phaeton Deluxe', 'This model features grille-mounted chrome horn, lift-up louvered hood, fold-down rumble seat, working steering system', 1, 136, '33.02', '68.79', 14, 700),
 (92, '1974 Ducati 350 Mk3 Desmo', 'This model features two-tone paint with chrome accents, superior die-cast detail , rotating wheels , working kick stand', 5, 3341, '56.13', '102.05', 334, 223),
@@ -3925,17 +3943,18 @@ INSERT INTO `productos` (`id_Producto`, `producto`, `descripcion`, `id_Categoria
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Estructura de tabla para la tabla `roles`
 --
 
 DROP TABLE IF EXISTS `roles`;
-CREATE TABLE `roles` (
-  `id_Rol` int(11) NOT NULL,
-  `rol` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id_Rol` int(11) NOT NULL AUTO_INCREMENT,
+  `rol` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_Rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `roles`
+-- Volcado de datos para la tabla `roles`
 --
 
 INSERT INTO `roles` (`id_Rol`, `rol`) VALUES
@@ -3973,17 +3992,20 @@ INSERT INTO `roles` (`id_Rol`, `rol`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rolusuario`
+-- Estructura de tabla para la tabla `rolusuario`
 --
 
 DROP TABLE IF EXISTS `rolusuario`;
-CREATE TABLE `rolusuario` (
+CREATE TABLE IF NOT EXISTS `rolusuario` (
   `id_Rol` int(11) NOT NULL,
-  `id_Usuario` int(11) NOT NULL
+  `id_Usuario` int(11) NOT NULL,
+  PRIMARY KEY (`id_Rol`,`id_Usuario`),
+  KEY `fk_usuarios_has_roles_roles1_idx` (`id_Rol`),
+  KEY `fk_usuarios_has_roles_usuarios1_idx` (`id_Usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `rolusuario`
+-- Volcado de datos para la tabla `rolusuario`
 --
 
 INSERT INTO `rolusuario` (`id_Rol`, `id_Usuario`) VALUES
@@ -4021,23 +4043,26 @@ INSERT INTO `rolusuario` (`id_Rol`, `id_Usuario`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE `usuarios` (
-  `id_Usuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_Usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) NOT NULL,
   `apellido_1` varchar(40) NOT NULL,
   `apellido_2` varchar(40) NOT NULL,
   `login` varchar(40) NOT NULL,
   `pass` varchar(32) NOT NULL,
   `activo` char(1) NOT NULL,
-  `foto_de_Perfil` int(11) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `foto_de_Perfil` int(11) UNSIGNED DEFAULT NULL,
+  PRIMARY KEY (`id_Usuario`),
+  UNIQUE KEY `login_UNIQUE` (`login`),
+  KEY `fk_usuarios_ficheros1_idx` (`foto_de_Perfil`)
+) ENGINE=InnoDB AUTO_INCREMENT=498 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `login`, `pass`, `activo`, `foto_de_Perfil`) VALUES
@@ -4101,7 +4126,7 @@ INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `log
 (259, 'Henriette ', 'Pfalzheim', '', 'Pfalzheim', '202cb962ac59075b964b07152d234b70', 'S', NULL),
 (260, 'Elizabeth ', 'Lincoln', '', 'Lincoln', '202cb962ac59075b964b07152d234b70', 'S', NULL),
 (273, 'Peter ', 'Franken', '', 'Franken', '202cb962ac59075b964b07152d234b70', 'S', NULL),
-(276, 'Anna', 'O\'Hara', '', 'O\'Hara', '202cb962ac59075b964b07152d234b70', 'S', NULL),
+(276, 'Anna', 'O''Hara', '', 'O''Hara', '202cb962ac59075b964b07152d234b70', 'S', NULL),
 (278, 'Giovanni ', 'Rovelli', '', 'Rovelli', '202cb962ac59075b964b07152d234b70', 'S', NULL),
 (282, 'Adrian', 'Huxley', '', 'Huxley', '202cb962ac59075b964b07152d234b70', 'S', NULL),
 (286, 'Marta', 'Hernandez', '', 'Hernandez3', '202cb962ac59075b964b07152d234b70', 'S', NULL),
@@ -4171,195 +4196,57 @@ INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `log
 (497, 'SOCIAL11', 'SOCIAL11', 'SOCIAL11', 'social11', '666df04c9bd0876b0f36943d75983161', 'S', NULL);
 
 --
--- Indexes for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Indexes for table `categorias`
---
-ALTER TABLE `categorias`
-  ADD PRIMARY KEY (`id_Categoria`);
-
---
--- Indexes for table `ficheros`
---
-ALTER TABLE `ficheros`
-  ADD PRIMARY KEY (`id_Fichero`),
-  ADD KEY `fk_ficheros_usuarios1_idx` (`id_Usuario`);
-
---
--- Indexes for table `menus`
---
-ALTER TABLE `menus`
-  ADD PRIMARY KEY (`id_Opcion`);
-
---
--- Indexes for table `pedidos`
---
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id_Pedido`),
-  ADD KEY `ind_idUsuario_pedidos` (`id_Usuario`);
-
---
--- Indexes for table `pedidosdetalles`
---
-ALTER TABLE `pedidosdetalles`
-  ADD PRIMARY KEY (`id_Detalle`),
-  ADD KEY `ind_idPedido` (`id_Pedido`),
-  ADD KEY `ind_idProducto` (`id_Producto`);
-
---
--- Indexes for table `permisorol`
---
-ALTER TABLE `permisorol`
-  ADD PRIMARY KEY (`id_Permiso`,`id_Rol`),
-  ADD KEY `fk_permisos_has_roles_roles1_idx` (`id_Rol`),
-  ADD KEY `fk_permisos_has_roles_permisos1_idx` (`id_Permiso`);
-
---
--- Indexes for table `permisos`
---
-ALTER TABLE `permisos`
-  ADD PRIMARY KEY (`id_Permiso`);
-
---
--- Indexes for table `permisousuario`
---
-ALTER TABLE `permisousuario`
-  ADD PRIMARY KEY (`id_Usuario`,`id_Permiso`),
-  ADD KEY `fk_usuarios_has_permisos_permisos1_idx` (`id_Permiso`),
-  ADD KEY `fk_usuarios_has_permisos_usuarios_idx` (`id_Usuario`);
-
---
--- Indexes for table `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id_Producto`),
-  ADD KEY `idCategoria` (`id_Categoria`);
-
---
--- Indexes for table `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`id_Rol`);
-
---
--- Indexes for table `rolusuario`
---
-ALTER TABLE `rolusuario`
-  ADD PRIMARY KEY (`id_Rol`,`id_Usuario`),
-  ADD KEY `fk_usuarios_has_roles_roles1_idx` (`id_Rol`),
-  ADD KEY `fk_usuarios_has_roles_usuarios1_idx` (`id_Usuario`);
-
---
--- Indexes for table `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_Usuario`),
-  ADD UNIQUE KEY `login_UNIQUE` (`login`),
-  ADD KEY `fk_usuarios_ficheros1_idx` (`foto_de_Perfil`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categorias`
---
-ALTER TABLE `categorias`
-  MODIFY `id_Categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `ficheros`
---
-ALTER TABLE `ficheros`
-  MODIFY `id_Fichero` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `menus`
---
-ALTER TABLE `menus`
-  MODIFY `id_Opcion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT for table `pedidos`
---
-ALTER TABLE `pedidos`
-  MODIFY `id_Pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10426;
---
--- AUTO_INCREMENT for table `pedidosdetalles`
---
-ALTER TABLE `pedidosdetalles`
-  MODIFY `id_Detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2997;
---
--- AUTO_INCREMENT for table `permisos`
---
-ALTER TABLE `permisos`
-  MODIFY `id_Permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
---
--- AUTO_INCREMENT for table `productos`
---
-ALTER TABLE `productos`
-  MODIFY `id_Producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
---
--- AUTO_INCREMENT for table `roles`
---
-ALTER TABLE `roles`
-  MODIFY `id_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
---
--- AUTO_INCREMENT for table `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=498;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `ficheros`
+-- Filtros para la tabla `ficheros`
 --
 ALTER TABLE `ficheros`
   ADD CONSTRAINT `fk_ficheros_usuarios1` FOREIGN KEY (`id_Usuario`) REFERENCES `usuarios` (`id_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pedidos`
+-- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD CONSTRAINT `fk_usuario_has_pedidos_usuarios1` FOREIGN KEY (`id_Usuario`) REFERENCES `usuarios` (`id_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `pedidosdetalles`
+-- Filtros para la tabla `pedidosdetalles`
 --
 ALTER TABLE `pedidosdetalles`
   ADD CONSTRAINT `fk_permisos_has_permisos_detalles1` FOREIGN KEY (`id_Pedido`) REFERENCES `pedidos` (`id_Pedido`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `pedidosdetalles_ibfk_1` FOREIGN KEY (`id_Producto`) REFERENCES `productos` (`id_Producto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `permisorol`
+-- Filtros para la tabla `permisorol`
 --
 ALTER TABLE `permisorol`
   ADD CONSTRAINT `fk_permisos_has_roles_permisos1` FOREIGN KEY (`id_Permiso`) REFERENCES `permisos` (`id_Permiso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_permisos_has_roles_roles1` FOREIGN KEY (`id_Rol`) REFERENCES `roles` (`id_Rol`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `permisousuario`
+-- Filtros para la tabla `permisousuario`
 --
 ALTER TABLE `permisousuario`
   ADD CONSTRAINT `fk_usuarios_has_permisos_permisos1` FOREIGN KEY (`id_Permiso`) REFERENCES `permisos` (`id_Permiso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_usuarios_has_permisos_usuarios` FOREIGN KEY (`id_Usuario`) REFERENCES `usuarios` (`id_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `fk_productos_has_productos_categoria1` FOREIGN KEY (`id_Categoria`) REFERENCES `categorias` (`id_Categoria`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `rolusuario`
+-- Filtros para la tabla `rolusuario`
 --
 ALTER TABLE `rolusuario`
   ADD CONSTRAINT `fk_usuarios_has_roles_roles1` FOREIGN KEY (`id_Rol`) REFERENCES `roles` (`id_Rol`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_usuarios_has_roles_usuarios1` FOREIGN KEY (`id_Usuario`) REFERENCES `usuarios` (`id_Usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `usuarios`
+-- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fk_usuarios_ficheros1` FOREIGN KEY (`foto_de_Perfil`) REFERENCES `ficheros` (`id_Fichero`) ON DELETE NO ACTION ON UPDATE NO ACTION;

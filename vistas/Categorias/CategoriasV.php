@@ -10,7 +10,7 @@
         </tr>
         <?php
         foreach ($datos as $opcion) { ?>
-            <tr>
+            <tr class="filaTabla">
                 <td><?php echo $opcion['categoria']; ?></td>
                 <td><?php echo $opcion['descripcion']; ?></td>
             </tr>

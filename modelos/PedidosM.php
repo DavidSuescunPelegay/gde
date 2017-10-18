@@ -33,7 +33,7 @@ class PedidosM extends Modelo
         $direccion = '';
         extract($datos);
 
-        $SQL = "SELECT pedidos.id_Pedido, usuarios.nombre, usuarios.apellido_1, pedidos.fecha_Pedido, pedidos.fecha_Almacen, pedidos.fecha_Envio, pedidos.fecha_Recibido, pedidos.fecha_Finalizado, pedidos.transporte, pedidos.direccion, SUM(pedidosdetalles.cantidad * pedidosdetalles.precio_Venta) 'suma', COUNT(pedidosdetalles.id_Pedido) 'conteo' FROM pedidos, pedidosdetalles, usuarios WHERE 1=1 ";
+        $SQL = "SELECT pedidos.id_Pedido, usuarios.nombre, usuarios.apellido_1, pedidos.fecha_Pedido, pedidos.fecha_Almacen, pedidos.fecha_Envio, pedidos.fecha_Recibido, pedidos.fecha_Finalizado, pedidos.transporte, pedidos.direccion, SUM(pedidosdetalles.precio_Venta) 'suma', COUNT(pedidosdetalles.id_Pedido) 'conteo' FROM pedidos, pedidosdetalles, usuarios WHERE 1=1 ";
         if ($usuario != null) {
             $SQL .= " AND usuarios.nombre LIKE '%" . $usuario . "%'";
         }
