@@ -1,3 +1,7 @@
+<div class="page-header">
+    <h1>Gestion de Roles</h1>
+</div>
+
 <?php
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 17) {
@@ -24,7 +28,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
         $html .= '</tr>';
 
         foreach ($datos as $ind => $opcion) {
-            $html .= '<tr style="background-color: #bbbbbb;">';
+            $html .= '<tr style="background-color: #bbbbbb;" class="filaTabla">';
             $html .= '<td id="textoRol' . $opcion['id_Rol'] . '">' . $opcion['rol'] . '</td>';
             $html .= '<td>';
             for ($j = 0; $j < count($_SESSION['permisos']); $j++) {

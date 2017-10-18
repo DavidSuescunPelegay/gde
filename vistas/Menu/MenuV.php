@@ -1,4 +1,5 @@
 <?php
+/*
 $html = '<nav class="navbar navbar-default" role="navigation">';
 
 $html .= '<div class="navbar-header">
@@ -9,9 +10,10 @@ $html .= '<div class="navbar-header">
 				<span class="icon-bar"></span>
 			</button>
 		</div>';
+*/
 
-$html .= '<div class="collapse navbar-collapse navbar-ex1-collapse">';
-$html .= '<ul class="nav navbar-nav">';
+$html = '';
+$html .= '<ul class="nav navbar-nav navbar-right">';
 
 foreach ($datos[0] as $ind => $opcion) {
     if (isset($opcion['subOpciones'])) {
@@ -31,8 +33,5 @@ foreach ($datos[0] as $ind => $opcion) {
     $html .= '</li>';
 }
 $html .= '</ul>';
-$html .= '</div>';
-$html .= '</nav>';
-
 echo $html;
 ?>

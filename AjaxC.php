@@ -1,6 +1,6 @@
 <?php session_start();
 
-	$getPost=array_merge($_POST, $_GET);
+	$getPost=array_merge($_POST, $_GET, $_FILES);
 	$nombreClase=$getPost['c'].'C';
 	require_once $_SESSION['RAIZ'].'/controladores/'.$nombreClase.'.php';
 

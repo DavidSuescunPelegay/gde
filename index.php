@@ -26,6 +26,7 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
@@ -35,12 +36,69 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
     </script>
 </head>
 <body>
-<div id="avisoNavegador" class="alert alert-warning alert-dismissible fade in col-lg-2" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true" onclick="ocultarAviso()">×</span>
-    </button>
-    <strong>Compatibilidad con Navegadores</strong> Para garantizar el funcionamiento correcto, es muy recomendable utilizar Google Chrome.
-</div>
+<?php
+$avisoNavegador = '<div id="avisoNavegador" class="alert alert-warning alert-dismissible fade in col-lg-2 col-md-6 col-sm-8 col-xs-12" role="alert" onclick="ocultarAviso()">';
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Internet Explorer. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+} elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Internet Explorer. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+} elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Mozilla Firefox. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+} elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-success">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Estas utilizando Google Chrome. ';
+} elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera Mini') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Opera Mini. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+} elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Opera') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Opera. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+} elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari') !== false) {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Safari. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+} else {
+    $avisoNavegador .= '<button type="button" class="btn btn-danger">';
+    $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
+    $avisoNavegador .= '</button>';
+    $avisoNavegador .= '&nbsp &nbsp';
+    $avisoNavegador .= 'Otro navegador. <br>';
+    $avisoNavegador .= 'Recomendable usar <b>Google Chrome</b>';
+}
+$avisoNavegador .= '</b>';
+$avisoNavegador .= '</div>';
+
+echo $avisoNavegador;
+?>
 <div class="divPrincipal">
     <form action="index.php" method="post" class="formulario">
         <div class="login-block">
@@ -58,7 +116,7 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
 </div>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 2.2 - Ultima Actualizacion: Martes, 13 de Diciembre de 2016 - <a
+        <center>Version del Proyecto: 3.0 - Ultima Actualizacion: Martes, 13 de Diciembre de 2016 - <a
                     href="changelog.html">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>

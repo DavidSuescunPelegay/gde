@@ -1,3 +1,7 @@
+<div class="page-header">
+    <h1>Gestion del Menu</h1>
+</div>
+
 <?php
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
@@ -26,7 +30,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
         $html .= '</tr>';
 
         foreach ($datos[0] as $ind => $opcion) {
-            $html .= '<tr style="background-color: #bbbbbb;">';
+            $html .= '<tr style="background-color: #bbbbbb;" class="filaTabla">';
             $html .= '<td id="texto' . $opcion['id_Opcion'] . '">' . $opcion['texto'] . '</td>';
             $html .= '<td id="url' . $opcion['id_Opcion'] . '">' . $opcion['url'] . '</td>';
             $html .= '<td id="padre' . $opcion['id_Opcion'] . '">' . $opcion['id_Padre'] . '</td>';
@@ -51,7 +55,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 
             if (isset($opcion['subOpciones'])) {
                 foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
-                    $html .= '<tr style="background-color: #dddddd;">';
+                    $html .= '<tr style="background-color: #dddddd;" class="filaTabla">';
                     $html .= '<td style="padding-left: 2%;" id="texto' . $subOpcion['id_Opcion'] . '">' . $subOpcion['texto'] . '</td>';
                     $html .= '<td id="url' . $subOpcion['id_Opcion'] . '">' . $subOpcion['url'] . '</td>';
                     $html .= '<td id="padre' . $subOpcion['id_Opcion'] . '">' . $subOpcion['id_Padre'] . '</td>';

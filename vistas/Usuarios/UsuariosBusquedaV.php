@@ -10,15 +10,17 @@ $html .= '<th>Activo</th>';
 $html .= '<th></th>';
 $html .= '</tr>';
 foreach ($datos as $fila) {
-    $html .= '<tr style="background-color: #bbbbbb">';
+    $html .= '<tr style="background-color: #bbbbbb;" class="filaTabla">';
     $html .= '<td>' . $fila['apellido_1'] . ' ' . $fila['apellido_2'] . ', ' . $fila['nombre'] . '</td>';
     $html .= '<td>' . $fila['login'] . '</td>';
     $html .= '<td>';
-    for ($i=0;$i<count($_SESSION['permisos']);$i++){
-        if ($_SESSION['permisos'][$i]['id_Permiso']==3){
+    for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+        if ($_SESSION['permisos'][$i]['id_Permiso'] == 3) {
             $html .= '<button type="button" class="btn btn-warning" onclick="nuevoEditar(' . $fila['id_Usuario'] . ')" data-toggle="modal" data-target="#modalNuevoEditarUsuario"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
         }
     }
+    $html .= '&nbsp &nbsp';
+    $html .= '<button type="button" class="btn btn-info" id="subirFoto" name="subirFoto" onclick="guardarFoto()"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span></button>';
     $html .= '</td>';
     $html .= '<td>';
     if ($fila['activo'] != 'S') {
@@ -38,6 +40,7 @@ foreach ($datos as $fila) {
 }
 $html .= '</table>';
 $html .= '</div>';
+
 
 echo $html;
 ?>

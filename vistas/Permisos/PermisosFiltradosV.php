@@ -18,7 +18,7 @@ $html .= '<th>Nombre de Permiso</th>';
 $html .= '<th>Operaciones disponibles</th>';
 $html .= '</tr>';
 foreach ($datos[0] as $opcion) {
-    $html .= '<tr style="background-color: #bbbbbb">';
+    $html .= '<tr style="background-color: #bbbbbb" class="filaTabla">';
     $html .= '<td id="opcion' . $opcion['id_Permiso'] . '">' . $opcion['id_Opcion'] . ' - ' . $opcion['texto'] . '</td>';
     $html .= '<td id="ordenPermiso' . $opcion['id_Permiso'] . '">' . $opcion['num_Permiso'] . '</td>';
     $html .= '<td id="textoPermiso' . $opcion['id_Permiso'] . '">' . $opcion['permiso'] . '</td>';

@@ -1,6 +1,6 @@
 @CHARSET "ISO-8859-1";
 body {
-    background: url('../images/Eor57Ae.jpg') no-repeat fixed center center;
+    background: url('../images/launcher.jpg') no-repeat fixed center center;
     background-size: cover;
     font-family: Montserrat;
 }
@@ -94,7 +94,8 @@ body {
 #infoFooter {
     position: fixed;
     bottom: 0%;
-    background-color: #eaeaea;
+    background-color: #222222;
+    color: white;
     width: 100%;
     font-family: Montserrat;
 }

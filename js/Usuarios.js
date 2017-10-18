@@ -1,6 +1,30 @@
 //Funcion que despues de haberse cargado la pagina genere el combo Simple Autocomplete
 $(document).ready(function () {
     comboSimpleAutoComplete('id_UsuarioB', 'Usuarios', 'autoCompleteUsuarios', '7', '300', '&tabindex=1');
+
+    //INICIO CARGA FOTO USUARIO
+    new AjaxUpload('#subirFoto', {
+            action: 'AjaxC.php',
+            name: 'fichero',
+            onSubmit: function (file, ext) {
+                if (!(ext && /^(jpg|JPG|png|PNG|gif|GIF)$/.test(ext))) {
+                    alert("Deben ser imagenes jpg, png o gif");
+                    return false;
+                } else {
+                    this.setData({
+                        c: 'Usuarios',
+                        a: 'subirFichero',
+                        tipo: 'fotoUsuario',
+                        id_Usuario: $('#id_Usuario').val(),
+                    });
+                }
+            },
+            onComplete: function (file, respuesta) {
+
+            }
+        }
+    );
+    //FIN CARGA FOTO USUARIO
 });
 
 function busquedaInteligente() {
@@ -46,8 +70,54 @@ function busquedaSimple() {
         success: function (vista) {
             $('#div-resultado-busqueda').html(vista);
             llenarNotificaciones("El usuario/s se ha encontrado correctamente");
+
+            new AjaxUpload('#subirFoto', {
+                    action: 'AjaxC.php',
+                    name: 'fichero',
+                    onSubmit: function (file, ext) {
+                        if (!(ext && /^(jpg|JPG|png|PNG|gif|GIF)$/.test(ext))) {
+                            alert("Deben ser imagenes jpg, png o gif");
+                            return false;
+                        } else {
+                            this.setData({
+                                c: 'Usuarios',
+                                a: 'subirFichero',
+                                tipo: 'fotoUsuario',
+                                id_Usuario: $('#id_Usuario').val(),
+                            });
+                        }
+                    },
+                    onComplete: function (file, respuesta) {
+
+                    }
+                }
+            );
         }
     })
+}
+
+function guardarFoto() {
+    new AjaxUpload('#subirFoto', {
+            action: 'AjaxC.php',
+            name: 'fichero',
+            onSubmit: function (file, ext) {
+                if (!(ext && /^(jpg|JPG|png|PNG|gif|GIF)$/.test(ext))) {
+                    alert("Deben ser imagenes jpg, png o gif");
+                    return false;
+                } else {
+                    this.setData({
+                        c: 'Usuarios',
+                        a: 'subirFichero',
+                        tipo: 'fotoUsuario',
+                        id_Usuario: $('#id_Usuario').val(),
+                    });
+                }
+            },
+            onComplete: function (file, respuesta) {
+
+            }
+        }
+    );
 }
 
 function guardar() {

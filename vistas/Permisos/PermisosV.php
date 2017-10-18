@@ -1,3 +1,7 @@
+<div class="page-header">
+    <h1>Gestion de Permisos</h1>
+</div>
+
 <?php
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 12) {
@@ -25,7 +29,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
         $html .= '</tr>';
         foreach ($datos[0] as $ind => $opcion) {
             if ($datos[0][$ind]['id_Opcion'] % 2 == 0) {
-                $html .= '<tr style="background-color: #dddddd">';
+                $html .= '<tr style="background-color: #dddddd" class="filaTabla">';
                 $html .= '<td id="opcion' . $opcion['id_Permiso'] . '">' . $opcion['id_Opcion'] . ' - ' . $opcion['texto'] . '</td>';
                 $html .= '<td id="ordenPermiso' . $opcion['id_Permiso'] . '">' . $opcion['num_Permiso'] . '</td>';
                 $html .= '<td id="textoPermiso' . $opcion['id_Permiso'] . '">' . $opcion['permiso'] . '</td>';
@@ -56,7 +60,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                 $html .= '</td>';
                 $html .= '</tr>';
             } else {
-                $html .= '<tr style="background-color: #bbbbbb">';
+                $html .= '<tr style="background-color: #bbbbbb" class="filaTabla">';
                 $html .= '<td id="opcion' . $opcion['id_Permiso'] . '">' . $opcion['id_Opcion'] . ' - ' . $opcion['texto'] . '</td>';
                 $html .= '<td id="ordenPermiso' . $opcion['id_Permiso'] . '">' . $opcion['num_Permiso'] . '</td>';
                 $html .= '<td id="textoPermiso' . $opcion['id_Permiso'] . '">' . $opcion['permiso'] . '</td>';

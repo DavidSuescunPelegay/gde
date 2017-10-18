@@ -145,4 +145,24 @@ class UsuariosC extends Controlador
             $vista->render($_SESSION['RAIZ'] . '/vistas/Usuarios/UsuariosAutocompleteV.php', $parametros);
         }
     }
+
+    public function subirFichero($parametros)
+    {
+        $tipo = '';
+        $id_Usuario = '';//Obligatorio
+        $fichero = array();
+        extract($parametros);
+
+        $ficheroTemporal = $fichero['tmp_name'];
+        $carpetaDestino = $_SESSION['RAIZ'] . '/ficheros/fotosUsuarios/';
+        $nombreFichero = substr('00000000000', 0, 11 - strlen((string)$id_Usuario)) . $id_Usuario . pathinfo($fichero['name'], PATHINFO_EXTENSION);
+
+        $ficheroDestino = $carpetaDestino . $nombreFichero;
+
+        if (move_uploaded_file($ficheroTemporal, $ficheroDestino)) {
+            echo 'error';
+        } else {
+            echo 'ok';
+        }
+    }
 }

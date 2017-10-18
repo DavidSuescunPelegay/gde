@@ -1,3 +1,7 @@
+<div class="page-header">
+    <h1>Gestion de Usuarios</h1>
+</div>
+
 <?php
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
