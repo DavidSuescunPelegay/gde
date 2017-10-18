@@ -1,37 +1,30 @@
-<?php
-/*
-$html = '<nav class="navbar navbar-default" role="navigation">';
-
-$html .= '<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-				<span class="sr-only">Desplegar navegacion</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-		</div>';
-*/
-
-$html = '';
-$html .= '<ul class="nav navbar-nav navbar-right">';
-
-foreach ($datos[0] as $ind => $opcion) {
-    if (isset($opcion['subOpciones'])) {
-        $html .= '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">' . $opcion['texto'] . '<b class="caret"></b></a>';
-        $html .= '<ul class="dropdown-menu">';
-        foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
-            $html .= '<li class="dropdown">';
-            $html .= '<a href="#">';
-            $html .= $subOpcion['texto'];
-            $html .= '</a>';
-            $html .= '</li>';
+<ul class="nav navbar-nav navbar-right" style="margin-right: 0.5%;">
+    <?php
+    foreach ($datos[0] as $ind => $opcion) {
+        if (isset($opcion['subOpciones'])) {
+            ?>
+            <li class="menuElements">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $opcion['texto'] ?><b
+                        class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <?php foreach ($opcion['subOpciones'] as $subind => $subOpcion) { ?>
+                    <li class="dropdown"><a href="#"><?php echo $subOpcion['texto'] ?></a></li>
+                <?php } ?>
+            </ul>
+            <?php
+        } else {
+            ?>
+            <li class="menuElements"><a href="<?php echo $opcion['url'] ?>"><?php echo $opcion['texto'] ?></a></li>
+            <?php
         }
-        $html .= '</ul>';
-    } else {
-        $html .= '<li><a href="' . $opcion['url'] . '">' . $opcion['texto'] . '</a></li>';
     }
-    $html .= '</li>';
-}
-$html .= '</ul>';
-echo $html;
-?>
+    ?>
+    <li>
+        &nbsp; &nbsp;
+    </li>
+    <li>
+        <div class="profile-userbuttons">
+            <button type="button" class="btn btn-danger btn-sm" onclick="logout()">Cerrar Sesion</button>
+        </div>
+    </li>
+</ul>

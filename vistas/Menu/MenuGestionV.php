@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
         ?>
-        <button type="button" id="botonNuevo" class="btn btn-danger" data-toggle="modal"
+        <button type="button" id="botonNuevo" class="btn btn-default" data-toggle="modal"
                 data-target="#modalInsertarMenu">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Menu</span>
         </button>
@@ -17,76 +17,121 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 ?>
 
 <?php
-for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+for ($i = 0;
+     $i < count($_SESSION['permisos']);
+     $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 6) {
-        $html = '<div class="table-responsive">';
-        $html .= '<table class="table table-striped" >';
-        $html .= '<tr style="background-color: #888888;">';
-        $html .= '<th>Nombre</th>';
-        $html .= '<th>URL</th>';
-        $html .= '<th>ID Padre</th>';
-        $html .= '<th>Orden</th>';
-        $html .= '<th>Operaciones Disponibles</th>';
-        $html .= '</tr>';
+        ?>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr style="background-color: #2E353D;">
+                    <th>Nombre</th>
+                    <th>URL</th>
+                    <th>ID Padre</th>
+                    <th>Orden</th>
+                    <th>Operaciones Disponibles</th>
+                </tr>
+                <?php
+                foreach ($datos[0] as $ind => $opcion) {
+                    ?>
+                    <tr style="background-color: #bbbbbb;" class="filaTabla">
+                    <td id="texto<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['texto'] ?></td>
+                    <td id="url<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['url'] ?></td>
+                    <td id="padre<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['id_Padre'] ?></td>
+                    <td id="orden<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['orden'] ?></td>
+                    <td>
+                        <?php
+                        for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
+                            if ($_SESSION['permisos'][$j]['id_Permiso'] == 8) {
+                                ?>
+                                <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal"
+                                        data-target="#modalModificarMenu" id="botonEdicion<?php echo $opcion['id_Opcion'] ?>"
+                                        onclick="editarMenu(<?php echo $opcion['id_Opcion'] ?>, <?php echo $opcion['id_Padre'] ?>)"><span
+                                            class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+                                <?php
+                            }
+                        }
+                        ?>
+                        &nbsp &nbsp
+                        <?php
+                        for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
+                            if ($_SESSION['permisos'][$k]['id_Permiso'] == 9) {
+                                ?>
+                                <button type="button" class="btn btn-danger" title="Eliminar"
+                                        id="botonEliminar<?php echo $opcion['id_Opcion'] ?>"
+                                        onclick="eliminarMenu(<?php echo $opcion['id_Opcion'] ?>)"><span
+                                            class="glyphicon glyphicon-trash"
+                                            aria-hidden="true"></span></button>
+                                <?php
+                            }
+                        }
+                        ?>
+                        &nbsp &nbsp
+                        <a href="app.php?d=Permisos&opcion=<?php echo $opcion['id_Opcion'] ?>">
+                            <button type="button" class="btn btn-info"
+                                    id="botonPermisos<?php echo $opcion['id_Opcion'] ?>"><span
+                                        class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span></button>
+                        </a></td>
+                    <?php
 
-        foreach ($datos[0] as $ind => $opcion) {
-            $html .= '<tr style="background-color: #bbbbbb;" class="filaTabla">';
-            $html .= '<td id="texto' . $opcion['id_Opcion'] . '">' . $opcion['texto'] . '</td>';
-            $html .= '<td id="url' . $opcion['id_Opcion'] . '">' . $opcion['url'] . '</td>';
-            $html .= '<td id="padre' . $opcion['id_Opcion'] . '">' . $opcion['id_Padre'] . '</td>';
-            $html .= '<td id="orden' . $opcion['id_Opcion'] . '">' . $opcion['orden'] . '</td>';
-            $html .= '<td>';
-            for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
-                if ($_SESSION['permisos'][$j]['id_Permiso'] == 8) {
-                    $html .= '<button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#modalModificarMenu" id="botonEdicion' . $opcion['id_Opcion'] . '" onclick="editarMenu(' . $opcion['id_Opcion'] . ', ' . $opcion['id_Padre'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
-                }
-            }
-
-            $html .= '&nbsp &nbsp';
-
-            for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
-                if ($_SESSION['permisos'][$k]['id_Permiso'] == 9) {
-                    $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminar' . $opcion['id_Opcion'] . '" onclick="eliminarMenu(' . $opcion['id_Opcion'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                }
-            }
-
-            $html .= '&nbsp &nbsp';
-            $html .= '<a href="app.php?d=Permisos&opcion=' . $opcion['id_Opcion'] . '"><button type="button" class="btn btn-info" id="botonPermisos' . $opcion['id_Opcion'] . '"><span class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span></button></a></td>';
-
-            if (isset($opcion['subOpciones'])) {
-                foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
-                    $html .= '<tr style="background-color: #dddddd;" class="filaTabla">';
-                    $html .= '<td style="padding-left: 2%;" id="texto' . $subOpcion['id_Opcion'] . '">' . $subOpcion['texto'] . '</td>';
-                    $html .= '<td id="url' . $subOpcion['id_Opcion'] . '">' . $subOpcion['url'] . '</td>';
-                    $html .= '<td id="padre' . $subOpcion['id_Opcion'] . '">' . $subOpcion['id_Padre'] . '</td>';
-                    $html .= '<td id="orden' . $subOpcion['id_Opcion'] . '">' . $subOpcion['orden'] . '</td>';
-                    $html .= '<td>';
-                    for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
-                        if ($_SESSION['permisos'][$j]['id_Permiso'] == 8) {
-                            $html .= '<button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#modalModificarMenu" id="botonEdicion' . $subOpcion['id_Opcion'] . '" onclick="editarMenu(' . $subOpcion['id_Opcion'] . ', ' . $subOpcion['id_Padre'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+                    if (isset($opcion['subOpciones'])) {
+                        foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
+                            ?>
+                            <tr style="background-color: #dddddd;" class="filaTabla">
+                                <td style="padding-left: 2%;"
+                                    id="texto<?php echo $subOpcion['id_Opcion'] ?>"><?php echo $subOpcion['texto'] ?>
+                                </td>
+                                <td id="url<?php echo $subOpcion['id_Opcion'] ?>"><?php echo $subOpcion['url'] ?></td>
+                                <td id="padre<?php echo $subOpcion['id_Opcion'] ?>"><?php echo $subOpcion['id_Padre'] ?></td>
+                                <td id="orden<?php echo $subOpcion['id_Opcion'] ?>"><?php echo $subOpcion['orden'] ?></td>
+                                <td>
+                                    <?php
+                                    for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
+                                        if ($_SESSION['permisos'][$j]['id_Permiso'] == 8) {
+                                            ?>
+                                            <button type="button" class="btn btn-warning" title="Editar"
+                                                    data-toggle="modal"
+                                                    data-target="#modalModificarMenu"
+                                                    id="botonEdicion<?php echo $subOpcion['id_Opcion'] ?>"
+                                                    onclick="editarMenu(<?php echo $subOpcion['id_Opcion'] ?>, <?php echo $subOpcion['id_Padre'] ?>)"><span
+                                                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            </button>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    &nbsp &nbsp
+                                    <?php
+                                    for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
+                                        if ($_SESSION['permisos'][$k]['id_Permiso'] == 9) {
+                                            ?>
+                                            <button type="button" class="btn btn-danger" title="Eliminar"
+                                                    id="botonEliminar<?php echo $subOpcion['id_Opcion'] ?>"
+                                                    onclick="eliminarMenu(<?php echo $subOpcion['id_Opcion'] ?>)"><span
+                                                        class="glyphicon glyphicon-trash"
+                                                        aria-hidden="true"></span>
+                                            </button>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    &nbsp &nbsp
+                                    <a href="app.php?d=Permisos&opcion=<?php echo $subOpcion['id_Opcion'] ?>">
+                                        <button type="button" class="btn btn-info"
+                                                id="botonPermisos<?php echo $subOpcion['id_Opcion'] ?>"><span
+                                                    class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php
                         }
                     }
-
-                    $html .= '&nbsp &nbsp';
-
-                    for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
-                        if ($_SESSION['permisos'][$k]['id_Permiso'] == 9) {
-                            $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminar' . $subOpcion['id_Opcion'] . '" onclick="eliminarMenu(' . $subOpcion['id_Opcion'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                        }
-                    }
-
-                    $html .= '&nbsp &nbsp';
-                    $html .= '<a href="app.php?d=Permisos&opcion=' . $subOpcion['id_Opcion'] . '"><button type="button" class="btn btn-info" id="botonPermisos' . $subOpcion['id_Opcion'] . '"><span class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span></button></a></td>';
-                    $html .= '</tr>';
                 }
-            }
-
-        }
-
-        $html .= '</table>';
-        $html .= '</div>';
-
-        echo $html;
+                ?>
+            </table>
+        </div>
+        <?php
     }
 }
 ?>

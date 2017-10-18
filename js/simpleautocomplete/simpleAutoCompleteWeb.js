@@ -1,4 +1,4 @@
-var dirBase = '/gde';
+var dirBase = '';
 (function ($) {
     $.fn.extend({
         simpleAutoComplete: function (page, options, callback) {

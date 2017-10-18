@@ -1,6 +1,36 @@
 @CHARSET "ISO-8859-1";
+#barraSuperior{
+    background-color: #2E353D;
+}
+
 .inputRed {
-    background-color: #f2dede;
+    background-color: #F2DEDE;
+}
+
+.btn:hover{
+    box-shadow: 3px 3px 5px #2E353D;
+}
+
+#botonNuevo{
+    background-color: #2E353D;
+}
+
+#botonNuevo > *{
+    color: white;
+}
+
+.menuElements{
+    font-size: 20px;
+}
+
+.menuElements:hover{
+    background-color: #27A99D;
+    font-size: 175%;
+    transition: font-size 0.5s;
+}
+
+.menuElements > a{
+    color: white !important;
 }
 
 #barraLateral {
@@ -8,17 +38,11 @@
     position: fixed;
     background-color: #2E353D;
 }
-/*
-#menuPrincipal *{
-    background-color: #2b669a;
-}
-*/
-/* Profile container */
+
 .profile {
     margin: 20px 0;
 }
 
-/* Profile sidebar */
 .profile-sidebar {
     padding: 20px 0 10px 0;
     background-color: #2E353D;
@@ -110,7 +134,6 @@
     margin-left: -2px;
 }
 
-/* Profile Content */
 .profile-content {
     padding: 20px;
     background: #fff;
@@ -131,8 +154,6 @@
     background-color: #FFFFFF !important;
 }
 
-
-/*INICIO MENU*/
 .snip1217 {
     font-family: 'Raleway', Arial, sans-serif;
     text-align: center;
@@ -187,12 +208,15 @@
 .snip1217 .current a:after {
     width: 100%;
 }
-/*FIN MENU*/
+
+tr > th{
+    color: #FFFFFF;
+}
 
 #infoFooter {
     position: fixed;
     bottom: 0%;
-    background-color: #222222;
+    background-color: #2E353D;
     color: white;
     width: 100%;
     font-family: Montserrat;

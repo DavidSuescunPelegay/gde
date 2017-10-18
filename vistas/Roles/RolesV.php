@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 17) {
         ?>
-        <button type="button" id="botonNuevo" class="btn btn-danger" data-toggle="modal"
+        <button type="button" id="botonNuevo" class="btn btn-default" data-toggle="modal"
                 data-target="#modalInsertarRol">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Rol</span>
         </button>
@@ -19,39 +19,55 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 <?php
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 16) {
-        $html = '';
-        $html .= '<div class="table-responsive">';
-        $html .= '<table class="table table-striped" >';
-        $html .= '<tr style="background-color: #888888;">';
-        $html .= '<th>Rol</th>';
-        $html .= '<th>Operaciones disponibles</th>';
-        $html .= '</tr>';
+        ?>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr style="background-color: #2E353D;">
+                    <th>Rol</th>
+                    <th>Operaciones disponibles</th>
+                </tr>
+                <?php
+                foreach ($datos as $ind => $opcion) {
+                    ?>
+                    <tr style="background-color: #bbbbbb;" class="filaTabla">
+                        <td id="textoRol<?php echo $opcion['id_Rol'] ?>"><?php echo $opcion['rol'] ?></td>
+                        <td>
+                            <?php
+                            for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
+                                if ($_SESSION['permisos'][$j]['id_Permiso'] == 18) {
+                                    ?>
+                                    <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal"
+                                            data-target="#modalModificarRol"
+                                            id="botonEdicion<?php echo $opcion['id_Rol'] ?>"
+                                            onclick="editarRol(<?php echo $opcion['id_Rol'] ?>)"><span
+                                                class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+                                    <?php
+                                }
+                            }
+                            ?>
 
-        foreach ($datos as $ind => $opcion) {
-            $html .= '<tr style="background-color: #bbbbbb;" class="filaTabla">';
-            $html .= '<td id="textoRol' . $opcion['id_Rol'] . '">' . $opcion['rol'] . '</td>';
-            $html .= '<td>';
-            for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
-                if ($_SESSION['permisos'][$j]['id_Permiso'] == 18) {
-                    $html .= '<button type="button" class="btn btn-warning" title="Editar" data-toggle="modal" data-target="#modalModificarRol" id="botonEdicion' . $opcion['id_Rol'] . '" onclick="editarRol(' . $opcion['id_Rol'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
+                            &nbsp &nbsp
+
+                            <?php
+                            for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
+                                if ($_SESSION['permisos'][$k]['id_Permiso'] == 19) {
+                                    ?>
+                                    <button type="button" class="btn btn-danger" title="Eliminar"
+                                            id="botonEliminar<?php echo $opcion['id_Rol'] ?>"
+                                            onclick="eliminarRol(<?php echo $opcion['id_Rol'] ?>)"><span
+                                                class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </td>
+                    </tr>
+                    <?php
                 }
-            }
-
-            $html .= '&nbsp &nbsp';
-
-            for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
-                if ($_SESSION['permisos'][$k]['id_Permiso'] == 19) {
-                    $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminar' . $opcion['id_Rol'] . '" onclick="eliminarRol(' . $opcion['id_Rol'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                }
-            }
-            $html .= '</td>';
-            $html .= '</tr>';
-        }
-
-        $html .= '</table>';
-        $html .= '</div>';
-
-        echo $html;
+                ?>
+            </table>
+        </div>
+        <?php
     }
 }
 ?>

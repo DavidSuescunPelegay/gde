@@ -1,5 +1,5 @@
 function comboSimpleAutoComplete(nombrecombo, controlador, funcion, filas, ancho, parametros) {
-	var dirBase = '/gde';
+	var dirBase = '';
 	var pre='au_'; //prefijo para el elemento dentro del que se creará el autocomplete
 
 	//Obtener los parametros (por separado)

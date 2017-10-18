@@ -49,7 +49,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 
             <button type="button" class="btn btn-primary" id="botonBuscarFiltros" onclick="buscar()"
                     style="display: none;">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>
         </h4>
         <?php
@@ -59,7 +59,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 
 <div class="panel-group" id="acordeonResultado" role="tablist" aria-multiselectable="true" style="display: none;">
     <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
+        <div class="panel-heading itemsPanel" role="tab" id="headingOne">
             <h4 class="panel-title">
                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                    aria-expanded="true" aria-controls="collapseOne">

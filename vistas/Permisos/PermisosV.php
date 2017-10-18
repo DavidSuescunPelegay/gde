@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 12) {
         ?>
-        <button type="button" id="botonNuevo" class="btn btn-danger" data-toggle="modal"
+        <button type="button" id="botonNuevo" class="btn btn-default" data-toggle="modal"
                 data-target="#modalInsertarPermiso">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Permiso</span>
         </button>
@@ -19,82 +19,142 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 <?php
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 11) {
-        $html = '<div class="table-responsive">';
-        $html .= '<table class="table table-stripped" id="tablaPermisos">';
-        $html .= '<tr style="background-color: #888888;">';
-        $html .= '<th>ID Menu</th>';
-        $html .= '<th>Numero de Permiso</th>';
-        $html .= '<th>Nombre de Permiso</th>';
-        $html .= '<th>Operaciones disponibles</th>';
-        $html .= '</tr>';
-        foreach ($datos[0] as $ind => $opcion) {
-            if ($datos[0][$ind]['id_Opcion'] % 2 == 0) {
-                $html .= '<tr style="background-color: #dddddd" class="filaTabla">';
-                $html .= '<td id="opcion' . $opcion['id_Permiso'] . '">' . $opcion['id_Opcion'] . ' - ' . $opcion['texto'] . '</td>';
-                $html .= '<td id="ordenPermiso' . $opcion['id_Permiso'] . '">' . $opcion['num_Permiso'] . '</td>';
-                $html .= '<td id="textoPermiso' . $opcion['id_Permiso'] . '">' . $opcion['permiso'] . '</td>';
-                $html .= '<td>';
 
-                for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
-                    if ($_SESSION['permisos'][$j]['id_Permiso'] == 13) {
-                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
-                            $html .= '<button type="button" class="btn btn-warning disabled" title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4" id="botonEdicion' . $opcion['id_Permiso'] . '" onclick="edicionProhibida()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
-                        } else {
-                            $html .= '<button type="button" class="btn btn-warning" title="Editar" id="botonEdicion' . $opcion['id_Permiso'] . '" data-toggle="modal" data-target="#modalModificarPermiso" onclick="editPermiso(' . $opcion['id_Permiso'] . ', ' . $opcion['id_Opcion'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
-                        }
+        ?>
+
+        <div class="table-responsive">
+            <table class="table table-stripped" id="tablaPermisos">
+                <tr style="background-color: #2E353D;">
+                    <th>ID Menu</th>
+                    <th>Numero de Permiso</th>
+                    <th>Nombre de Permiso</th>
+                    <th>Operaciones disponibles</th>
+                </tr>
+                <?php
+                foreach ($datos[0] as $ind => $opcion) {
+                    if ($datos[0][$ind]['id_Opcion'] % 2 == 0) {
+                        ?>
+                        <tr style="background-color: #dddddd" class="filaTabla">
+                            <td id="opcion<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['id_Opcion'] ?>
+                                - <?php echo $opcion['texto'] ?></td>
+                            <td id="ordenPermiso<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['num_Permiso'] ?></td>
+                            <td id="textoPermiso<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['permiso'] ?></td>
+                            <td>
+                                <?php
+                                for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
+                                    if ($_SESSION['permisos'][$j]['id_Permiso'] == 13) {
+                                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
+                                            ?>
+                                            <button type="button" class="btn btn-warning disabled"
+                                                    title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4"
+                                                    id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
+                                                    onclick="edicionProhibida()"><span
+                                                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            </button>
+                                        <?php } else { ?>
+                                            <button type="button" class="btn btn-warning" title="Editar"
+                                                    id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
+                                                    data-toggle="modal"
+                                                    data-target="#modalModificarPermiso"
+                                                    onclick="editPermiso(<?php echo $opcion['id_Permiso'] ?>, <?php echo $opcion['id_Opcion'] ?>)"><span
+                                                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            </button>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+
+                                &nbsp &nbsp
+                                <?php
+                                for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
+                                    if ($_SESSION['permisos'][$k]['id_Permiso'] == 14) {
+                                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
+                                            ?>
+                                            <button type="button" class="btn btn-danger disabled"
+                                                    title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4"
+                                                    id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
+                                                    onclick="eliminacionProhibida()"><span
+                                                        class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                            </button>
+                                        <?php } else { ?>
+                                            <button type="button" class="btn btn-danger" title="Eliminar"
+                                                    id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
+                                                    onclick="deletePermiso(<?php echo $opcion['id_Permiso'] ?>)"><span
+                                                        class="glyphicon glyphicon-trash"
+                                                        aria-hidden="true"></span></button>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php } else { ?>
+                        <tr style="background-color: #bbbbbb" class="filaTabla">
+                            <td id="opcion<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['id_Opcion'] ?>
+                                - <?php echo $opcion['texto'] ?></td>
+                            <td id="ordenPermiso<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['num_Permiso'] ?></td>
+                            <td id="textoPermiso<?php echo $opcion['id_Permiso'] ?>"><?php echo $opcion['permiso'] ?></td>
+                            <td>
+                                <?php
+                                for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
+                                    if ($_SESSION['permisos'][$j]['id_Permiso'] == 13) {
+                                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
+                                            ?>
+                                            <button type="button" class="btn btn-warning disabled"
+                                                    title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4"
+                                                    id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
+                                                    onclick="edicionProhibida()"><span
+                                                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            </button>
+                                        <?php } else { ?>
+                                            <button type="button" class="btn btn-warning" title="Editar"
+                                                    id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
+                                                    data-toggle="modal"
+                                                    data-target="#modalModificarPermiso"
+                                                    onclick="editPermiso(<?php echo $opcion['id_Permiso'] ?>, <?php echo $opcion['id_Opcion'] ?>)"><span
+                                                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            </button>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                                &nbsp &nbsp
+                                <?php
+                                for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
+                                    if ($_SESSION['permisos'][$k]['id_Permiso'] == 14) {
+                                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
+                                            ?>
+                                            <button type="button" class="btn btn-danger disabled"
+                                                    title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4"
+                                                    id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
+                                                    onclick="eliminacionProhibida()"><span
+                                                        class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                            </button>
+                                            <?php
+                                        } else { ?>
+
+                                            <button type="button" class="btn btn-danger" title="Eliminar"
+                                                    id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
+                                                    onclick="deletePermiso(<?php echo $opcion['id_Permiso'] ?>)"><span
+                                                        class="glyphicon glyphicon-trash"
+                                                        aria-hidden="true"></span></button>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                        <?php
                     }
                 }
-
-                $html .= '&nbsp &nbsp';
-
-                for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
-                    if ($_SESSION['permisos'][$k]['id_Permiso'] == 14) {
-                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
-                            $html .= '<button type="button" class="btn btn-danger disabled" title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4" id="botonEliminacion' . $opcion['id_Permiso'] . '" onclick="eliminacionProhibida()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                        } else {
-                            $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminacion' . $opcion['id_Permiso'] . '" onclick="deletePermiso(' . $opcion['id_Permiso'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                        }
-                    }
-                }
-
-                $html .= '</td>';
-                $html .= '</tr>';
-            } else {
-                $html .= '<tr style="background-color: #bbbbbb" class="filaTabla">';
-                $html .= '<td id="opcion' . $opcion['id_Permiso'] . '">' . $opcion['id_Opcion'] . ' - ' . $opcion['texto'] . '</td>';
-                $html .= '<td id="ordenPermiso' . $opcion['id_Permiso'] . '">' . $opcion['num_Permiso'] . '</td>';
-                $html .= '<td id="textoPermiso' . $opcion['id_Permiso'] . '">' . $opcion['permiso'] . '</td>';
-                $html .= '<td>';
-
-                for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
-                    if ($_SESSION['permisos'][$j]['id_Permiso'] == 13) {
-                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
-                            $html .= '<button type="button" class="btn btn-warning disabled" title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4" id="botonEdicion' . $opcion['id_Permiso'] . '" onclick="edicionProhibida()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
-                        } else {
-                            $html .= '<button type="button" class="btn btn-warning" title="Editar" id="botonEdicion' . $opcion['id_Permiso'] . '" data-toggle="modal" data-target="#modalModificarPermiso" onclick="editPermiso(' . $opcion['id_Permiso'] . ', ' . $opcion['id_Opcion'] . ')"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>';
-                        }
-                    }
-                }
-
-                $html .= '&nbsp &nbsp';
-
-                for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
-                    if ($_SESSION['permisos'][$k]['id_Permiso'] == 14) {
-                        if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
-                            $html .= '<button type="button" class="btn btn-danger disabled" title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4" id="botonEliminacion' . $opcion['id_Permiso'] . '" onclick="eliminacionProhibida()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                        } else {
-                            $html .= '<button type="button" class="btn btn-danger" title="Eliminar" id="botonEliminacion' . $opcion['id_Permiso'] . '" onclick="deletePermiso(' . $opcion['id_Permiso'] . ')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-                        }
-                    }
-                }
-                $html .= '</td>';
-                $html .= '</tr>';
-            }
-        }
-        $html .= '</table>';
-        $html .= '</div>';
-
-        echo $html;
+                ?>
+            </table>
+        </div>
+        <?php
     }
 }
 ?>
@@ -119,10 +179,11 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                 <option value="0">Menu del que dependera el permiso</option>
                                 <?php
                                 foreach ($datos[1] as $opcion) {
-                                    $html = '<option value="' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
-                                    echo $html;
-                                }
-                                ?>
+                                    ?>
+                                    <option value="<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['id_Opcion'] ?>
+                                        (dependera del menu <?php echo $opcion['texto'] ?>)
+                                    </option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -170,10 +231,11 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                 <option value="0">Menu del que dependera el permiso</option>
                                 <?php
                                 foreach ($datos[1] as $opcion) {
-                                    $html = '<option value="' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
-                                    echo $html;
-                                }
-                                ?>
+                                    ?>
+                                    <option value="<?php echo $opcion['id_Opcion'] ?>"><?php echo $opcion['id_Opcion'] ?>
+                                        (dependera del menu <?php echo $opcion['texto'] ?>)
+                                    </option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">

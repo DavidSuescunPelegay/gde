@@ -149,20 +149,29 @@ class UsuariosC extends Controlador
     public function subirFichero($parametros)
     {
         $tipo = '';
-        $id_Usuario = '';//Obligatorio
+        $id_Usuario = $_SESSION['datosUsuario'][0]['id_Usuario'];//Obligatorio
         $fichero = array();
         extract($parametros);
 
+        var_dump($parametros);
+        fb::log($parametros);
+
         $ficheroTemporal = $fichero['tmp_name'];
-        $carpetaDestino = $_SESSION['RAIZ'] . '/ficheros/fotosUsuarios/';
-        $nombreFichero = substr('00000000000', 0, 11 - strlen((string)$id_Usuario)) . $id_Usuario . pathinfo($fichero['name'], PATHINFO_EXTENSION);
+        $carpetaDestino = $_SESSION['RAIZ'] . "ficheros\\fotosUsuarios\\";
+        $nombreFichero = substr('00000000000', 0, 11 - strlen((string)$id_Usuario)) . $id_Usuario . '.' . pathinfo($fichero['name'],  PATHINFO_EXTENSION);
 
         $ficheroDestino = $carpetaDestino . $nombreFichero;
 
-        if (move_uploaded_file($ficheroTemporal, $ficheroDestino)) {
-            echo 'error';
-        } else {
-            echo 'ok';
+        try{
+            if (copy($ficheroTemporal, $ficheroDestino)) {
+                echo 'Imagen guardada';
+                $this->modelo->subirFichero($ficheroDestino);
+            } else {
+                echo 'Error';
+            }
+        }catch (Exception $ex){
+            echo 'Exception';
         }
+
     }
 }

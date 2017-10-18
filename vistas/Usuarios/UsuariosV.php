@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
         ?>
-        <button type="button" class="btn btn-danger" onclick="nuevoEditar('0');" data-toggle="modal"
+        <button type="button" id="botonNuevo" class="btn btn-default" onclick="nuevoEditar('0');" data-toggle="modal"
                 data-target="#modalNuevoEditarUsuario"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Usuario</span>
         </button>
         <?php
@@ -19,11 +19,11 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
         ?>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel-group" id="accordionUsuario" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
+                <div class="panel-heading itemsPanel" role="tab" id="headingOne">
                     <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                        <a role="button" data-toggle="collapse" data-parent="#accordionUsuario" href="#collapseOne"
                            aria-expanded="true" aria-controls="collapseOne"
                            title="Nueva Busqueda! Con funcion de autocompletado de Usuarios">
                             Busqueda Inteligente
@@ -38,17 +38,19 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                 <span id="au_id_UsuarioB" name="au_id_UsuarioB"></span>
                                 <button type="button" class="btn btn-primary"
                                         title="Si no introduces ningun valor, mostrara todos los resultados"
-                                        onclick="busquedaInteligente()">Buscar
+                                        onclick="busquedaInteligente()">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </button>
+
                             </fieldset>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
+                <div class="panel-heading itemsPanel" role="tab" id="headingTwo">
                     <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordionUsuario"
                            href="#collapseTwo"
                            aria-expanded="false" aria-controls="collapseTwo" title="La busqueda de siempre">
                             Busqueda Simple
@@ -73,7 +75,8 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                 </select>
                                 <button type="button" class="btn btn-primary"
                                         title="Si no introduces ningun valor, mostrara todos los resultados"
-                                        onclick="busquedaSimple();">Buscar
+                                        onclick="busquedaSimple();">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </button>
                             </fieldset>
                         </form>
