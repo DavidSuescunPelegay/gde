@@ -15,8 +15,8 @@ class MenusM extends Modelo
     public function getDatosMenu()
     {
         $menu = array();
-        $SQL = "SELECT * FROM menus
-				ORDER BY id_Opcion, id_Padre, orden";
+        $SQL = "SELECT * FROM menus ORDER BY orden";
+        //$SQL = "SELECT * FROM menus ORDER BY texto ASC";
         $res = $this->BD->executeQuery($SQL);
 
         if (!empty($res)) {
@@ -60,30 +60,13 @@ class MenusM extends Modelo
 
     public function insertarPermisosAsociados($id_Opcion, $texto)
     {
-        /*INICIO GENERACION TEXTOS DEL PERMISO*/
-        $textoPermiso1 = 'Consultar ' . $texto;
-        $textoPermiso2 = 'Insertar ' . $texto;
-        $textoPermiso3 = 'Modificar ' . $texto;
-        $textoPermiso4 = 'Eliminar ' . $texto;
-        $textoPermiso5 = 'Pruebas ' . $texto;
-        /*FIN GENERACION TEXTOS DEL PERMISO*/
+        $textoPermiso = Array('Consultar ' . $texto, 'Insertar ' . $texto, 'Modificar ' . $texto, 'Eliminar ' . $texto, 'Pruebas ' . $texto);
 
-
-        /*INICIO GENERACION SENTENCIAS DE INSERCION AUTOMATICA DE LOS 4 PERMISOS PREDETERMINADOS*/
-        $insercionPermiso1 = "INSERT INTO permisos (id_Opcion, num_Permiso, permiso) VALUES ('$id_Opcion', '1', '$textoPermiso1')";
-        $insercionPermiso2 = "INSERT INTO permisos (id_Opcion, num_Permiso, permiso) VALUES ('$id_Opcion', '2', '$textoPermiso2')";
-        $insercionPermiso3 = "INSERT INTO permisos (id_Opcion, num_Permiso, permiso) VALUES ('$id_Opcion', '3', '$textoPermiso3')";
-        $insercionPermiso4 = "INSERT INTO permisos (id_Opcion, num_Permiso, permiso) VALUES ('$id_Opcion', '4', '$textoPermiso4')";
-        $insercionPermiso5 = "INSERT INTO permisos (id_Opcion, num_Permiso, permiso) VALUES ('$id_Opcion', '5', '$textoPermiso4')";
-        /*FIN GENERACION SENTENCIAS DE INSERCION AUTOMATICA DE LOS 4 PERMISOS PREDETERMINADOS*/
-
-        /*INICIO EJECUCION SENTENCIAS DE INSERCION AUTOMATICA DE LOS 4 PERMISOS PREDETERMINADOS*/
-        $resultadoInsercionPermiso1 = $this->BD->executeInsert($insercionPermiso1);
-        $resultadoInsercionPermiso2 = $this->BD->executeInsert($insercionPermiso2);
-        $resultadoInsercionPermiso3 = $this->BD->executeInsert($insercionPermiso3);
-        $resultadoInsercionPermiso4 = $this->BD->executeInsert($insercionPermiso4);
-        $resultadoInsercionPermiso5 = $this->BD->executeInsert($insercionPermiso5);
-        /*FIN EJECUCION SENTENCIAS DE INSERCION AUTOMATICAS DE LOS 4 PERMISOS PREDETERMINADOS*/
+        for ($i = 0; $i < sizeof($textoPermiso); $i++) {
+            $indice=$i+1;
+            $SQL = "INSERT INTO permisos (id_Opcion, num_Permiso, permiso) VALUES ('$id_Opcion', '$indice', '$textoPermiso[$i]')";
+            $this->BD->executeInsert($SQL);
+        }
     }
 
     public function guardarMenu($datos)

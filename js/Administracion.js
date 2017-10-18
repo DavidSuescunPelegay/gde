@@ -106,6 +106,10 @@ function buscar() {
                 $('#resultadoFiltrado').html(vista);
                 llenarNotificaciones("Se han cargado correctamente los " + productosFiltrados + " del " + parametrosFiltrados);
 
+                if (parametrosFiltrados === null) {
+                    parametrosFiltrados = "Usuario";
+                }
+
                 if (idUsuarioSeleccionado !== '') {
                     $('#textoAyuda').text(productosFiltrados + " del " + parametrosFiltrados + ": " + $('#id_BusquedaPorUsuarioauto').val());
                 } else {
@@ -179,19 +183,23 @@ function modificarRol(id_Rol) {
 
     var checked = $('#rol' + id_Rol).is(":checked");
 
+    var parametros = '';
+
     if (checked) {
         var id_Usuario = $('#id_BusquedaPorUsuario').val();
 
-        var parametros = '&c=Administracion&a=insertarRolUsuario';
+        parametros = '&c=Administracion&a=insertarRolUsuario';
         parametros += '&id_Rol=' + id_Rol;
         parametros += '&id_Usuario=' + id_Usuario;
     } else {
         var id_Usuario = $('#id_BusquedaPorUsuario').val();
 
-        var parametros = '&c=Administracion&a=eliminarRolUsuario';
+        parametros = '&c=Administracion&a=eliminarRolUsuario';
         parametros += '&id_Rol=' + id_Rol;
         parametros += '&id_Usuario=' + id_Usuario;
     }
+
+    alert(parametros);
 
     $.ajax({
         url: 'AjaxC.php',

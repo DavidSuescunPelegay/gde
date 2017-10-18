@@ -13,17 +13,24 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
         $msj = $res['msj'];
     }
 }
+
+//INICIO REDIRRECIONAMIENTO A app.php SI ESTAS LOGUEADO
+if (isset($_SESSION['login'])) {
+    header('Location: app.php');
+}
+//FIN REDIRRECIONAMIENTO A app.php SI ESTAS LOGUEADO
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
 <head>
     <title>Gestion de Empresa - David Suescun Pelegay</title>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png"
-          href="http://plainicon.com/dboard/userprod/2800_a1826/prod_thumb/plainicon.com-50298-256px-4b4.png"/>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
@@ -37,7 +44,7 @@ if (isset($_POST['login']) && isset($_POST['pass'])) {
 </head>
 <body>
 <?php
-$avisoNavegador = '<div id="avisoNavegador" class="alert alert-warning alert-dismissible fade in col-lg-2 col-md-6 col-sm-8 col-xs-12" role="alert" onclick="ocultarAviso()">';
+$avisoNavegador = '<div id="avisoNavegador" class="alert alert-warning alert-dismissible fade in col-lg-2 col-md-6 col-sm-12 col-xs-12" role="alert" onclick="ocultarAviso()">';
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
     $avisoNavegador .= '<button type="button" class="btn btn-danger">';
     $avisoNavegador .= '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
@@ -116,8 +123,8 @@ echo $avisoNavegador;
 </div>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.2 - Ultima Actualizacion: Miercoles, 04 de Enero de 2017 - <a
-                    href="changelog.html">Accede al Changelog</a></center>
+        <center>Version del Proyecto: 3.3 - Ultima Actualizacion: Viernes, 13 de Enero de 2017 - <a
+                    href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>
 </footer>

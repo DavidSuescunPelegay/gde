@@ -73,7 +73,6 @@ function busquedaSimple() {
 }
 
 function guardarFoto() {
-    alert("entro al onclick")
     new AjaxUpload('#subirFoto', {
             action: 'AjaxC.php',
             name: 'fichero',

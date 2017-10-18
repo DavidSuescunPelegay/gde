@@ -2,16 +2,15 @@ function insertMenu() {
     var id_Opcion = $('#id_OpcionInsertar').val();
     var texto = $('#textoInsertar').val();
     var url = $('#urlInsertar').val();
-    var id_Padre_Completo = $('#valoresIdPadreInsertar').val();
-    var id_Padre = id_Padre_Completo.slice(-1);//Recorta la palabra padre con slice
+    var id_Padre = $('#valoresIdPadreInsertar').val();
     var orden = $('#ordenInsertar').val();
 
-    if (texto.length === 0) {
+    if (texto.length === 0 || texto === null) {
         $('#textoInsertar').css("border-color", "red");
         $('#textoInsertar').effect("shake");
         llenarNotificaciones("Revisar campos en rojo");
     } else {
-        if (orden === 0) {
+        if (orden == 0) {
             $('#ordenInsertar').css("border-color", "red");
             $('#ordenInsertar').effect("shake");
             llenarNotificaciones("Revisar campos en rojo");
@@ -22,6 +21,7 @@ function insertMenu() {
             parametros += '&url=' + url;
             parametros += '&id_Padre=' + id_Padre;
             parametros += '&orden=' + orden;
+
             $.ajax({
                 url: 'AjaxC.php',
                 type: 'post',
@@ -32,17 +32,17 @@ function insertMenu() {
                     llenarNotificaciones("Los datos del menu " + texto.toUpperCase() + " se han insertado correctamente");
 
                     $('#modalInsertarMenu').modal('hide');
+
+                    location.reload();
                 }
             })
         }
     }
-
-    location.reload();
 }
 
 function editarMenu(id_Opcion, id_Padre) {
     /*Si el id_Padre es undefined se pasa a 0*/
-    if (id_Padre == null) {
+    if (id_Padre == 0) {
         id_Padre = 0;
     }
     /*Rellenamos los campos del formulario con los datos de la tabla*/
@@ -50,8 +50,7 @@ function editarMenu(id_Opcion, id_Padre) {
     $('#id_OpcionModificar').val(id_Opcion);
     $('#textoModificar').val($('#texto' + id_Opcion).text());
     $('#urlModificar').val($('#url' + id_Opcion).text());
-    var valorSelectOption = "padre"+id_Padre;
-    $("#valoresIdPadreModificar").val(valorSelectOption);
+    $("#valoresIdPadreModificar").val(id_Padre);
     $('#ordenModificar').val($('#orden' + id_Opcion).text());
 
     llenarNotificaciones("Los campos han sido cargados en el formulario de edicion");
@@ -61,20 +60,22 @@ function updateMenu() {
     var id_Opcion = $('#id_OpcionModificar').val();
     var texto = $('#textoModificar').val();
     var url = $('#urlModificar').val();
-    var id_Padre_Completo = $('#valoresIdPadreModificar').val();
-    var id_Padre = id_Padre_Completo.slice(-1);//Recorta la palabra padre con slice
+    var id_Padre = $('#valoresIdPadreModificar').val();
     var orden = $('#ordenModificar').val();
+
+    //Si id_Padre es null, se pone como 0
+    if (id_Padre === null) {
+        id_Padre = 0;
+    }
 
     if (texto.length === 0) {
         $('#textoModificar').css("border-color", "red");
         $('#textoModificar').effect("shake");
-
         llenarNotificaciones("Revisar campos en rojo");
     } else {
-        if (orden === 0) {
+        if (orden === 0 || orden==="") {
+            $('#ordenModificar').css("border-color", "red");
             $('#ordenModificar').effect("shake");
-            $('#ordenModificar').effect("shake");
-
             llenarNotificaciones("Revisar campos en rojo");
         } else {
             var parametros = '&c=Menus&a=modificarMenu';
@@ -94,17 +95,17 @@ function updateMenu() {
                     llenarNotificaciones("Los datos del menu " + texto.toUpperCase() + " se han modificado correctamente");
 
                     $('#modalModificarMenu').modal('hide');
+
+                    location.reload();
                 }
             })
         }
     }
 
-    location.reload();
+
 }
 
 function eliminarMenu(id_Opcion) {
-    var id_Opcion_A_Eliminar = id_Opcion;
-
     var primeraConfirmacion = confirm("¿Esta seguro de que desea eliminar un elemento del menu? Se eliminaran los permisos asociados.");
 
     if (primeraConfirmacion == true) {

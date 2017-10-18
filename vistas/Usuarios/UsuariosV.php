@@ -6,19 +6,6 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
         ?>
-        <button type="button"  class="btn btn-default botonNuevo" onclick="nuevoEditar('0');" data-toggle="modal"
-                data-target="#modalNuevoEditarUsuario"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Usuario</span>
-        </button>
-        <?php
-    }
-}
-?>
-<br>
-<br>
-<?php
-for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
-    if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
-        ?>
         <div class="panel-group" id="accordionUsuario" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
                 <div class="panel-heading itemsPanel" role="tab" id="headingOne">
@@ -34,9 +21,10 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                     <div class="panel-body">
                         <form id="formularioBusquedaInteligente" name="formularioBusquedaInteligente">
                             <fieldset>
+                                <label>Con funcion de autocompletado de usuarios</label><br>
                                 <label for="au_id_UsuarioB">Usuario:</label>
                                 <span id="au_id_UsuarioB" name="au_id_UsuarioB"></span>
-                                <button type="button" class="btn btn-primary"
+                                <button type="button" class="btn btn-default"
                                         title="Si no introduces ningun valor, mostrara todos los resultados"
                                         onclick="busquedaInteligente()">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -61,11 +49,12 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                     <div class="panel-body">
                         <form id="formularioBuscar" name="formularioBuscar">
                             <fieldset>
+                                <label>Busqueda que contenga los valores introducidos</label><br>
                                 <label for="usuarioB">Usuario:</label>
-                                <input type="text" id="usuarioB" name="usuarioB" value="">
+                                <input type="text" id="usuarioB" name="usuarioB" placeholder="Usuario" onkeyup="busquedaSimple()">
 
                                 <label for="loginB">Login:</label>
-                                <input type="text" id="loginB" name="loginB" value="">
+                                <input type="text" id="loginB" name="loginB" placeholder="Login" onkeyup="busquedaSimple()">
 
                                 <label for="activoB">Estado:</label>
                                 <select id="activoB" name="activoB">
@@ -73,7 +62,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                     <option value="N">Solo Inactivos</option>
                                     <option value="" selected>Activos e Inactivos</option>
                                 </select>
-                                <button type="button" class="btn btn-primary"
+                                <button type="button" class="btn btn-default"
                                         title="Si no introduces ningun valor, mostrara todos los resultados"
                                         onclick="busquedaSimple();">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
@@ -88,6 +77,21 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     }
 }
 ?>
+
+<?php
+for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+    if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
+        ?>
+        <button type="button"  class="btn btn-default" onclick="nuevoEditar('0');" data-toggle="modal"
+                data-target="#modalNuevoEditarUsuario"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Usuario</span>
+        </button>
+        <?php
+    }
+}
+?>
+<br>
+<br>
+
 <div id="div-resultado-busqueda"></div>
 
 <div class="modal fade bs-example-modal-lg" id="modalNuevoEditarUsuario" tabindex="-1" role="dialog"
@@ -150,7 +154,9 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="guardar();">Guardar</button>
+                <button type="button" class="btn btn-default" onclick="guardar();">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                </button>
             </div>
         </div>
     </div>

@@ -78,10 +78,13 @@ class AdministracionM extends Modelo
         $resultadoSQLIntermedia = $this->BD->executeQuery($SQLTablaIntermedia);
 
         $datosParaVista[0] = $resultadoSQLCompleto;
+        //$datosParaVista[1] = $resultadoSQLIntermedia;
+
 
         foreach ($resultadoSQLIntermedia as $item) {
             $datosParaVista[1][$item['id_Rol']] = $item;
         }
+
 
         return $datosParaVista;
     }

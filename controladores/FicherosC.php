@@ -99,22 +99,27 @@ class FicherosC extends Controlador
 
         $ficheroTemporal = $fichero['tmp_name'];
         $carpetaDestino = $_SESSION['RAIZ'] . 'ficheros/docsUsuarios/';
-        $fichCod = sha1($fichero['name']);
+        //$fichCod = sha1($fichero['name']);
+        //$fichCod = str_pad($id_Usuario, 11, '0', STR_PAD_LEFT) . '_';
         $fichExt = '.' . pathinfo($fichero['name'], PATHINFO_EXTENSION);
+
         $contador = 0;
         do {
             $contador++;
-            $fichNum = $contador; //Numero de 4 digitos
-            $nombreFichero = $fichCod . $fichNum . $fichExt;
-
+            $fichNum = str_pad($contador, 4, '0', STR_PAD_LEFT); //Numero de 4 digitos
+            $nombreFichero = $fichNum;
         } while (file_exists($carpetaDestino . $nombreFichero));
+
+        $nombreFichero = $fichero['name'];
         $ficheroDestino = $carpetaDestino . $nombreFichero;
 
         if (move_uploaded_file($ficheroTemporal, $ficheroDestino)) {
             $datos = array();
             $datos['id_Usuario'] = $id_Usuario;
             $datos['url'] = 'ficheros/docsUsuarios/';
-            $datos['nombre'] = $fichCod . $contador;
+            //$datos['nombre'] = $fichCod . $contador;
+            //$datos['nombre'] = $fichCod;
+            $datos['nombre'] = $nombreFichero;
             $datos['nombre_Original'] = pathinfo($fichero['name'], PATHINFO_EXTENSION);
             $datos['ext'] = $fichExt;
             $datos['parametros'] = 'DocumentoUsuario';
@@ -151,7 +156,8 @@ class FicherosC extends Controlador
         $res = $this->modelo->establecerFotoPerfil($datos);
     }
 
-    public function desactivarFichero($datos){
+    public function desactivarFichero($datos)
+    {
         $res = $this->modelo->desactivarFichero($datos);
     }
 }

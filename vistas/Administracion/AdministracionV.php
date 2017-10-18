@@ -7,7 +7,8 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 11) {
         ?>
-        <h4><b>Filtro a aplicar:</b> Filtrar
+        <h4>
+            <b>Filtro a aplicar:</b> Filtrar
             <select id="productosFiltrado" onchange="cambiarProductos()">
                 <option value="null">
 
@@ -47,7 +48,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                 ?>
             </select>
 
-            <button type="button" class="btn btn-primary" id="botonBuscarFiltros" onclick="buscar()"
+            <button type="button" class="btn btn-default" id="botonBuscarFiltros" onclick="buscar()"
                     style="display: none;">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             </button>

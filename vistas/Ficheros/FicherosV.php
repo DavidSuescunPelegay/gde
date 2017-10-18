@@ -16,7 +16,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                <button type="button" class="btn btn-default botonNuevo" id="subirFoto">
+                <button type="button" class="btn btn-default" id="subirFoto">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"> Foto</span>
                 </button>
                 <?php
@@ -130,9 +130,10 @@
                                     <td><?php echo $archivo['nombre_Original']; ?></td>
                                     <td><?php echo $archivo['sysdate_Subida']; ?></td>
                                     <td>
-                                        <img src="https://cdn2.iconfinder.com/data/icons/duo-toolbar-signs/512/erase-512.png"
-                                             height="37px"
-                                             onclick="desactivarFichero(<?php echo $archivo['id_Fichero'] ?>)">
+                                        <button type="button" class="btn btn-default" title="Eliminar"
+                                                onclick="desactivarFichero(<?php echo $archivo['id_Fichero'] ?>)">
+                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <?php
@@ -158,7 +159,7 @@
         </div>
         <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
-                <button type="button" class="btn btn-default botonNuevo" id="subirDocumento">
+                <button type="button" class="btn btn-default" id="subirDocumento">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"> Documento</span>
                 </button>
                 <?php
@@ -177,15 +178,16 @@
                                 ?>
                                 <tr>
                                     <td>
-                                        <a href="<?php echo $archivo['url'] . $archivo['nombre'] . $archivo['ext'] ?>"
+                                        <a href="<?php echo $archivo['url'] . $archivo['nombre'] ?>"
                                            target="_blank"><?php echo $archivo['nombre'] ?></a>
                                     </td>
-                                    <td><?php echo $archivo['ext'] ?></td>
+                                    <td><?php echo $archivo['nombre_Original'] ?></td>
                                     <td><?php echo $archivo['sysdate_Subida'] ?></td>
                                     <td>
-                                        <img src="https://cdn2.iconfinder.com/data/icons/duo-toolbar-signs/512/erase-512.png"
-                                             height="37px"
-                                             onclick="desactivarFichero(<?php echo $archivo['id_Fichero'] ?>)">
+                                        <button type="button" class="btn btn-default" title="Eliminar"
+                                                onclick="desactivarFichero(<?php echo $archivo['id_Fichero'] ?>)">
+                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                        </button>
                                     </td>
                                 </tr>
                                 <?php

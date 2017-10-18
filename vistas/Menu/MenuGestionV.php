@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
         ?>
-        <button type="button"  class="btn btn-default botonNuevo" data-toggle="modal"
+        <button type="button"  class="btn btn-default" data-toggle="modal"
                 data-target="#modalInsertarMenu">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Menu</span>
         </button>
@@ -44,7 +44,7 @@ for ($i = 0;
                         for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
                             if ($_SESSION['permisos'][$j]['id_Permiso'] == 8) {
                                 ?>
-                                <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal"
+                                <button type="button" class="btn btn-default" title="Editar" data-toggle="modal"
                                         data-target="#modalModificarMenu" id="botonEdicion<?php echo $opcion['id_Opcion'] ?>"
                                         onclick="editarMenu(<?php echo $opcion['id_Opcion'] ?>, <?php echo $opcion['id_Padre'] ?>)"><span
                                             class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
@@ -57,7 +57,7 @@ for ($i = 0;
                         for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
                             if ($_SESSION['permisos'][$k]['id_Permiso'] == 9) {
                                 ?>
-                                <button type="button" class="btn btn-danger" title="Eliminar"
+                                <button type="button" class="btn btn-default" title="Eliminar"
                                         id="botonEliminar<?php echo $opcion['id_Opcion'] ?>"
                                         onclick="eliminarMenu(<?php echo $opcion['id_Opcion'] ?>)"><span
                                             class="glyphicon glyphicon-trash"
@@ -68,7 +68,7 @@ for ($i = 0;
                         ?>
                         &nbsp &nbsp
                         <a href="app.php?d=Permisos&opcion=<?php echo $opcion['id_Opcion'] ?>">
-                            <button type="button" class="btn btn-info"
+                            <button type="button" class="btn btn-default"
                                     id="botonPermisos<?php echo $opcion['id_Opcion'] ?>"><span
                                         class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span></button>
                         </a></td>
@@ -89,7 +89,7 @@ for ($i = 0;
                                     for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
                                         if ($_SESSION['permisos'][$j]['id_Permiso'] == 8) {
                                             ?>
-                                            <button type="button" class="btn btn-warning" title="Editar"
+                                            <button type="button" class="btn btn-default" title="Editar"
                                                     data-toggle="modal"
                                                     data-target="#modalModificarMenu"
                                                     id="botonEdicion<?php echo $subOpcion['id_Opcion'] ?>"
@@ -105,7 +105,7 @@ for ($i = 0;
                                     for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
                                         if ($_SESSION['permisos'][$k]['id_Permiso'] == 9) {
                                             ?>
-                                            <button type="button" class="btn btn-danger" title="Eliminar"
+                                            <button type="button" class="btn btn-default" title="Eliminar"
                                                     id="botonEliminar<?php echo $subOpcion['id_Opcion'] ?>"
                                                     onclick="eliminarMenu(<?php echo $subOpcion['id_Opcion'] ?>)"><span
                                                         class="glyphicon glyphicon-trash"
@@ -117,7 +117,7 @@ for ($i = 0;
                                     ?>
                                     &nbsp &nbsp
                                     <a href="app.php?d=Permisos&opcion=<?php echo $subOpcion['id_Opcion'] ?>">
-                                        <button type="button" class="btn btn-info"
+                                        <button type="button" class="btn btn-default"
                                                 id="botonPermisos<?php echo $subOpcion['id_Opcion'] ?>"><span
                                                     class="glyphicon glyphicon-flag" aria-hidden="true"> Permisos</span>
                                         </button>
@@ -168,7 +168,7 @@ for ($i = 0;
                                 <option value="0">0 (no depende de ningun menu)</option>
                                 <?php
                                 foreach ($datos[1] as $opcion) {
-                                    $html = '<option value="padre' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
+                                    $html = '<option value="' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
                                     echo $html;
                                 }
                                 ?>
@@ -185,7 +185,9 @@ for ($i = 0;
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="insertMenu()">Insertar</button>
+                <button type="button" class="btn btn-default" onclick="insertMenu()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Insertar
+                </button>
             </div>
         </div>
     </div>
@@ -223,7 +225,7 @@ for ($i = 0;
                                 <option value="0">0 (no depende de ningun menu)</option>
                                 <?php
                                 foreach ($datos[1] as $opcion) {
-                                    $html = '<option value="padre' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
+                                    $html = '<option value="' . $opcion['id_Opcion'] . '">' . $opcion['id_Opcion'] . ' (dependera del menu ' . $opcion['texto'] . ')</option>';
                                     echo $html;
                                 }
                                 ?>
@@ -240,7 +242,9 @@ for ($i = 0;
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="updateMenu()">Guardar</button>
+                <button type="button" class="btn btn-default" onclick="updateMenu()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                </button>
             </div>
         </div>
     </div>

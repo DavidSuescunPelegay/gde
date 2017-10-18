@@ -23,8 +23,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
 <head>
     <title>Gestion de Empresa - David Suescun Pelegay</title>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png"
-          href="http://plainicon.com/dboard/userprod/2800_a1826/prod_thumb/plainicon.com-50298-256px-4b4.png"/>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -86,7 +85,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" id="logoPrincipal" href="#">GESTION DE EMPRESA</a>
+            <a class="navbar-brand" id="logoPrincipal" href="app.php">GESTION DE EMPRESA</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <?php
@@ -105,7 +104,7 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
                     <?php
                     if ($_SESSION['datosUsuario'][0]['foto_de_Perfil'] == null) {
                         ?>
-                        <img src="http://simpleicon.com/wp-content/uploads/user1.png"
+                        <img src="images/userdefault.png"
                              class="img-responsive" alt="" style="background-color: #FFFFFF">
                         <?php
                     } else {
@@ -132,7 +131,9 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
                     </div>
                 </div>
                 <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-danger btn-sm" onclick="logout()">Cerrar Sesion</button>
+                    <a href="logout.php" style="color: white">
+                        <button type="button" class="btn btn-default btn-sm">Cerrar Sesion</button>
+                    </a>
                 </div>
                 <div class="profile-usermenu">
                     <ul class="nav">
@@ -269,6 +270,8 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
                                 <div id="collapseE" class="panel-collapse collapse" role="tabpanel"
                                      aria-labelledby="headingE">
                                     <div class="panel-body itemsContent">
+                                        Gestiona tus usuarios, menus, permisos, ficheros... de manera facil e
+                                        intuitiva.
                                         Navega por los menus y haz modificaciones, si no se muestran datos,
                                         probablemente no
                                         tengas permiso para ver esa pantalla.
@@ -313,18 +316,17 @@ $permisosUsuario->getDatosPermisosPorUsuario($_SESSION['login']);
         </div>
     </div>
 </div>
-
 <a href="#top">
     <center>
-        <div style="position: fixed; bottom: 5%; right: 5%; height: 20px; width: 20px; background-color: #eaeaea; border-radius: 100%;">
+        <div style="position: fixed; bottom: 5%; right: 2.5%; height: 20px; width: 20px; background-color: #eaeaea; border-radius: 100%;">
             <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
         </div>
     </center>
 </a>
 <footer>
     <div id="infoFooter">
-        <center>Version del Proyecto: 3.2 - Ultima Actualizacion: Miercoles, 04 de Enero de 2017 - <a
-                    href="changelog.html">Accede al Changelog</a></center>
+        <center>Version del Proyecto: 3.3 - Ultima Actualizacion: Viernes, 13 de Enero de 2017 - <a
+                    href="changelog.html" style="color: #FFFFFF;">Accede al Changelog</a></center>
         <center>© David Suescun Pelegay - 2º SI - Desarrollo de Interfaces - CES San Valero</center>
     </div>
 </footer>

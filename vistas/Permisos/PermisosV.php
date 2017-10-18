@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 12) {
         ?>
-        <button type="button"  class="btn btn-default botonNuevo" data-toggle="modal"
+        <button type="button"  class="btn btn-default" data-toggle="modal"
                 data-target="#modalInsertarPermiso">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Permiso</span>
         </button>
@@ -45,14 +45,14 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                     if ($_SESSION['permisos'][$j]['id_Permiso'] == 13) {
                                         if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
                                             ?>
-                                            <button type="button" class="btn btn-warning disabled"
+                                            <button type="button" class="btn btn-default disabled"
                                                     title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4"
                                                     id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
                                                     onclick="edicionProhibida()"><span
                                                         class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                             </button>
                                         <?php } else { ?>
-                                            <button type="button" class="btn btn-warning" title="Editar"
+                                            <button type="button" class="btn btn-default" title="Editar"
                                                     id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
                                                     data-toggle="modal"
                                                     data-target="#modalModificarPermiso"
@@ -71,14 +71,14 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                     if ($_SESSION['permisos'][$k]['id_Permiso'] == 14) {
                                         if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
                                             ?>
-                                            <button type="button" class="btn btn-danger disabled"
+                                            <button type="button" class="btn btn-default disabled"
                                                     title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4"
                                                     id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
                                                     onclick="eliminacionProhibida()"><span
                                                         class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                             </button>
                                         <?php } else { ?>
-                                            <button type="button" class="btn btn-danger" title="Eliminar"
+                                            <button type="button" class="btn btn-default" title="Eliminar"
                                                     id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
                                                     onclick="deletePermiso(<?php echo $opcion['id_Permiso'] ?>)"><span
                                                         class="glyphicon glyphicon-trash"
@@ -102,14 +102,14 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                     if ($_SESSION['permisos'][$j]['id_Permiso'] == 13) {
                                         if ($opcion['num_Permiso'] < 5) {//Desactivo el boton editar si el numero de permiso es 1, 2, 3 o 4
                                             ?>
-                                            <button type="button" class="btn btn-warning disabled"
+                                            <button type="button" class="btn btn-default disabled"
                                                     title="Las funciones de edicion estan desactivadas para los numero de permiso 1-4"
                                                     id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
                                                     onclick="edicionProhibida()"><span
                                                         class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                             </button>
                                         <?php } else { ?>
-                                            <button type="button" class="btn btn-warning" title="Editar"
+                                            <button type="button" class="btn btn-default" title="Editar"
                                                     id="botonEdicion<?php echo $opcion['id_Permiso'] ?>"
                                                     data-toggle="modal"
                                                     data-target="#modalModificarPermiso"
@@ -127,7 +127,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                     if ($_SESSION['permisos'][$k]['id_Permiso'] == 14) {
                                         if ($opcion['num_Permiso'] < 5) {//Desactivo el boton eliminar si el numero de permiso es 1, 2, 3 o 4
                                             ?>
-                                            <button type="button" class="btn btn-danger disabled"
+                                            <button type="button" class="btn btn-default disabled"
                                                     title="Las funciones de eliminacion estan desactivadas para los numero de permiso 1-4"
                                                     id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
                                                     onclick="eliminacionProhibida()"><span
@@ -136,7 +136,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                                             <?php
                                         } else { ?>
 
-                                            <button type="button" class="btn btn-danger" title="Eliminar"
+                                            <button type="button" class="btn btn-default" title="Eliminar"
                                                     id="botonEliminacion<?php echo $opcion['id_Permiso'] ?>"
                                                     onclick="deletePermiso(<?php echo $opcion['id_Permiso'] ?>)"><span
                                                         class="glyphicon glyphicon-trash"
@@ -204,7 +204,9 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="insertPermiso()">Insertar</button>
+                <button type="button" class="btn btn-default" onclick="insertPermiso()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Insertar
+                </button>
             </div>
         </div>
     </div>
@@ -254,7 +256,9 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="updatePermiso()">Guardar</button>
+                <button type="button" class="btn btn-default" onclick="updatePermiso()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                </button>
             </div>
         </div>
     </div>

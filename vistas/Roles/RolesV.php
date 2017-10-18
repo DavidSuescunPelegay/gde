@@ -6,7 +6,7 @@
 for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
     if ($_SESSION['permisos'][$i]['id_Permiso'] == 17) {
         ?>
-        <button type="button"  class="btn btn-default botonNuevo" data-toggle="modal"
+        <button type="button"  class="btn btn-default" data-toggle="modal"
                 data-target="#modalInsertarRol">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"> Rol</span>
         </button>
@@ -36,7 +36,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                             for ($j = 0; $j < count($_SESSION['permisos']); $j++) {
                                 if ($_SESSION['permisos'][$j]['id_Permiso'] == 18) {
                                     ?>
-                                    <button type="button" class="btn btn-warning" title="Editar" data-toggle="modal"
+                                    <button type="button" class="btn btn-default" title="Editar" data-toggle="modal"
                                             data-target="#modalModificarRol"
                                             id="botonEdicion<?php echo $opcion['id_Rol'] ?>"
                                             onclick="editarRol(<?php echo $opcion['id_Rol'] ?>)"><span
@@ -52,7 +52,7 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
                             for ($k = 0; $k < count($_SESSION['permisos']); $k++) {
                                 if ($_SESSION['permisos'][$k]['id_Permiso'] == 19) {
                                     ?>
-                                    <button type="button" class="btn btn-danger" title="Eliminar"
+                                    <button type="button" class="btn btn-default" title="Eliminar"
                                             id="botonEliminar<?php echo $opcion['id_Rol'] ?>"
                                             onclick="eliminarRol(<?php echo $opcion['id_Rol'] ?>)"><span
                                                 class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
@@ -94,7 +94,9 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="insertRol()">Insertar</button>
+                <button type="button" class="btn btn-default" onclick="insertRol()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Insertar
+                </button>
             </div>
         </div>
     </div>
@@ -122,7 +124,9 @@ for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="updateRol()">Guardar</button>
+                <button type="button" class="btn btn-default" onclick="updateRol()">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
+                </button>
             </div>
         </div>
     </div>
