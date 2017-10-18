@@ -1,7 +1,8 @@
 <?php
-require_once '/controladores/Controlador.php';
-require_once '/modelos/UsuariosM.php';
-require_once '/vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
+//include '/controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . '/modelos/UsuariosM.php';
+require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
 
 class UsuariosC extends Controlador
 {
@@ -15,13 +16,8 @@ class UsuariosC extends Controlador
 
     public function validarUsuario($datos)
     {
-// 		$login='';
-// 		$pass='';
-// 		extract($datos);
-
         $validacion = $this->modelo->validarUsuario($datos);
 
-// 		if($login=='javier' && $pass=='123'){
         if (!empty($validacion)) {
             $respuesta['valido'] = 'S';
             $respuesta['msj'] = '';
@@ -33,6 +29,18 @@ class UsuariosC extends Controlador
         return $respuesta;
     }
 
+    public function datosUsuario($login)
+    {
+        $datosUsuario = $this->modelo->datosUsuario($login);
+        $_SESSION['datosUsuario'] = $datosUsuario;
+    }
+
+    public function getDatosPermisosPorUsuario($login)
+    {
+        $permisosPorUsuario = $this->modelo->getDatosPermisosPorUsuario($login);
+        $_SESSION['permisos'] = $permisosPorUsuario;
+    }
+
     public function getVistaPrincipal()
     {
         $vista = new Vista();
@@ -42,7 +50,6 @@ class UsuariosC extends Controlador
     public function getVistaResultadosBusqueda($datos)
     {
         $filas = $this->modelo->findAll($datos);
-        //fb::log($filas);
         $vista = new Vista();
         $vista->render($_SESSION['RAIZ'] . '/vistas/Usuarios/UsuariosBusquedaV.php', $filas);
     }
@@ -61,62 +68,81 @@ class UsuariosC extends Controlador
 
     public function guardarUsuario($datos)
     {
-
-        $respuesta['correcto'] = 'S';
-        $respuesta['tipoError'] = '';
-        if ($datos['id_Usuario'] == 0) {
-            $respuesta['msj'] = utf8_encode('Se ha guardado el nuevo usuario.');
-        } else {
-            $respuesta['msj'] = utf8_encode('Se han guardado los cambios del usuario.');
-        }
-        //comprobar que no se repite el login
-        $filas = $this->modelo->findAll(array('login' => $datos['login'],
-            'loginEXACTO' => 'S', 'activo' => ''));
-        if (!empty($filas) && $filas[0]['id_Usuario'] != $datos['id_Usuario']) {
-            $respuesta['correcto'] = 'N';
-            $respuesta['tipoError'] = 'loginReptido';
-            $respuesta['msj'] = utf8_encode('Login repetido, elija otro.');
-        } else {
-            if ($datos['id_Usuario'] == 0) { //nuevo
-                $resul = $this->modelo->insertUsuario($datos);
-                if ($resul < 1) {
-                    $respuesta['correcto'] = 'N';
-                    $respuesta['tipoError'] = 'errorGuardar';
-                    $respuesta['msj'] = utf8_encode('Error al guardar.');
-
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 2 || $_SESSION['permisos'][$i]['id_Permiso'] == 3) {
+                $respuesta['correcto'] = 'S';
+                $respuesta['tipoError'] = '';
+                if ($datos['id_Usuario'] == 0) {
+                    $respuesta['msj'] = utf8_encode('Se ha guardado el nuevo usuario.');
+                } else {
+                    $respuesta['msj'] = utf8_encode('Se han guardado los cambios del usuario.');
                 }
-            } else { //modificacion
-                if (isset($datos['pass']) && $datos['pass'] != '') $datos['actualizarPass'] = 'S';
-
-                $resul = $this->modelo->updateUsuario($datos);
-                if ($resul != 1) {
+                //comprobar que no se repite el login
+                $filas = $this->modelo->findAll(array('login' => $datos['login'],
+                    'loginEXACTO' => 'S', 'activo' => ''));
+                if (!empty($filas) && $filas[0]['id_Usuario'] != $datos['id_Usuario']) {
                     $respuesta['correcto'] = 'N';
-                    $respuesta['tipoError'] = 'errorModificar';
-                    $respuesta['msj'] = utf8_encode('Error al modificar.');
+                    $respuesta['tipoError'] = 'loginReptido';
+                    $respuesta['msj'] = utf8_encode('Login repetido, elija otro.');
+                } else {
+                    if ($datos['id_Usuario'] == 0) { //nuevo
+                        $resul = $this->modelo->insertUsuario($datos);
+                        if ($resul < 1) {
+                            $respuesta['correcto'] = 'N';
+                            $respuesta['tipoError'] = 'errorGuardar';
+                            $respuesta['msj'] = utf8_encode('Error al guardar.');
 
+                        }
+                    } else { //modificacion
+                        if (isset($datos['pass']) && $datos['pass'] != '') $datos['actualizarPass'] = 'S';
+
+                        $resul = $this->modelo->updateUsuario($datos);
+                        if ($resul != 1) {
+                            $respuesta['correcto'] = 'N';
+                            $respuesta['tipoError'] = 'errorModificar';
+                            $respuesta['msj'] = utf8_encode('Error al modificar.');
+
+                        }
+                    }
                 }
+
+                echo json_encode($respuesta);
             }
         }
-
-        echo json_encode($respuesta);
     }
 
     public function activarDesactivar($datos)
     {
-        $respuesta['correcto'] = 'S';
-        $respuesta['tipoError'] = '';
-        if ($datos['activo'] == 'S') {
-            $respuesta['msj'] = utf8_encode('Se a activado el usuario.');
-        } else {
-            $respuesta['msj'] = utf8_encode('Se desactivado el usuario.');
-        }
-        $resul = $this->modelo->activarDesactivarUsuario($datos);
-        if ($resul != 1) {
-            $respuesta['correcto'] = 'N';
-            $respuesta['tipoError'] = 'errorModificar';
-            $respuesta['msj'] = utf8_encode('Error al cambiar el estado del usuario.');
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 4) {
+                $respuesta['correcto'] = 'S';
+                $respuesta['tipoError'] = '';
+                if ($datos['activo'] == 'S') {
+                    $respuesta['msj'] = utf8_encode('Se ha activado el usuario.');
+                } else {
+                    $respuesta['msj'] = utf8_encode('Se ha desactivado el usuario.');
+                }
+                $resul = $this->modelo->activarDesactivarUsuario($datos);
+                if ($resul != 1) {
+                    $respuesta['correcto'] = 'N';
+                    $respuesta['tipoError'] = 'errorModificar';
+                    $respuesta['msj'] = utf8_encode('Error al cambiar el estado del usuario.');
 
+                }
+                echo json_encode($respuesta);
+            }
         }
-        echo json_encode($respuesta);
+    }
+
+    public function autoCompleteUsuarios($parametros)
+    {
+        if (isset($parametros['query']) && $parametros['query'] != "") {
+            //Descomponer lo escrito en palabras
+            $texto = mb_strtoupper(utf8_decode(urldecode($parametros['query'])));
+            $parametros['palabras'] = explode(' ', $texto);
+            $parametros['filas'] = $this->modelo->getUsuariosAutocomplete($parametros);
+            $vista = new Vista();
+            $vista->render($_SESSION['RAIZ'] . '/vistas/Usuarios/UsuariosAutocompleteV.php', $parametros);
+        }
     }
 }

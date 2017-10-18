@@ -13,9 +13,9 @@ $html .= '<div class="navbar-header">
 $html .= '<div class="collapse navbar-collapse navbar-ex1-collapse">';
 $html .= '<ul class="nav navbar-nav">';
 
-foreach ($datos as $ind => $opcion) {
+foreach ($datos[0] as $ind => $opcion) {
     if (isset($opcion['subOpciones'])) {
-        $html .= '<li><a href="#" class="dropdown-toggle"	data-toggle="dropdown">' . $opcion['texto'] . '<b class="caret"></b></a>';
+        $html .= '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">' . $opcion['texto'] . '<b class="caret"></b></a>';
         $html .= '<ul class="dropdown-menu">';
         foreach ($opcion['subOpciones'] as $subind => $subOpcion) {
             $html .= '<li class="dropdown">';

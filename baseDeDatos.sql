@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2016 a las 09:56:37
--- Versión del servidor: 5.7.9
--- Versión de PHP: 5.6.16
+-- Host: 127.0.0.1
+-- Generation Time: Nov 16, 2016 at 03:27 PM
+-- Server version: 5.7.11
+-- PHP Version: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `gde`
+-- Database: `gde`
 --
 CREATE DATABASE IF NOT EXISTS `gde` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
 USE `gde`;
@@ -25,68 +25,88 @@ USE `gde`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `menus`
+-- Table structure for table `menus`
 --
 
 DROP TABLE IF EXISTS `menus`;
-CREATE TABLE IF NOT EXISTS `menus` (
-  `id_Opcion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `menus` (
+  `id_Opcion` int(11) UNSIGNED NOT NULL,
   `texto` varchar(40) COLLATE latin1_spanish_ci NOT NULL,
   `url` varchar(100) COLLATE latin1_spanish_ci NOT NULL,
   `id_Padre` int(11) UNSIGNED NOT NULL,
-  `orden` int(4) NOT NULL,
-  PRIMARY KEY (`id_Opcion`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  `orden` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `menus`
+-- Dumping data for table `menus`
 --
 
 INSERT INTO `menus` (`id_Opcion`, `texto`, `url`, `id_Padre`, `orden`) VALUES
 (1, 'Usuarios', 'app.php?c=Usuarios', 0, 10),
 (2, 'Menus', 'app.php?c=Menus', 0, 20),
-(3, 'Permisos', 'app.php?c=Permisos', 0, 60),
-(4, 'Personal', '#', 0, 40),
-(5, 'Contratos', '#', 4, 10),
-(6, 'Nominas', '#', 4, 20),
-(7, 'Administracion', '#', 0, 50),
-(8, 'Facturas', '#', 7, 20),
-(9, 'Informes', '#', 7, 20),
-(10, 'Pedidos', '#', 0, 30),
-(11, 'Pruebas', 'index.php', 0, 9999);
+(3, 'Permisos', 'app.php?c=Permisos', 0, 30),
+(4, 'Roles', 'app.php?c=Roles', 0, 40),
+(5, 'Administracion', 'app.php?c=Administracion', 0, 50);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permisorol`
+-- Table structure for table `permisorol`
 --
 
 DROP TABLE IF EXISTS `permisorol`;
-CREATE TABLE IF NOT EXISTS `permisorol` (
+CREATE TABLE `permisorol` (
   `id_Permiso` int(11) NOT NULL,
-  `id_Rol` int(11) NOT NULL,
-  PRIMARY KEY (`id_Permiso`,`id_Rol`),
-  KEY `id_Rol` (`id_Rol`)
+  `id_Rol` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `permisorol`
+--
+
+INSERT INTO `permisorol` (`id_Permiso`, `id_Rol`) VALUES
+(1, 15),
+(2, 15),
+(3, 15),
+(4, 15),
+(5, 15),
+(6, 15),
+(7, 15),
+(8, 15),
+(9, 15),
+(10, 15),
+(11, 15),
+(12, 15),
+(13, 15),
+(14, 15),
+(15, 15),
+(16, 15),
+(17, 15),
+(18, 15),
+(19, 15),
+(20, 15),
+(21, 15),
+(22, 15),
+(23, 15),
+(24, 15),
+(25, 15);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permisos`
+-- Table structure for table `permisos`
 --
 
 DROP TABLE IF EXISTS `permisos`;
-CREATE TABLE IF NOT EXISTS `permisos` (
-  `id_Permiso` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `permisos` (
+  `id_Permiso` int(11) NOT NULL,
   `id_Opcion` int(11) NOT NULL,
   `num_Permiso` int(2) NOT NULL,
-  `permiso` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL,
-  PRIMARY KEY (`id_Permiso`),
-  KEY `id_Opcion` (`id_Opcion`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+  `permiso` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `permisos`
+-- Dumping data for table `permisos`
 --
 
 INSERT INTO `permisos` (`id_Permiso`, `id_Opcion`, `num_Permiso`, `permiso`) VALUES
@@ -94,82 +114,188 @@ INSERT INTO `permisos` (`id_Permiso`, `id_Opcion`, `num_Permiso`, `permiso`) VAL
 (2, 1, 2, 'Insertar Usuario'),
 (3, 1, 3, 'Modificar Usuario'),
 (4, 1, 4, 'Eliminar Usuario'),
-(5, 2, 1, 'Consultar Menu'),
-(6, 2, 2, 'Insertar Menu'),
-(7, 2, 3, 'Modificar Menu'),
-(8, 2, 4, 'Eliminar Menu'),
-(9, 11, 1, 'Consultar Pruebas'),
-(10, 11, 2, 'Insertar Pruebas'),
-(11, 11, 3, 'Modificar Pruebas'),
-(12, 11, 4, 'Eliminar Pruebas'),
-(13, 11, 5, 'Lorem Ipsum');
+(5, 1, 5, 'Pruebas Usuario'),
+(6, 2, 1, 'Consultar Menu'),
+(7, 2, 2, 'Insertar Menu'),
+(8, 2, 3, 'Modificar Menu'),
+(9, 2, 4, 'Eliminar Menu'),
+(10, 2, 5, 'Pruebas Menu'),
+(11, 3, 1, 'Consultar Permiso'),
+(12, 3, 2, 'Insertar Permiso'),
+(13, 3, 3, 'Modificar Permiso'),
+(14, 3, 4, 'Eliminar Permiso'),
+(15, 3, 5, 'Pruebas Permiso'),
+(16, 4, 1, 'Consultar Rol'),
+(17, 4, 2, 'Insertar Rol'),
+(18, 4, 3, 'Modificar Rol'),
+(19, 4, 4, 'Eliminar Rol'),
+(20, 4, 5, 'Pruebas Rol'),
+(21, 5, 1, 'Consultar Administracion'),
+(22, 5, 2, 'Insertar Administracion'),
+(23, 5, 3, 'Modificar Administracion'),
+(24, 5, 4, 'Eliminar Administracion'),
+(25, 5, 5, 'Pruebas Administracion');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `permisousuario`
+-- Table structure for table `permisousuario`
 --
 
 DROP TABLE IF EXISTS `permisousuario`;
-CREATE TABLE IF NOT EXISTS `permisousuario` (
+CREATE TABLE `permisousuario` (
   `id_Permiso` int(11) NOT NULL,
-  `id_Usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id_Permiso`,`id_Usuario`),
-  KEY `id_Usuario` (`id_Usuario`)
+  `id_Usuario` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `permisousuario`
+--
+
+INSERT INTO `permisousuario` (`id_Permiso`, `id_Usuario`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1),
+(25, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
 DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
+CREATE TABLE `roles` (
   `id_Rol` int(11) NOT NULL,
-  `rol` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL,
-  PRIMARY KEY (`id_Rol`)
+  `rol` varchar(100) COLLATE latin1_spanish_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id_Rol`, `rol`) VALUES
+(1, 'Administrativo'),
+(2, 'Almacenero'),
+(3, 'Autonomo'),
+(4, 'Asistente Personal'),
+(5, 'Auxiliar de Servicios'),
+(6, 'Becario'),
+(7, 'Consejo de Administracion'),
+(8, 'CSO'),
+(9, 'Director Comercial'),
+(10, 'Director de Comunicacion'),
+(11, 'Director de Finanzas'),
+(12, 'Director de Recursos Humanos'),
+(13, 'Director de Riesgos'),
+(14, 'Director de Seguridad'),
+(15, 'Director de Tecnologia'),
+(16, 'Director Ejecutivo'),
+(17, 'Director General'),
+(18, 'Director Tecnico'),
+(19, 'Ejecutivo'),
+(20, 'Empresario'),
+(21, 'Gerente'),
+(22, 'Jefe de Marca'),
+(23, 'Jefe de Operaciones'),
+(24, 'Junta de Directores'),
+(25, 'Product Manager'),
+(26, 'Recepcionista'),
+(27, 'Secretario'),
+(28, 'Secretario General'),
+(29, 'Vendedor');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rolesusuario`
+-- Table structure for table `rolusuario`
 --
 
-DROP TABLE IF EXISTS `rolesusuario`;
-CREATE TABLE IF NOT EXISTS `rolesusuario` (
+DROP TABLE IF EXISTS `rolusuario`;
+CREATE TABLE `rolusuario` (
   `id_Rol` int(11) NOT NULL,
-  `id_Usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id_Rol`,`id_Usuario`),
-  KEY `id_Usuario` (`id_Usuario`)
+  `id_Usuario` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Dumping data for table `rolusuario`
+--
+
+INSERT INTO `rolusuario` (`id_Rol`, `id_Usuario`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 1),
+(15, 1),
+(16, 1),
+(17, 1),
+(18, 1),
+(19, 1),
+(20, 1),
+(21, 1),
+(22, 1),
+(23, 1),
+(24, 1),
+(25, 1),
+(26, 1),
+(27, 1),
+(28, 1),
+(29, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id_Usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuarios` (
+  `id_Usuario` int(11) UNSIGNED NOT NULL,
   `nombre` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `apellido_1` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `apellido_2` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `login` varchar(40) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
   `pass` varchar(32) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL,
-  `activo` char(1) NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`id_Usuario`),
-  UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=497 DEFAULT CHARSET=latin1;
+  `activo` char(1) NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `login`, `pass`, `activo`) VALUES
-(1, 'Administrador', 'Administrador', 'Administrador', 'admin', '202cb962ac59075b964b07152d234b70', 'S'),
+(1, 'Administrador', 'Administrador', 'Administrador', 'admin', '15db101259572cb1115f1b9bc5851236', 'S'),
 (2, 'Javier', 'jj', 'jj', 'javier', '202cb962ac59075b964b07152d234b70', 'S'),
 (5, 'Fernando', 'ff', 'ff', 'fernando', '202cb962ac59075b964b07152d234b70', 'N'),
 (6, 'Juan', 'Froilan', 'De todos los Santos', 'jfroi', '202cb962ac59075b964b07152d234b70', 'S'),
@@ -229,7 +355,7 @@ INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `log
 (259, 'Henriette ', 'Pfalzheim', '', 'Pfalzheim', '202cb962ac59075b964b07152d234b70', 'S'),
 (260, 'Elizabeth ', 'Lincoln', '', 'Lincoln', '202cb962ac59075b964b07152d234b70', 'S'),
 (273, 'Peter ', 'Franken', '', 'Franken', '202cb962ac59075b964b07152d234b70', 'S'),
-(276, 'Anna', 'O''Hara', '', 'O''Hara', '202cb962ac59075b964b07152d234b70', 'S'),
+(276, 'Anna', 'O\'Hara', '', 'O\'Hara', '202cb962ac59075b964b07152d234b70', 'S'),
 (278, 'Giovanni ', 'Rovelli', '', 'Rovelli', '202cb962ac59075b964b07152d234b70', 'S'),
 (282, 'Adrian', 'Huxley', '', 'Huxley', '202cb962ac59075b964b07152d234b70', 'S'),
 (286, 'Marta', 'Hernandez', '', 'Hernandez3', '202cb962ac59075b964b07152d234b70', 'S'),
@@ -297,6 +423,81 @@ INSERT INTO `usuarios` (`id_Usuario`, `nombre`, `apellido_1`, `apellido_2`, `log
 (495, 'Valarie', 'Franco', '', 'Franco2', '202cb962ac59075b964b07152d234b70', 'S'),
 (496, 'Tony', 'Snowden', '', 'Snowden', '202cb962ac59075b964b07152d234b70', 'S');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `menus`
+--
+ALTER TABLE `menus`
+  ADD PRIMARY KEY (`id_Opcion`);
+
+--
+-- Indexes for table `permisorol`
+--
+ALTER TABLE `permisorol`
+  ADD PRIMARY KEY (`id_Permiso`,`id_Rol`),
+  ADD KEY `id_Rol` (`id_Rol`);
+
+--
+-- Indexes for table `permisos`
+--
+ALTER TABLE `permisos`
+  ADD PRIMARY KEY (`id_Permiso`),
+  ADD KEY `id_Opcion` (`id_Opcion`);
+
+--
+-- Indexes for table `permisousuario`
+--
+ALTER TABLE `permisousuario`
+  ADD PRIMARY KEY (`id_Permiso`,`id_Usuario`),
+  ADD KEY `id_Usuario` (`id_Usuario`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id_Rol`);
+
+--
+-- Indexes for table `rolusuario`
+--
+ALTER TABLE `rolusuario`
+  ADD PRIMARY KEY (`id_Rol`,`id_Usuario`),
+  ADD KEY `id_Usuario` (`id_Usuario`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_Usuario`),
+  ADD UNIQUE KEY `login` (`login`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `menus`
+--
+ALTER TABLE `menus`
+  MODIFY `id_Opcion` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `permisos`
+--
+ALTER TABLE `permisos`
+  MODIFY `id_Permiso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id_Rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_Usuario` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=497;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

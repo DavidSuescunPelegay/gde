@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion de Empresa - David Suescun Pelegay</title>
+</head>
+<body>
+<h3>GDE - DAVID SUESCUN PELEGAY - CHANGELOG</h3>
+<h4>v2.1 (Jueves, 08 de Diciembre de 2016)</h4>
+<ul>
+    <li>ACTUALIZACION DE BOOTSTRAP DE v3.3.6 a v3.3.7.</li>
+    <li>ACTUALIZACION DE JQUERY DE v1.12.3 a v3.1.1.</li>
+    <li>Se a&ntilde;ade el icono favicon.</li>
+    <li>Creacion de la pesta&ntilde;a de Administracion.</li>
+    <li>Se a&ntilde;ade la funcionalidad de Administrar Permisos y Roles a Usuarios y Roles.</li>
+    <li>Creacion de las clases para consultar, insertar, modificar y eliminar Roles.</li>
+    <li>Se a&ntilde;ade la funcionalidad de consultar Roles.</li>
+    <li>Se a&ntilde;ade la funcionalidad de a&ntilde;adir Roles.</li>
+    <li>Se a&ntilde;ade la funcionalidad de modificar Roles.</li>
+    <li>Se a&ntilde;ade la funcionalidad de eliminar Roles.</li>
+    <li>Se a&ntilde;ade al proyecto la libreria Simple Autocomplete para autocompletar usuarios en la
+        busqueda.
+    </li>
+    <li>Se a&ntilde;ade la funcionalidad de autocompletar el nombre de usuario en UsuariosV.php con la
+        libreria Simple Autocomplete.
+    </li>
+    <li>Se a&ntilde;ade la funcionalidad de autocompletar el nombre de usuario en MenuGestionV.php con la
+        libreria Simple Autocomplete.
+    </li>
+    <li>Se a&ntilde;ade un enlace a cada boton "Permisos" del archivo MenuGestionV.php, para cargar solo
+        los permisos del menu asociado.
+    </li>
+    <li>Ahora al loguearse se cargan todos los permisos asociados al usuario</li>
+    <li>Ahora se cargan los botones segun los permisos que tenga cada usuario</li>
+    <li>Se comprueba en el controlador que se tienen los permisos necesario para realizar operaciones de CRUD.</li>
+    <li>Mejoras visuales en la insercion de menus gracias a las ventanas modales de Bootstrap.</li>
+    <li>Mejoras visuales en la modificacion de menus gracias a las ventanas modales de Bootstrap.
+    </li>
+    <li>Mejoras visuales en la insercion de permisos gracias a las ventanas modales de Bootstrap.
+    </li>
+    <li>Mejoras visuales en la modificacion de permisos gracias a las ventanas modales de
+        Bootstrap.
+    </li>
+    <li>Al mostrarse los permisos, ahora se muestra el menu del que depende cada permiso.</li>
+    <li>Optimizacion en las consultas SQL gracias al uso de INNER JOIN.</li>
+    <li>Optimizacion de codigo en el archivo Menus.js al usar ventanas modales.</li>
+    <li>Optimizacion de codigo en el archivo Permisos.js al usar ventanas modales.</li>
+    <li>Optimizacion de codigo en el archivo Roles.js al usar ventanas modales.</li>
+    <li>Optimizacion de codigo en el archivo Usuarios.js al usar ventanas modales.</li>
+    <li>Corregido un error que no filtraba bien a los usuarios (busqueda simple).</li>
+    <li>Mejoras visuales al mostrar la tabla usuarios.</li>
+    <li>Nuevos iconos al mostrar la tabla usuarios.</li>
+    <li>Se cambia el tipo de input de text a number, en el formulario de insercion de menus.</li>
+    <li>Se cambia el tipo de input de text a number, en el formulario de modificacion de menus.
+    </li>
+    <li>En el caso de que se intenten insertar campos vacios en la tabla Menus se mueve la caja.
+    </li>
+    <li>En el caso de que se intenten insertar campos vacios en la tabla Permisos se mueve la
+        caja.
+    </li>
+    <li>Se sustituyen todas las conexiones a la base de datos que se hacian desde las vistas.</li>
+    <li>Se a&ntilde;ade el boton "Subir arriba".</li>
+    <li>Organizacion del codigo CSS en el archivo index.php.</li>
+    <li>Mejoras visuales.</li>
+    <li>Correccion de errores.</li>
+</ul>
+
+<br>
+<h4>v2.0 (Martes, 18 de Octubre de 2016)</h4>
+<ul>
+    <li>Se a&ntilde;ade al archivo index.php una interfaz visual.</li>
+    <li>Se a&ntilde;ade al pie de pagina un footer con los datos basicos.</li>
+    <li>Correccion de errores.</li>
+</ul>
+
+<br>
+<h4>v1.2 (Martes, 18 de Octubre de 2016)</h4>
+<ul>
+    <li>Se a&ntilde;ade al proyecto la libreria de jQuery UI (futuros desarrollos).</li>
+    <li>Creacion de las clases para consultar, insertar, modificar y eliminar Permisos.</li>
+    <li>Se a&ntilde;ade a la Base de Datos la Tabla permisorol.</li>
+    <li>Se a&ntilde;ade a la Base de Datos la Tabla permisos.</li>
+    <li>Se a&ntilde;ade a la Base de Datos la Tabla permisousuario.</li>
+    <li>Se a&ntilde;ade a la Base de Datos la Tabla roles.</li>
+    <li>Se a&ntilde;ade a la Base de Datos la Tabla rolesusuario.</li>
+    <li>Se a&ntilde;ade la funcionalidad de consultar Permisos.</li>
+    <li>Se a&ntilde;ade la funcionalidad de a&ntilde;adir Permisos.</li>
+    <li>Se a&ntilde;ade la funcionalidad de modificar Permisos.</li>
+    <li>Se a&ntilde;ade la funcionalidad de eliminar Permisos.</li>
+    <li>Se a&ntilde;ade en la parte izquierda del archivo app.php el Collapse "Mis Datos".</li>
+    <li>Se a&ntilde;ade en la parte izquierda del archivo app.php el Collapse "Mis Notificaciones".</li>
+    <li>Se a&ntilde;ade en la parte izquierda del archivo app.php el Collapse "Mis Datos de Conexion".
+    </li>
+    <li>Ahora al crear un nuevo menu se crean los 4 permisos basicos asociados (Consultar,
+        Insertar, Modificar, Eliminar).
+    </li>
+    <li>Ahora al modificar un menu se modifican los 4 permisos basicos asociados (Consultar,
+        Insertar, Modificar, Eliminar).
+    </li>
+    <li>Ahora al eliminar un menu se eliminan los 4 permisos asociados (Consultar, Insertar,
+        Modificar, Eliminar).
+    </li>
+    <li>Correccion de errores.</li>
+</ul>
+
+<br>
+<h4>v1.1 (Sabado, 01 de Octubre de 2016)</h4>
+<ul>
+    <li>Creacion de las clases para consultar, insertar, modificar y eliminar Menus.</li>
+    <li>Se a&ntilde;ade la funcionalidad de consultar Menus.</li>
+    <li>Se a&ntilde;ade la funcionalidad de a&ntilde;adir Menus.</li>
+    <li>Se a&ntilde;ade la funcionalidad de modificar Menus.</li>
+    <li>Se a&ntilde;ade la funcionalidad de eliminar Menus.</li>
+    <li>Correccion de errores.</li>
+</ul>
+
+<br>
+<h4>v1.0 (Martes, 27 de Septiembre de 2016)</h4>
+<ul>
+    <li>Version inicial (Proyecto Final de 1º de Lenguajes de Marcas y Sistemas de Gestion de la
+        Informacion).
+    </li>
+</ul>
+</body>
+</html>

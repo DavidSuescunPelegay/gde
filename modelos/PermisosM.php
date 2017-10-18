@@ -1,6 +1,6 @@
 <?php
-require_once '/modelos/Modelo.php';
-require_once '/modelos/ClaseBD.php';
+require_once $_SESSION['RAIZ'] . '/modelos/Modelo.php';
+require_once $_SESSION['RAIZ'] . '/modelos/ClaseBD.php';
 
 class PermisosM extends Modelo
 {
@@ -15,8 +15,19 @@ class PermisosM extends Modelo
     public function getPermisos()
     {
         $datos = array();
-        $SQL = "SELECT * FROM permisos ORDER BY id_Permiso";
-        $datos = $this->BD->executeQuery($SQL);
+
+        //Antigua sentencia
+        //$SQL = "SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos, menus WHERE permisos.id_Opcion=menus.id_Opcion ORDER BY id_Permiso ASC";
+
+        //Nueva sentencia (INNER JOIN)
+        $SQL="SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos INNER JOIN menus ON permisos.id_Opcion=menus.id_Opcion ORDER BY id_Permiso ASC";
+
+        $res = $this->BD->executeQuery($SQL);
+        $datos[0] = $res;
+
+        $SQL = "SELECT id_Opcion, texto FROM menus ORDER BY id_Opcion ASC";
+        $res = $this->BD->executeQuery($SQL);
+        $datos[1] = $res;
 
         return $datos;
     }
@@ -59,10 +70,36 @@ class PermisosM extends Modelo
         extract($datos);
 
         $SQL = "DELETE FROM permisos WHERE id_Permiso='$id_Permiso'";
-        echo $SQL;
 
         $res = $this->BD->executeDelete($SQL);
 
+        $this->borrarPermisoUsuarioAsociados($id_Permiso);//Llamada a la funcion que borra los permisos asociados de la tabla permisousuario
+
         return $res;
+    }
+
+    public function borrarPermisoUsuarioAsociados($id_Permiso)
+    {
+        $SQL = "DELETE FROM permisousuario WHERE id_Permiso='$id_Permiso'";
+        $res = $this->BD->executeDelete($SQL);
+    }
+
+    public function getPermisosPorId($datos)
+    {
+        $datos = array();
+
+        //Antigua sentencia
+        //$SQL = "SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos, menus WHERE permisos.id_Opcion=menus.id_Opcion AND permisos.id_Opcion='$datos'";
+
+        //Nueva sentencia (INNER JOIN)
+        $SQL = "SELECT permisos.id_Permiso, permisos.id_Opcion, menus.texto, permisos.num_Permiso, permisos.permiso FROM permisos INNER JOIN menus ON permisos.id_Opcion=menus.id_Opcion WHERE permisos.id_Opcion='$datos'";
+        $res = $this->BD->executeQuery($SQL);
+        $datos[0] = $res;
+
+        $SQL = "SELECT id_Opcion, texto FROM menus ORDER BY id_Opcion ASC";
+        $res = $this->BD->executeQuery($SQL);
+        $datos[1] = $res;
+
+        return $datos;
     }
 }

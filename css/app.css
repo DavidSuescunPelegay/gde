@@ -1,8 +1,11 @@
 @CHARSET "ISO-8859-1";
-div {
-	/*border: 1px solid black;*/
+.inputRed {
+    background-color: #f2dede;
 }
 
-.inputRed{
-	background-color: #f2dede;
+#infoFooter {
+    position: fixed;
+    bottom: 0%;
+    background-color: #eaeaea;
+    width: 100%;
 }

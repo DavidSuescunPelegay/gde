@@ -1,7 +1,7 @@
 <?php
-require_once '/controladores/Controlador.php';
-require_once '/vistas/Vista.php';
-require_once '/modelos/PermisosM.php';
+require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . '/modelos/PermisosM.php';
 
 class PermisosC extends Controlador
 {
@@ -22,16 +22,42 @@ class PermisosC extends Controlador
 
     public function insertarPermiso($datos)
     {
-        $resultado = $this->modelo->insertarPermiso($datos);
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 12) {
+                $resultado = $this->modelo->insertarPermiso($datos);
+            }
+        }
     }
 
     public function modificarPermiso($datos)
     {
-        $resultado = $this->modelo->modificarPermiso($datos);
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 13) {
+                $resultado = $this->modelo->modificarPermiso($datos);
+            }
+        }
     }
 
     public function eliminarPermiso($datos)
     {
-        $resultado = $this->modelo->eliminarPermiso($datos);
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 14) {
+                $resultado = $this->modelo->eliminarPermiso($datos);
+            }
+        }
+    }
+
+    public function mostrarPermisosAsociados($datos)
+    {
+        $lista = $this->modelo->getPermisosPorId();
+        $vista = new Vista();
+        $vista->render($_SESSION['RAIZ'] . '/vistas/Permisos/PermisosV.php', $lista);
+    }
+
+    public function getVistaPermisosPorId($datos)
+    {
+        $lista = $this->modelo->getPermisosPorId($datos);
+        $vista = new Vista();
+        $vista->render($_SESSION['RAIZ'] . '/vistas/Permisos/PermisosFiltradosV.php', $lista);
     }
 }

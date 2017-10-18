@@ -1,7 +1,7 @@
 <?php
-require_once '/controladores/Controlador.php';
-require_once '/vistas/Vista.php';
-require_once '/modelos/MenusM.php';
+require_once $_SESSION['RAIZ'] . '/controladores/Controlador.php';
+require_once $_SESSION['RAIZ'] . '/vistas/Vista.php';
+require_once $_SESSION['RAIZ'] . '/modelos/MenusM.php';
 
 class MenusC extends Controlador
 {
@@ -23,6 +23,7 @@ class MenusC extends Controlador
     public function getDatosMenu()
     {
         $menu = $this->modelo->getDatosMenu();
+
         $vista = new Vista();
         $vista->render($_SESSION['RAIZ'] . '/vistas/Menu/MenuV.php', $menu);
     }
@@ -30,22 +31,47 @@ class MenusC extends Controlador
     public function getVistaPrincipal()
     {
         $menu = $this->modelo->getDatosMenu();
+
         $vista = new Vista();
         $vista->render($_SESSION['RAIZ'] . '/vistas/Menu/MenuGestionV.php', $menu);
     }
 
     public function insertarMenu($datos)
     {
-        $resultado = $this->modelo->insertarMenu($datos);
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 7) {
+                echo json_encode($this->modelo->insertarMenu($datos));
+            }
+        }
     }
 
     public function modificarMenu($datos)
     {
-        $resultado = $this->modelo->guardarMenu($datos);
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 8) {
+                $resultado = $this->modelo->guardarMenu($datos);
+            }
+        }
     }
 
     public function eliminarMenu($datos)
     {
-        $resultado = $this->modelo->eliminarMenu($datos);
+        for ($i = 0; $i < count($_SESSION['permisos']); $i++) {
+            if ($_SESSION['permisos'][$i]['id_Permiso'] == 9) {
+                $resultado = $this->modelo->eliminarMenu($datos);
+            }
+        }
+    }
+
+    public function autoCompleteUsuarios($parametros)
+    {
+        if (isset($parametros['query']) && $parametros['query'] != "") {
+            //Descomponer lo escrito en palabras
+            $texto = mb_strtoupper(utf8_decode(urldecode($parametros['query'])));
+            $parametros['palabras'] = explode(' ', $texto);
+            $parametros['filas'] = $this->modelo->getUsuariosAutocomplete($parametros);
+            $vista = new Vista();
+            $vista->render($_SESSION['RAIZ'] . '/vistas/Usuarios/UsuariosAutocompleteV.php', $parametros);
+        }
     }
 }
