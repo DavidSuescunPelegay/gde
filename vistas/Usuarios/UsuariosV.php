@@ -10,8 +10,8 @@
 	
 	<label for="activoB">Estado:</label>
 	<select id="activoB" name="activoB" >
-		<option value="S">Sólo Activos</option>
-		<option value="N">Sólo inactivos</option>
+		<option value="S">Solo Activos</option>
+		<option value="N">Solo inactivos</option>
 		<option value="" selected>Activos e inactivos</option>
 	</select>
 	
@@ -53,12 +53,12 @@
 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				<label for="pass" >Contrase&ntilde;a:</label>
 				<input type="password" id="pass" name="pass" 
-					class="form-control" placeholder="Contraseña" />
+					class="form-control" placeholder="Contrasena" />
 			</div>
 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
-				<label for="repass" >Repetir Contraseña:</label>
+				<label for="repass" >Repetir Contrasena:</label>
 				<input type="password" id="repass" name="repass" 
-					class="form-control" placeholder="Repetir contraseña" />
+					class="form-control" placeholder="Repetir contrasena" />
 			</div>
 			<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
 				<label for="activo" >Activo:</label>

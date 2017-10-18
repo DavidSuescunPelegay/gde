@@ -1,5 +1,5 @@
 function buscar(){
-	var parametros='&c=Usuarios&a=getDatosMenu';
+	var parametros='&c=Usuarios&a=getVistaResultadosBusqueda';
 	parametros+='&id_Opcion='+$('#id_Opcion').val();
 	parametros+='&nombre='+$('#nombre').val();
 	parametros+='&url='+$('#url').val();

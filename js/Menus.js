@@ -1,128 +1,118 @@
-function editarMenu(){
-    var parametros='&c=Menus&a=getVistaResultadosBusqueda';
-    parametros+='&usuario='+$('#usuarioB').val();
-    parametros+='&login='+$('#loginB').val();
-    parametros+='&activo='+$('#activoB').val();
+function editarMenu(id_Opcion) {
+    /*Rellenamos los campos del formulario con los datos de la tabla*/
+    $('#id_OpcionModificar').val($('#id' + id_Opcion).text());
+    $('#textoModificar').val($('#texto' + id_Opcion).text());
+    $('#urlModificar').val($('#url' + id_Opcion).text());
+    $('#id_PadreModificar').val($('#padre' + id_Opcion).text());
+    $('#ordenModificar').val($('#orden' + id_Opcion).text());
+
+    /*Al final se muestra el DIV con el resultado final*/
+    $('#div-edicion').show();
+}
+
+function mostrarMenuInsertar() {
+    $('#div-nuevo').show();
+}
+
+function insertMenu() {
+    var id_Opcion = $('#id_OpcionInsertar').val();
+    var texto = $('#textoInsertar').val();
+    var url = $('#urlInsertar').val();
+    var id_Padre_Completo = $('#valoresIdPadreInsertar').val();
+    var id_Padre = id_Padre_Completo.slice(-1);//Recorta la palabra padre con slice
+    var orden = $('#ordenInsertar').val();
+
+    var parametros = '&c=Menus&a=insertarMenu';
+    parametros += '&id_Opcion=' + id_Opcion;
+    parametros += '&texto=' + texto;
+    parametros += '&url=' + url;
+    parametros += '&id_Padre=' + id_Padre;
+    parametros += '&orden=' + orden;
     $.ajax({
-        url:'AjaxC.php',
-        type:'post',
+        url: 'AjaxC.php',
+        type: 'post',
         data: parametros,
+        dataType: 'json',
         async: true,
-        success: function(vista){
-            $('#modificarMenu').html(vista);
+        success: function (menu) {
+            $('#id_OpcionInsertar').val(menu.id_Opcion);
+            $('#textoInsertar').val(menu.texto);
+            $('#urlInsertar').val(menu.url);
+            $('#valoresIdPadreInsertar').val(menu.id_Padre);
+            $('#ordenInsertar').val(menu.orden);
+            $('#div-nuevo').show();
         }
     })
-}
-/*
-function guardar(){
-    var correcto='S';
-    $('.inputRed').removeClass('inputRed')
 
-    if( $('#nombre').val()=='') {
-        var correcto='N';
-        $('#nombre').addClass('inputRed');
-    };
-    if( $('#apellido_1').val()=='') {
-        var correcto='N';
-        $('#apellido_1').addClass('inputRed');
-    };
-    if( $('#login').val()=='') {
-        var correcto='N';
-        $('#login').addClass('inputRed');
-    };
-    if($('#id_Usuario').val()==0){ //nuevo
-        if( $('#pass').val()=='' || $('#repass').val()=='' || $('#pass').val()!=$('#repass').val()) {
-            $('#pass').addClass('inputRed');
-            $('#repass').addClass('inputRed');
-            var correcto='N';
-        }
-    }else{//edicion
-        if( $('#pass').val()!='' || $('#repass').val()!='' ){
-            if( $('#pass').val()=='' || $('#repass').val()=='' || $('#pass').val()!=$('#repass').val()) {
-                $('#pass').addClass('inputRed');
-                $('#repass').addClass('inputRed');
-                var correcto='N';
-            }
-        }
-    }
-    if(correcto=='S'){
-        //Tendriamos que comprobar los campos...
-        var parametros='&c=Usuarios&a=guardarUsuario';
-        parametros+='&'+$('#formularioEdicion').serialize();
-        $.ajax({
-            url:'AjaxC.php',
-            type:'post',
-            data: parametros,
-            dataType:'json',
-            async: true,
-            success: function(respuesta){
-                alert(respuesta.msj);
-                if(respuesta.correcto=='S'){
-                    $('#div-edicion').hide();
-                }else{
-                    if(respuesta.tipoError='loginRepetido'){
-                        $('#login').addClass('inputRed');
-                    }
-                }
-            }
-        })
-    }else{
-        alert('NO se ha podido guardar. Revise los campos en rojo;')
-    }
+    $('#div-nuevo').hide();
+    recargarTabla();
 }
 
+function updateMenu() {
+    var id_Opcion = $('#id_OpcionModificar').val();
+    var texto = $('#textoModificar').val();
+    var url = $('#urlModificar').val();
+    var id_Padre_Completo = $('#valoresIdPadreModificar').val();
+    var id_Padre = id_Padre_Completo.slice(-1);//Recorta la palabra padre con slice
+    var orden = $('#ordenModificar').val();
 
-function nuevoEditar(id_Usuario){
-    if(id_Usuario==0){ //nuevo
-        $('#div-edicion').show();
-        $('#id_Usuario').val('0');
-        $('#nombre').val('');
-        $('#apellido_1').val('');
-        $('#apellido_2').val('');
-        $('#login').val('');
-        $('#pass').val('');
-        $('#repass').val('');
-        $('#activo').val('S');
-    }else{ //editar
-        var parametros='&c=Usuarios&a=getDatosUsuario';
-        parametros+='&id_Usuario='+id_Usuario;
-        $.ajax({
-            url:'AjaxC.php',
-            type:'post',
-            data: parametros,
-            dataType:'json',
-            async: true,
-            success: function(usuario){
-                $('#id_Usuario').val(usuario.id_Usuario);
-                $('#nombre').val(usuario.nombre);
-                $('#apellido_1').val(usuario.apellido_1);
-                $('#apellido_2').val(usuario.apellido_1);
-                $('#login').val(usuario.login);
-                $('#pass').val('');
-                $('#repass').val('');
-                $('#activo').val(usuario.activo);
-                $('#div-edicion').show();
-            }
-        })
-    }
-}
-
-function activar(activo, id_Usuario){
-    var parametros='&c=Usuarios&a=activarDesactivar';
-    parametros+='&id_Usuario='+id_Usuario;
-    parametros+='&activo='+activo;
+    var parametros = '&c=Menus&a=modificarMenu';
+    parametros += '&id_Opcion=' + id_Opcion;
+    parametros += '&texto=' + texto;
+    parametros += '&url=' + url;
+    parametros += '&id_Padre=' + id_Padre;
+    parametros += '&orden=' + orden;
     $.ajax({
-        url:'AjaxC.php',
-        type:'post',
+        url: 'AjaxC.php',
+        type: 'post',
         data: parametros,
-        dataType:'json',
+        dataType: 'json',
         async: true,
-        success: function(respuesta){
-            alert(respuesta.msj);
-            if(respuesta.correcto=='S'){
-                buscar();
-            }
+        success: function (menu) {
+            $('#id_OpcionModificar').val(menu.id_Opcion);
+            $('#textoModificar').val(menu.texto);
+            $('#urlModificar').val(menu.url);
+            $('#valoresIdPadreModificar').val(menu.id_Padre);
+            $('#ordenModificar').val(menu.orden);
+            $('#div-edicion').show();
         }
     })
+
+    $('#div-edicion').hide();
+    recargarTabla();
 }
-    */
+
+function eliminarMenu(id_Opcion) {
+    var id_Opcion_A_Eliminar = id_Opcion;
+
+    var parametros = '&c=Menus&a=eliminarMenu';
+    parametros += '&id_Opcion=' + id_Opcion;
+    $.ajax({
+        url: 'AjaxC.php',
+        type: 'post',
+        data: parametros,
+        dataType: 'json',
+        async: true,
+        success: function (menu) {
+            $('#id_Opcion').val(menu.id_Opcion_A_Eliminar);
+        }
+    })
+
+
+    recargarTabla();
+}
+
+/*Funcion que recarga el contenido de la tabla*/
+function recargarTabla(){
+    $("#tablaMenus").load(location.href + " #tablaMenus");
+}
+
+/*Funcion jQuery que oculta el div cuando se pulsa el boton Cerrar*/
+function ocultarOpcionesInsertar() {
+    $('#div-nuevo').hide();
+}
+
+/*Funcion jQuery que oculta el div cuando se pulsa el boton Cerrar*/
+function ocultarOpcionesModificar() {
+    $('#div-edicion').hide();
+}

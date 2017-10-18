@@ -32,14 +32,14 @@ class UsuariosC extends Controlador{
 	
 	public function getVistaPrincipal(){
 		$vista=new Vista();
-		$vista->render('/vistas/Usuarios/UsuariosV.php');
+		$vista->render($_SESSION['RAIZ'].'/vistas/Usuarios/UsuariosV.php');
 	}
 	
 	public function getVistaResultadosBusqueda($datos){
 		$filas=$this->modelo->findAll($datos);
 		//fb::log($filas);
 		$vista=new Vista();
-		$vista->render('/vistas/Usuarios/UsuariosBusquedaV.php',$filas);
+		$vista->render($_SESSION['RAIZ'].'/vistas/Usuarios/UsuariosBusquedaV.php',$filas);
 	}
 	
 	public function getDatosUsuario($datos){
@@ -58,7 +58,7 @@ class UsuariosC extends Controlador{
 		$respuesta['correcto']='S';
 		$respuesta['tipoError']='';
 		if($datos['id_Usuario']==0){
-			$respuesta['msj']=utf8_encode('Se a guardado el nuevo usuario.');
+			$respuesta['msj']=utf8_encode('Se ha guardado el nuevo usuario.');
 		}else{
 			$respuesta['msj']=utf8_encode('Se han guardado los cambios del usuario.');
 		}
